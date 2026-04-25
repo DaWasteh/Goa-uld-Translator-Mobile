@@ -1,0 +1,32 @@
+[project]
+name = "goauld-translator-mobile"
+version = "0.3.0"
+description = "Goa'uld Linguistic Interface — Mobile Edition"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Basti"}
+]
+dependencies = [
+    "flet>=0.21.0",
+    "pyyaml>=6.0"
+]
+
+[tool.flet]
+# Module-Eintrittspunkt: app/main.py → main()
+app = { module = "app.main", path = "." }
+# org-Identifier — auf Android wird das die Package-ID
+org = "de.basti.goauld"
+# Sichtbarer App-Name auf Home-Screen
+product = "Goa'uld Translator"
+company = "SGC Xenolinguistics"
+copyright = "Copyright (c) 2026"
+
+[tool.flet.android]
+# Min-SDK = Android 8.0 (Oreo) — ausreichend für Flutter
+adaptive_icon_background = "#0a1628"
+package_name = "de.basti.goauld"
+
+[tool.flet.assets]
+# Verzeichnis das in den APK-Bundle als Assets eingepackt wird
+src = "assets"

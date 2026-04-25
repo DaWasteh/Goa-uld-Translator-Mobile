@@ -47,6 +47,9 @@ log = logging.getLogger(__name__)
 LEXICON_YAML_CANDIDATES = (
     "goauld_lexicon.yaml",
     "goauld_lexicon.yml",
+    "goa_uld_lexicon.yaml",   # Unterstrich-Variante (Windows-safe)
+    "goa'uld_lexicon.yaml",   # Original-Name mit Apostroph
+    "goa'uld_lexicon.yml",
 )
 
 
