@@ -1,5 +1,2 @@
-# app/__main__.py
-from app.main import main
-import flet as ft
-
-ft.app
+# -*- coding: utf-8 -*-
+"""Goa'uld Translator Mobile — Flet App Package."""
