@@ -365,7 +365,7 @@ def _build_debrief_tab(page: ft.Page) -> ft.Control:
         page.update()
 
     analyze_button = ft.ElevatedButton(
-        content="Analysieren",
+        text="Analysieren",
         icon=ft.Icons.PSYCHOLOGY,
         on_click=analyze,
         bgcolor="#1a3a5c",
@@ -468,35 +468,36 @@ def main(page: ft.Page):
     page.controls.clear()
 
     header = _build_header(page)
-    # Flet 0.84+ Material-3-Tabs (TabBar oben + TabBarView unten)
-    _tab_bar = ft.TabBar(
-        tabs=[
-            ft.Tab(label="Briefing", icon=ft.Icons.SEARCH),
-            ft.Tab(label="Debrief", icon=ft.Icons.PSYCHOLOGY),
-            ft.Tab(label="Live", icon=ft.Icons.BOLT),
-        ],
-        label_color="#d4af37",
-        unselected_label_color="#8a7228",
-        indicator_color="#d4af37",
-    )
-    _tab_view = ft.TabBarView(
-        controls=[
-            ft.Container(content=_build_briefing_tab(page), expand=True),
-            ft.Container(content=_build_debrief_tab(page), expand=True),
-            ft.Container(content=_build_live_tab(page), expand=True),
-        ],
-        expand=True,
-    )
     tabs = ft.Tabs(
-        length=3,
         selected_index=0,
         animation_duration=200,
         expand=True,
-        content=ft.Column(
-            controls=[_tab_bar, _tab_view],
-            expand=True,
-            spacing=0,
-        ),
+        tabs=[
+            ft.Tab(
+                label="Briefing",
+                icon=ft.Icons.SEARCH,
+                content=ft.Container(
+                    content=_build_briefing_tab(page),
+                    expand=True,
+                ),
+            ),
+            ft.Tab(
+                label="Debrief",
+                icon=ft.Icons.PSYCHOLOGY,
+                content=ft.Container(
+                    content=_build_debrief_tab(page),
+                    expand=True,
+                ),
+            ),
+            ft.Tab(
+                label="Live",
+                icon=ft.Icons.BOLT,
+                content=ft.Container(
+                    content=_build_live_tab(page),
+                    expand=True,
+                ),
+            ),
+        ],
     )
     page.add(header, tabs)
 

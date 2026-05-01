@@ -1,0 +1,27 @@
+# Auto-generiert von fix_entrypoint.py
+# Diese Pfade werden NICHT ins APK-Bundle aufgenommen.
+
+.venv/
+.git/
+.idea/
+.vscode/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+**/__pycache__/
+Lib/
+Scripts/
+Include/
+_backup_pre_fix/
+build/
+dist/
+*.log
+build_log.txt
+make_diagnostic.py
+fix_structure.py
+fix_entrypoint.py
+test_*.py
+tests/
+*.bat
+*.spec
