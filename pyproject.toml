@@ -30,3 +30,6 @@ package_name = "de.basti.goauld"
 [tool.flet.assets]
 # Verzeichnis das in den APK-Bundle als Assets eingepackt wird
 src = "assets"
+
+[tool.setuptools]
+packages = ["app", "goauld_engine"]
