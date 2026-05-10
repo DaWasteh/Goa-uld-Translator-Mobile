@@ -9,7 +9,7 @@ authors = [
 ]
 dependencies = [
     "flet>=0.21.0",
-    "pyyaml>=6.0"
+    "pyyaml==6.0.2"
 ]
 
 [tool.flet]

@@ -4,19 +4,14 @@
 import asyncio
 import logging
 import os
+import sys
+import traceback
 from pathlib import Path
 from typing import Any
 
 import flet as ft
 
-# Set GOAULD_ASSETS_DIR before engine imports (Flet mobile asset path)
-# Auf Desktop: assets/-Verzeichnis; auf Mobile: page.assets_dir (wird in main gesetzt)
-os.environ["GOAULD_ASSETS_DIR"] = str(
-    Path(__file__).resolve().parent.parent / "assets"
-)
-
 # Engine importieren (lebt im Schwester-Verzeichnis goauld_engine/)
-import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from goauld_engine import (
@@ -25,9 +20,14 @@ from goauld_engine import (
     SentenceAnalyzer,
     build_mapping,
     translate_text,
+    get_app_dir,
 )
 
-logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+# Logging auf DEBUG setzen für Diagnose bei leeren Bildschirm
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="[%(levelname)s] %(name)s: %(message)s",
+)
 log = logging.getLogger("goauld.mobile")
 
 
@@ -44,14 +44,33 @@ class AppState:
         self.direction: str = "goa2de"  # oder "de2goa"
 
     def load(self):
+        # Debug: Zeige den aktuell verwendeten Asset-Pfad
+        app_dir = get_app_dir()
+        log.debug("get_app_dir() = %s", app_dir)
+        log.debug("GOAULD_ASSETS_DIR = %s", os.environ.get("GOAULD_ASSETS_DIR", "<nicht gesetzt>"))
+
+        # Prüfe, ob die erwarteten Asset-Dateien existieren
+        assets_check = app_dir
+        for fname in ["goa'uld_lexicon.yaml", "Goa'uld-Dictionary.md", "Goa'uld-Wörterbuch.md"]:
+            fpath = assets_check / fname
+            log.debug("Asset-Prüfung: %s → exists=%s", fpath, fpath.is_file())
+
         self.lexicon = load_full_lexicon()
+        
+        if not self.lexicon.entries:
+            log.error("Lexicon geladen, ABER 0 Einträge! Assets: %s", self.lexicon.found_paths)
+            raise RuntimeError(
+                f"Lexicon leer — keine Wörterbuch-Dateien gefunden. "
+                f"Gesuchte Pfade: {self.lexicon.found_paths}"
+            )
+        
         self.search_engine = SearchEngine(self.lexicon.entries)
         self.analyzer = SentenceAnalyzer(self.lexicon.entries)
         self.goa2de_map = build_mapping(self.lexicon.entries, "goa2de")
         self.de2goa_map = build_mapping(self.lexicon.entries, "de2goa")
         log.info("Lexicon geladen: %d Einträge (%s)",
-                 len(self.lexicon.entries),
-                 self.lexicon.source)
+                  len(self.lexicon.entries),
+                  self.lexicon.source)
 
 
 STATE = AppState()
@@ -449,6 +468,59 @@ def _build_live_tab(page: ft.Page) -> ft.Control:
     )
 
 
+def _build_error_view(error_msg: str, stack_trace: str = "") -> ft.Column:
+    """Fehler-Ansicht: Zeigt dem Benutzer eine verständliche Meldung."""
+    return ft.Column(
+        [
+            ft.Icon(ft.Icons.WARNING_AMBER, size=64, color="#ff6b6b"),
+            ft.Text(
+                "FEHLER BEIM START",
+                size=20,
+                weight=ft.FontWeight.BOLD,
+                color="#ff6b6b",
+                text_align=ft.TextAlign.CENTER,
+            ),
+            ft.Text(
+                error_msg,
+                size=14,
+                color="#e0e0e0",
+                text_align=ft.TextAlign.CENTER,
+            ),
+            ft.Divider(height=16, color="transparent"),
+            ft.Text(
+                "Diagnose-Informationen (für Entwickler):",
+                size=12,
+                color="#888888",
+                italic=True,
+            ),
+            ft.Container(
+                content=ft.Text(
+                    stack_trace,
+                    size=10,
+                    color="#666666",
+                    font_family="Courier",
+                ),
+                bgcolor="#0a0a0a",
+                padding=12,
+                border_radius=8,
+                max_lines=10,
+                scroll=ft.ScrollMode.AUTO,
+            ),
+            ft.Divider(height=16, color="transparent"),
+            ft.Text(
+                "Prüfen Sie, ob die Asset-Dateien im APK enthalten sind:\n"
+                "goa'uld_lexicon.yaml, Goa'uld-Dictionary.md, Goa'uld-Wörterbuch.md",
+                size=11,
+                color="#a0a0a0",
+                text_align=ft.TextAlign.CENTER,
+            ),
+        ],
+        alignment=ft.MainAxisAlignment.CENTER,
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        expand=True,
+    )
+
+
 def main(page: ft.Page):
     page.title = "Goa'uld Translator"
     page.theme_mode = ft.ThemeMode.DARK
@@ -459,12 +531,37 @@ def main(page: ft.Page):
     assets_dir = getattr(page, "assets_dir", None)
     if assets_dir:
         os.environ["GOAULD_ASSETS_DIR"] = assets_dir
+        log.debug("Flet assets_dir erkannt: %s", assets_dir)
+
+    # Debug: Zeige Start-Umgebung
+    log.debug("Python sys.path: %s", sys.path[:3])
+    log.debug("CWD: %s", os.getcwd())
+    log.debug("GOAULD_ASSETS_DIR (vor Load): %s", os.environ.get("GOAULD_ASSETS_DIR", "<nicht gesetzt>"))
 
     loading = ft.Text("Lade Lexicon …", size=16, color="#d4af37")
     page.add(loading)
     page.update()
 
-    STATE.load()
+    try:
+        STATE.load()
+    except RuntimeError as e:
+        log.error("Lexicon-Load-Fehler: %s", e)
+        page.controls.clear()
+        page.add(_build_error_view(str(e), str(getattr(e, "__cause__", ""))))
+        page.update()
+        return
+    except Exception as e:
+        log.exception("Unerwarteter Fehler beim Start: %s", e)
+        page.controls.clear()
+        page.add(
+            _build_error_view(
+                f"Unerwarteter Fehler: {type(e).__name__}: {e}",
+                "".join(traceback.format_exception(type(e), e, e.__traceback__)),
+            )
+        )
+        page.update()
+        return
+
     page.controls.clear()
 
     header = _build_header(page)
