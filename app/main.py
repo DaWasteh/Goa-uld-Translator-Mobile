@@ -67,7 +67,7 @@ class AppState:
 
         # Prüfe, ob die erwarteten Asset-Dateien existieren
         assets_check = app_dir
-        for fname in ["goa'uld_lexicon.yaml", "Goa'uld-Dictionary.md", "Goa'uld-Wörterbuch.md"]:
+        for fname in ["goa_uld_lexicon.yaml", "Goa_uld-Dictionary.md", "Goa_uld-Wörterbuch.md"]:
             fpath = assets_check / fname
             log.debug("Asset-Prüfung: %s → exists=%s", fpath, fpath.is_file())
 
@@ -525,7 +525,7 @@ def _build_error_view(error_msg: str, stack_trace: str = "") -> ft.Column:
             ft.Divider(height=16, color="transparent"),
             ft.Text(
                 "Prüfen Sie, ob die Asset-Dateien im APK enthalten sind:\n"
-                "goa'uld_lexicon.yaml, Goa'uld-Dictionary.md, Goa'uld-Wörterbuch.md",
+                "goa_uld_lexicon.yaml, Goa_uld-Dictionary.md, Goa_uld-Wörterbuch.md",
                 size=11,
                 color="#a0a0a0",
                 text_align=ft.TextAlign.CENTER,
@@ -545,16 +545,52 @@ def main(page: ft.Page):
 
     # ── Assets-Verzeichnis auf Android/Flet-Mobile erkennen ───────────────────
     # Flet 0.84+ stellt KEIN page.assets_dir bereit. Stattdessen:
-    # 1. ENV FLET_ASSETS_DIR (manchmal von Flet gesetzt)
-    # 2. ENV GOAULD_ASSETS_DIR (bereits von extern gesetzt)
-    # 3. page.theme — in Flet-Mobile ist assets im APK-Internspeicher
+    # 1. ENV FLET_ASSETS_DIR / GOAULD_ASSETS_DIR (von Flet/extern gesetzt)
+    # 2. package-agnostische Suche über Android-Standardpfade
+    # 3. Dev-Modus: assets/-Verzeichnis im Repo
     #
-    # WICHTIG: Auf Android werden Assets über flet.assets in pyproject.toml
-    # in den APK eingebettet. Flet mountet sie typischerweise nach:
-    #   /data/data/<package>/files/assets/
-    # oder sie sind im APK-ZIP als 'assets/' enthalten.
+    # WICHTIG: Auf Android werden Assets über [tool.flet.assets] in pyproject.toml
+    # in den APK eingebettet. Flet stellt sie typischerweise unter einem
+    # der folgenden Pfade bereit (package-agnostisch):
     
-    # Prüfe bekannte ENV-Variablen
+    # Asset-Dateinamen (Apostroph-frei)
+    _ASSET_CHECK_FILES = (
+        "goa_uld_lexicon.yaml",
+        "goauld_lexicon.yaml",
+        "Goa_uld-Dictionary.md",
+        "Goa_uld-Wörterbuch.md",
+        "Goa_uld-Fictionary.md",
+        "Goa_uld-Neologikum.md",
+    )
+    
+    def _has_assets(p: Path) -> bool:
+        """Prüft, ob ein Verzeichnis relevante Asset-Dateien enthält."""
+        return any((p / n).exists() for n in _ASSET_CHECK_FILES)
+    
+    def _try_set_env(path_str: str) -> bool:
+        """Setzt GOAULD_ASSETS_DIR wenn Pfad existiert und Assets enthält."""
+        p = Path(path_str)
+        if p.exists() and p.is_dir() and _has_assets(p):
+            os.environ["GOAULD_ASSETS_DIR"] = path_str
+            log.info("Assets-Verzeichnis erkannt: %s", p)
+            return True
+        return False
+    
+    def _search_recursive(p: Path, max_depth: int = 3) -> bool:
+        """Rekursiv nach Asset-Dateien in einem Verzeichnis suchen."""
+        if max_depth <= 0:
+            return False
+        if _has_assets(p):
+            os.environ["GOAULD_ASSETS_DIR"] = str(p)
+            log.info("Assets-Verzeichnis (rekursiv): %s", p)
+            return True
+        for entry in p.iterdir():
+            if entry.is_dir() and _search_recursive(entry, max_depth - 1):
+                return True
+        return False
+    
+    # 1. Prüfe bekannte ENV-Variablen
+    _env_found = False
     for env_key in ("GOAULD_ASSETS_DIR", "FLET_ASSETS_DIR"):
         env_val = os.environ.get(env_key)
         if env_val:
@@ -562,34 +598,54 @@ def main(page: ft.Page):
             if p.exists() and p.is_dir():
                 if env_key == "FLET_ASSETS_DIR":
                     os.environ["GOAULD_ASSETS_DIR"] = env_val
-                log.debug("Flet Assets-ENV erkannt [%s]: %s", env_key, p)
-                break
-    
-    # Fallback: Versuche bekannte Android-Pfade
-    if not os.environ.get("GOAULD_ASSETS_DIR"):
-        _android_assets_candidates = [
-            "/data/data/de.basti.goauld/files/assets",
-            "/data/data/de.basti.goauld/files",
-            "/assets",
-            "./assets",
-        ]
-        for _candidate in _android_assets_candidates:
-            _p = Path(_candidate)
-            if _p.exists() and _p.is_dir():
-                # Prüfe ob Asset-Dateien vorhanden sind
-                _yaml_check = ("goauld_lexicon.yaml", "goa'uld_lexicon.yaml",
-                               "Goa'uld-Dictionary.md", "Goa'uld-Wörterbuch.md")
-                if any((_p / _f).exists() for _f in _yaml_check):
-                    os.environ["GOAULD_ASSETS_DIR"] = str(_p)
-                    log.info("Android Assets-Verzeichnis erkannt: %s", _p)
+                if _has_assets(p):
+                    _env_found = True
+                    log.debug("Assets über ENV %s erkannt: %s", env_key, p)
                     break
-                # Auch im parent suchen (falls files/ der Mount-Punkt ist)
-                if _p.parent.exists():
-                    if any((_p.parent / _f).exists() for _f in _yaml_check):
-                        os.environ["GOAULD_ASSETS_DIR"] = str(_p.parent)
-                        log.info("Android Assets-Verzeichnis (parent): %s", _p.parent)
-                        break
-
+                # ENV-Pfad existiert, aber keine Assets direkt — rekursiv suchen
+                if _search_recursive(p):
+                    _env_found = True
+                    break
+    
+    # 2. Fallback: package-agnostische Android-Pfade
+    if not _env_found:
+        # Standard-Android-Pfade (ohne hardcoded package name)
+        _android_base_candidates = [
+            "/data/data",
+            "/data",
+        ]
+        _android_direct_candidates = [
+            "/assets",
+            "assets",
+        ]
+        
+        # Suche nach <package>/files/assets/ Pfad
+        for base in _android_base_candidates:
+            base_p = Path(base)
+            if base_p.exists() and base_p.is_dir():
+                try:
+                    for pkg_dir in base_p.iterdir():
+                        if pkg_dir.is_dir():
+                            files_assets = pkg_dir / "files" / "assets"
+                            if _try_set_env(str(files_assets)):
+                                _env_found = True
+                                break
+                            files_dir = pkg_dir / "files"
+                            if _try_set_env(str(files_dir)):
+                                _env_found = True
+                                break
+                except PermissionError:
+                    pass
+            if _env_found:
+                break
+        
+        # Direkte Asset-Pfade prüfen
+        if not _env_found:
+            for direct in _android_direct_candidates:
+                if _try_set_env(direct):
+                    _env_found = True
+                    break
+    
     # Debug: Zeige Start-Umgebung
     log.debug("Python sys.path: %s", sys.path[:3])
     log.debug("CWD: %s", os.getcwd())

@@ -45,11 +45,10 @@ log = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────────────────────────
 
 LEXICON_YAML_CANDIDATES = (
-    "goauld_lexicon.yaml",
+    "goa_uld_lexicon.yaml",   # Primär (Apostroph-frei, APK-sicher)
+    "goauld_lexicon.yaml",    # Alternative ohne Apostroph
+    "goa_uld_lexicon.yml",    # .yml-Alternative
     "goauld_lexicon.yml",
-    "goa_uld_lexicon.yaml",   # Unterstrich-Variante (Windows-safe)
-    "goa'uld_lexicon.yaml",   # Original-Name mit Apostroph
-    "goa'uld_lexicon.yml",
 )
 
 

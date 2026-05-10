@@ -14,17 +14,13 @@ from typing import Optional
 
 log = logging.getLogger(__name__)
 
-# MD-Kandidaten für EN- und DE-Dateien (Rückwärtskompatibilität zum Original)
+# MD-Kandidaten für EN- und DE-Dateien (Apostroph-frei für APK-Kompatibilität)
 MD_CANDIDATES_EN = [
-    "Goa'uld-Dictionary.md",
     "Goa_uld-Dictionary.md",
-    "Goa'uld-Fictionary.md",
     "Goa_uld-Fictionary.md",
-    "Goa'uld-Neologikum.md",
     "Goa_uld-Neologikum.md",
 ]
 MD_CANDIDATES_DE = [
-    "Goa'uld-Wörterbuch.md",
     "Goa_uld-Wörterbuch.md",
 ]
 
@@ -40,15 +36,14 @@ def get_app_dir() -> Path:
     4. Dev-Modus: Repo-Root / assets/-Unterordner.
     5. Fallback: das Verzeichnis dieses Files (goauld_engine/).
     """
-    # Alle relevanten Asset-Dateinamen (einmalig definiert)
+    # Alle relevanten Asset-Dateinamen (Apostroph-frei für APK-Kompatibilität)
     _ASSET_NAMES = (
-        "goauld_lexicon.yaml",
         "goa_uld_lexicon.yaml",
-        "goa'uld_lexicon.yaml",
-        "Goa'uld-Dictionary.md",
-        "Goa'uld-Wörterbuch.md",
-        "Goa'uld-Fictionary.md",
-        "Goa'uld-Neologikum.md",
+        "goauld_lexicon.yaml",
+        "Goa_uld-Dictionary.md",
+        "Goa_uld-Wörterbuch.md",
+        "Goa_uld-Fictionary.md",
+        "Goa_uld-Neologikum.md",
     )
 
     # ── Flet-Mobile / Android: ENV GOAULD_ASSETS_DIR ──────────────────────────
@@ -96,7 +91,7 @@ def get_app_dir() -> Path:
 
     # Fallback: goauld_engine/-Verzeichnis (falls YAML dort liegt)
     engine_dir = Path(__file__).resolve().parent
-    yaml_names = ("goauld_lexicon.yaml", "goa_uld_lexicon.yaml", "goa'uld_lexicon.yaml")
+    yaml_names = ("goa_uld_lexicon.yaml", "goauld_lexicon.yaml")
     if any((engine_dir / n).exists() for n in yaml_names):
         log.debug("get_app_dir: Fallback auf engine_dir: %s", engine_dir)
         return engine_dir

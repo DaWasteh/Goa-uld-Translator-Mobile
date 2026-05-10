@@ -17,14 +17,11 @@ class SearchEngine:
     """
 
     # Quellen-Priorität: Haupt-Wörterbuch > Fictionary > Neologikum
+    # Apostroph-frei für APK-Kompatibilität (alte Dateinamen werden trotzdem erkannt)
     _SOURCE_PRIORITY: dict[str, int] = {
-        "Goa'uld-Wörterbuch.md": 3,
         "Goa_uld-Wörterbuch.md": 3,
-        "Goa'uld-Dictionary.md": 3,
         "Goa_uld-Dictionary.md": 3,
-        "Goa'uld-Fictionary.md": 2,
         "Goa_uld-Fictionary.md": 2,
-        "Goa'uld-Neologikum.md": 1,
         "Goa_uld-Neologikum.md": 1,
         "Gap-Fill": 2,
         "Kanon": 3,
@@ -114,8 +111,7 @@ class SearchEngine:
                 # FIX 5 (translation-bugs-findings.md): Sekundäre Quellen strafen
                 source_penalty = 0
                 src = e.get("source", "")
-                if src in ("Goa'uld-Fictionary.md", "Goa_uld-Fictionary.md",
-                           "Goa'uld-Neologikum.md", "Goa_uld-Neologikum.md"):
+                if src in ("Goa_uld-Fictionary.md", "Goa_uld-Neologikum.md"):
                     source_penalty = 15  # -15 Punkte für Fictionary/Neologikum
                 final_score = base_score + lang_bonus + short_bonus + de2goa_bonus - source_penalty
                 # FIX 4 (translation-bugs-findings.md): Debug-Logging für fehlende Wörter

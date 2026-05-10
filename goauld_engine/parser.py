@@ -8,14 +8,16 @@ from typing import Optional
 
 log = logging.getLogger(__name__)
 
-# Regex für rechteckige Tabellen-Trennzeichen
-_SKIP_FIRST = {"goa'uld", "goa'uldsprache", "deutsch", "english", "wort", "bedeutung"}
-_SKIP_SECOND = {"bedeutung", "english", "deutsch", "goa'uld", "goa'uldsprache", "wörterbuch"}
+# Regex für rechteckige Tabellen-Trennzeichen (Apostroph-frei)
+_SKIP_FIRST = {"goa_uld", "goa'uld", "goa'uldsprache", "deutsch", "english", "wort", "bedeutung"}
+_SKIP_SECOND = {"bedeutung", "english", "deutsch", "goa_uld", "goa'uld", "goa'uldsprache", "wörterbuch"}
 
-# Regex für Deutsch→Goa'uld-Sektionserkennung
+# Regex für Deutsch→Goa'uld-Sektionserkennung (Apostroph und Unterstrich)
 _DE_GOA_SECTION_RE = re.compile(
-    r"(deutsch\s*→\s*goa'uld|deutsch\s*=>\s*goa'uld|"
-    r"deutsch\s*\(?\s*goa'uld|deutsch\s*to\s*goa'uld|"
+    r"(deutsch\s*→\s*goa_uld|deutsch\s*→\s*goa'uld|"
+    r"deutsch\s*=>\s*goa'uld|"
+    r"deutsch\s*\(?\s*goa'uld|deutsch\s*\(?\s*goa_uld|"
+    r"deutsch\s*to\s*goa'uld|deutsch\s*to\s*goa_uld|"
     r"direct\s+lookup|direktzuordnung|neologikum.*direct)",
     re.IGNORECASE,
 )
