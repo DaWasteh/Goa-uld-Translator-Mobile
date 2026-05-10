@@ -34,54 +34,74 @@ def get_app_dir() -> Path:
 
     Reihenfolge:
     1. Wenn ``GOAULD_ASSETS_DIR`` ENV gesetzt ist und existiert: dort suchen (Flet-Mobile).
-    2. Wenn ``GOAULD_ASSETS_DIR`` gesetzt ist, aber nicht existiert: versuche
-       relative Pfade wie ``assets/`` oder ``../assets`` (Flet-Asset-Mount).
+    2. Wenn ``GOAULD_ASSETS_DIR`` gesetzt ist, aber das direkte Verzeichnis nicht existiert:
+       nach Asset-Dateien im ENV-Pfad und seinen Unterverzeichnissen suchen.
     3. Wenn ``sys.frozen`` (PyInstaller-Desktop): neben der EXE.
     4. Dev-Modus: Repo-Root / assets/-Unterordner.
     5. Fallback: das Verzeichnis dieses Files (goauld_engine/).
     """
-    # Flet-Mobile-Build: Assets liegen im assets/-Verzeichnis
+    # Alle relevanten Asset-Dateinamen (einmalig definiert)
+    _ASSET_NAMES = (
+        "goauld_lexicon.yaml",
+        "goa_uld_lexicon.yaml",
+        "goa'uld_lexicon.yaml",
+        "Goa'uld-Dictionary.md",
+        "Goa'uld-Wörterbuch.md",
+        "Goa'uld-Fictionary.md",
+        "Goa'uld-Neologikum.md",
+    )
+
+    # ── Flet-Mobile / Android: ENV GOAULD_ASSETS_DIR ──────────────────────────
     env_dir = os.environ.get("GOAULD_ASSETS_DIR")
     if env_dir:
         p = Path(env_dir)
-        if p.exists():
-            log.debug("get_app_dir: ENV GOAULD_ASSETS_DIR existiert: %s", p)
+        if p.exists() and p.is_dir():
+            # Direkter Pfad existiert — prüfe, ob Assets vorhanden sind
+            has_assets = any((p / n).exists() for n in _ASSET_NAMES)
+            if has_assets:
+                log.debug("get_app_dir: ENV GOAULD_ASSETS_DIR existiert mit Assets: %s", p)
+                return p
+            # Verzeichnis existiert, aber keine Assets direkt — suche rekursiv
+            log.debug("get_app_dir: ENV existiert, aber keine Assets direkt — suche rekursiv: %s", p)
+            for root, dirs, files in os.walk(str(p)):
+                for fname in _ASSET_NAMES:
+                    if fname in files:
+                        found = Path(root) / fname
+                        log.debug("get_app_dir: Asset-Datei gefunden in Unterordner: %s", found.parent)
+                        return found.parent
+            log.warning("get_app_dir: ENV gesetzt (%s), aber keine Asset-Dateien gefunden", p)
             return p
-        # ENV ist gesetzt, aber der direkte Pfad existiert nicht.
-        # Versuche relative Pfade (Flet mountet Assets manchmal anders).
-        for rel_candidate in ("assets", "../assets", "goa'uld_lexicon"):
-            candidate = p / rel_candidate
-            if candidate.exists() and candidate.is_dir():
-                log.debug("get_app_dir: ENV-Relativpfad gefunden: %s", candidate)
-                return candidate
-        # Letzter Versuch: den ENV-Pfad selbst zurueckgeben (Dateien koennten
-        # dort sein, aber wir haben sie noch nicht geprüft).
-        log.warning("get_app_dir: ENV GOAULD_ASSETS_DIR gesetzt, aber nicht gefunden: %s", p)
-        return p
 
-    # PyInstaller-Frozen
+        # ENV ist gesetzt, aber der Pfad existiert gar nicht.
+        # Das kann passieren, wenn die ENV-Variable falsch gesetzt ist.
+        log.warning("get_app_dir: ENV GOAULD_ASSETS_DIR ist gesetzt, aber Pfad existiert nicht: %s", p)
+        # Fahre fort mit nächster Strategie (Dev-Modus)
+
+    # ── PyInstaller-Frozen ────────────────────────────────────────────────────
     frozen = getattr(sys, "frozen", False)
     if frozen:
         exe_parent = Path(sys.executable).parent
         log.debug("get_app_dir: sys.frozen=True, exe_parent=%s", exe_parent)
         return exe_parent
 
-    # Dev-Modus: Repo-Root
+    # ── Dev-Modus: Repo-Root / assets/-Unterordner ───────────────────────────
     repo_root = Path(__file__).resolve().parent.parent
 
     # Wenn ein assets/-Unterordner existiert: bevorzugen
     assets = repo_root / "assets"
-    _yaml_names = ("goauld_lexicon.yaml", "goa_uld_lexicon.yaml", "goa'uld_lexicon.yaml")
-    if assets.exists() and any((assets / n).exists() for n in _yaml_names):
-        log.debug("get_app_dir: Dev-Modus, assets/-Verzeichnis gefunden: %s", assets)
-        return assets
+    if assets.exists() and assets.is_dir():
+        if any((assets / n).exists() for n in _ASSET_NAMES):
+            log.debug("get_app_dir: Dev-Modus, assets/-Verzeichnis gefunden: %s", assets)
+            return assets
 
     # Fallback: goauld_engine/-Verzeichnis (falls YAML dort liegt)
     engine_dir = Path(__file__).resolve().parent
-    if any((engine_dir / n).exists() for n in _yaml_names):
+    yaml_names = ("goauld_lexicon.yaml", "goa_uld_lexicon.yaml", "goa'uld_lexicon.yaml")
+    if any((engine_dir / n).exists() for n in yaml_names):
         log.debug("get_app_dir: Fallback auf engine_dir: %s", engine_dir)
         return engine_dir
 
+    # Letzter Fallback: repo_root (evtl. liegen Assets dort)
     log.warning("get_app_dir: Kein Asset-Verzeichnis gefunden! Return repo_root=%s", repo_root)
     return repo_root
 

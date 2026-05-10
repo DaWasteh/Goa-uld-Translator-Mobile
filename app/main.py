@@ -11,10 +11,26 @@ from typing import Any
 
 import flet as ft
 
-# Engine importieren (lebt im Schwester-Verzeichnis goauld_engine/)
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Engine-Pfad hinzufügen — funktioniert in Dev und im APK
+_me = Path(__file__).resolve().parent
+# In Dev: app/ → parent ist Repo-Root
+# Im APK: app/main.py ist eingebettet, parent.parent führt zum Package-Root
+_engine_candidates = [
+    _me.parent,            # Repo-Root (wenn app/ Unterordner ist)
+    _me,                   # app/ selbst (wenn goauld_engine/ im selben Verzeichnis)
+]
+for _cand in _engine_candidates:
+    if (Path(_cand) / "goauld_engine").exists():
+        if str(_cand) not in sys.path:
+            sys.path.insert(0, str(_cand))
+        break
+else:
+    # Letzter Versuch: 2x parent (wenn Struktur anders ist)
+    if (_me.parent.parent / "goauld_engine").exists():
+        if str(_me.parent.parent) not in sys.path:
+            sys.path.insert(0, str(_me.parent.parent))
 
-from goauld_engine import (
+from goauld_engine import (  # noqa: E402
     load_full_lexicon,
     SearchEngine,
     SentenceAnalyzer,
@@ -527,11 +543,52 @@ def main(page: ft.Page):
     page.bgcolor = "#0a1628"
     page.padding = 0
 
-    # Flet stellt assets_dir auf Mobile bereit
-    assets_dir = getattr(page, "assets_dir", None)
-    if assets_dir:
-        os.environ["GOAULD_ASSETS_DIR"] = assets_dir
-        log.debug("Flet assets_dir erkannt: %s", assets_dir)
+    # ── Assets-Verzeichnis auf Android/Flet-Mobile erkennen ───────────────────
+    # Flet 0.84+ stellt KEIN page.assets_dir bereit. Stattdessen:
+    # 1. ENV FLET_ASSETS_DIR (manchmal von Flet gesetzt)
+    # 2. ENV GOAULD_ASSETS_DIR (bereits von extern gesetzt)
+    # 3. page.theme — in Flet-Mobile ist assets im APK-Internspeicher
+    #
+    # WICHTIG: Auf Android werden Assets über flet.assets in pyproject.toml
+    # in den APK eingebettet. Flet mountet sie typischerweise nach:
+    #   /data/data/<package>/files/assets/
+    # oder sie sind im APK-ZIP als 'assets/' enthalten.
+    
+    # Prüfe bekannte ENV-Variablen
+    for env_key in ("GOAULD_ASSETS_DIR", "FLET_ASSETS_DIR"):
+        env_val = os.environ.get(env_key)
+        if env_val:
+            p = Path(env_val)
+            if p.exists() and p.is_dir():
+                if env_key == "FLET_ASSETS_DIR":
+                    os.environ["GOAULD_ASSETS_DIR"] = env_val
+                log.debug("Flet Assets-ENV erkannt [%s]: %s", env_key, p)
+                break
+    
+    # Fallback: Versuche bekannte Android-Pfade
+    if not os.environ.get("GOAULD_ASSETS_DIR"):
+        _android_assets_candidates = [
+            "/data/data/de.basti.goauld/files/assets",
+            "/data/data/de.basti.goauld/files",
+            "/assets",
+            "./assets",
+        ]
+        for _candidate in _android_assets_candidates:
+            _p = Path(_candidate)
+            if _p.exists() and _p.is_dir():
+                # Prüfe ob Asset-Dateien vorhanden sind
+                _yaml_check = ("goauld_lexicon.yaml", "goa'uld_lexicon.yaml",
+                               "Goa'uld-Dictionary.md", "Goa'uld-Wörterbuch.md")
+                if any((_p / _f).exists() for _f in _yaml_check):
+                    os.environ["GOAULD_ASSETS_DIR"] = str(_p)
+                    log.info("Android Assets-Verzeichnis erkannt: %s", _p)
+                    break
+                # Auch im parent suchen (falls files/ der Mount-Punkt ist)
+                if _p.parent.exists():
+                    if any((_p.parent / _f).exists() for _f in _yaml_check):
+                        os.environ["GOAULD_ASSETS_DIR"] = str(_p.parent)
+                        log.info("Android Assets-Verzeichnis (parent): %s", _p.parent)
+                        break
 
     # Debug: Zeige Start-Umgebung
     log.debug("Python sys.path: %s", sys.path[:3])
