@@ -45,9 +45,15 @@ Goa'uld Translator Mobile/
 ### 1. Debug-APK (schnell, zum Testen)
 
 ```powershell
-cd "C:\LAB\Goa'uld Translator Mobile"
-flet build apk --verbose
+cd "H:\LAB\Goa'uld Translator Mobile"
+flet build apk --arch arm64-v8a --verbose
 ```
+
+> Wichtig: Den generierten Ordner `build/flutter` nicht als primäre Quelle in
+> Android Studio pflegen. `flet build apk` erzeugt dort `app/app.zip`, setzt die
+> nötige `SERIOUS_PYTHON_SITE_PACKAGES`-Umgebung für Gradle und aktualisiert den
+> Entrypoint. Wenn du direkt aus Android Studio startest, muss diese Env-Variable
+> auf `<Projekt>\build\site-packages` zeigen.
 
 Die Debug-APK wird erstellt in:
 ```
@@ -73,9 +79,11 @@ keytool -genkey -v -keystore "%USERPROFILE%\goauld-keystore.jks" `
 In [`pyproject.toml`](pyproject.toml) die Signierung aktivieren:
 
 ```toml
+[tool.flet]
+bundle_id = "de.basti.goauld"
+
 [tool.flet.android]
 adaptive_icon_background = "#0a1628"
-package_name = "de.basti.goauld"
 
 # Signierung (auskommentieren für Release-Build)
 # signing.key_alias = "goauld"
@@ -87,8 +95,8 @@ package_name = "de.basti.goauld"
 #### Release-Build starten
 
 ```powershell
-cd "C:\LAB\Goa'uld Translator Mobile"
-flet build apk --release
+cd "H:\LAB\Goa'uld Translator Mobile"
+flet build apk --arch arm64-v8a --release
 ```
 
 ## Deployment auf Gerät
@@ -103,7 +111,7 @@ adb devices
 adb install build/apk/release/app-arm64-v8a-release.apk
 
 # App starten
-adb shell am start -n de.basti.goauld/de.basti.goauld.MainActivity
+adb shell am start -n de.basti.goauld/.MainActivity
 ```
 
 ### Per Datei-Transfer (SD-Karte)
@@ -125,9 +133,10 @@ adb shell am start -n de.basti.goauld/de.basti.goauld.MainActivity
 
 ### "Flet app package app/app.zip was not created"
 
-- Das ist ein **Warning**, kein Fehler
-- Prüfen ob APK-Dateien existieren:
+- Das ist ein echter Packaging-Fehler: ohne `build/flutter/app/app.zip` startet Python im APK nicht.
+- Prüfen ob Paket und APK-Dateien existieren:
   ```powershell
+  dir build\flutter\app\app.zip
   dir build\apk\release\*.apk
   ```
 - Wenn keine APKs: Siehe "Build crasht mit Error" unten

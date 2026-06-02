@@ -510,17 +510,22 @@ def _build_error_view(error_msg: str, stack_trace: str = "") -> ft.Column:
                 italic=True,
             ),
             ft.Container(
-                content=ft.Text(
-                    stack_trace,
-                    size=10,
-                    color="#666666",
-                    font_family="Courier",
+                content=ft.Column(
+                    controls=[
+                        ft.Text(
+                            stack_trace or "Kein Stacktrace verfügbar.",
+                            size=10,
+                            color="#666666",
+                            font_family="Courier",
+                            selectable=True,
+                        )
+                    ],
+                    scroll=ft.ScrollMode.AUTO,
                 ),
                 bgcolor="#0a0a0a",
                 padding=12,
                 border_radius=8,
-                max_lines=10,
-                scroll=ft.ScrollMode.AUTO,
+                height=180,
             ),
             ft.Divider(height=16, color="transparent"),
             ft.Text(
@@ -584,7 +589,12 @@ def main(page: ft.Page):
             os.environ["GOAULD_ASSETS_DIR"] = str(p)
             log.info("Assets-Verzeichnis (rekursiv): %s", p)
             return True
-        for entry in p.iterdir():
+        try:
+            entries = list(p.iterdir())
+        except OSError as exc:
+            log.debug("Asset-Suche überspringt %s: %s", p, exc)
+            return False
+        for entry in entries:
             if entry.is_dir() and _search_recursive(entry, max_depth - 1):
                 return True
         return False
@@ -660,7 +670,12 @@ def main(page: ft.Page):
     except RuntimeError as e:
         log.error("Lexicon-Load-Fehler: %s", e)
         page.controls.clear()
-        page.add(_build_error_view(str(e), str(getattr(e, "__cause__", ""))))
+        page.add(
+            _build_error_view(
+                str(e),
+                "".join(traceback.format_exception(type(e), e, e.__traceback__)),
+            )
+        )
         page.update()
         return
     except Exception as e:

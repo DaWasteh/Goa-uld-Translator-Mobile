@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Entry point fuer: python -m app
-serious_python ruft das hier auf, wenn es das app-Package auf Android startet.
-DIESE DATEI MUSS EXISTIEREN, sonst bleibt der Bildschirm nach dem Splash
-einfach blau (Python crasht mit ImportError, bevor irgendwelche UI gemalt
-werden kann).
+"""Fallback entry point fuer: python -m app.
+
+Der reguläre Flet/APK-Entrypoint ist inzwischen das Root-Modul main.py.
+Diese Datei bleibt als kompatibler Fallback erhalten, falls manuell
+``python -m app`` oder ein altes Flet-Template mit module="app" genutzt wird.
 """
 import flet as ft
 from app.main import main

@@ -3,33 +3,73 @@ name = "goauld-translator-mobile"
 version = "0.3.0"
 description = "Goa'uld Linguistic Interface — Mobile Edition"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 authors = [
     {name = "Basti"}
 ]
 dependencies = [
-    "flet>=0.21.0",
-    "pyyaml==6.0.2"
+    # Muss zur Flet-CLI/Flutter-Template-Version passen, sonst drohen
+    # Python-/Flutter-Protokoll-Mismatches im APK.
+    "flet==0.85.2",
+    "pyyaml==6.0.3"
 ]
 
 [tool.flet]
-# Module-Eintrittspunkt: app/main.py → main()
-app = { module = "app.main", path = "." }
-# org-Identifier — auf Android wird das die Package-ID
 org = "de.basti.goauld"
+bundle_id = "de.basti.goauld"
 # Sichtbarer App-Name auf Home-Screen
 product = "Goa'uld Translator"
 company = "SGC Xenolinguistics"
 copyright = "Copyright (c) 2026"
 
-[tool.flet.android]
-# Min-SDK = Android 8.0 (Oreo) — ausreichend für Flutter
-adaptive_icon_background = "#0a1628"
-package_name = "de.basti.goauld"
+[tool.flet.app]
+# Flet erwartet einen Modul-Dateistamm im App-Root, keine dotted module path.
+# main.py startet app.main:main und vermeidet die Namenskollision app.py vs. app/.
+path = "."
+module = "main"
+# serious_python wertet .flet-ignore nicht aus; ohne diese Excludes landen .venv,
+# .git, IDE-Dateien und Tests im app.zip und verzögern/gefährden den Android-Start.
+exclude = [
+    ".git",
+    ".github",
+    ".idea",
+    ".venv",
+    ".flet-ignore",
+    "__pycache__",
+    "app/__pycache__",
+    "app\\__pycache__",
+    "app/__pycache__/*",
+    "app\\__pycache__\\*",
+    "goauld_engine/__pycache__",
+    "goauld_engine\\__pycache__",
+    "goauld_engine/__pycache__/*",
+    "goauld_engine\\__pycache__\\*",
+    "**/__pycache__",
+    "**/__pycache__/*",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "tests",
+    "dist",
+    "*.egg-info",
+    "*.log",
+    "build_log.txt",
+    "build_apk.bat",
+    "cleanup.ps1",
+    "gettree.ps1",
+    "BUILD_APK.md",
+    "LANGUAGE_GUIDE_DE.md",
+    "LANGUAGE_GUIDE_EN.md",
+    "README.md",
+    "pyproject.toml",
+    "assets/android-licenses",
+    "assets\\android-licenses",
+    "assets/android-licenses/*",
+    "assets\\android-licenses\\*"
+]
 
-[tool.flet.assets]
-# Verzeichnis das in den APK-Bundle als Assets eingepackt wird
-src = "assets"
+[tool.flet.android]
+adaptive_icon_background = "#0a1628"
 
 [tool.setuptools]
 packages = ["app", "goauld_engine"]
