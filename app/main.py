@@ -712,18 +712,17 @@ def main(page: ft.Page):
         ],
         expand=True,
     )
-    tabs = ft.Tabs(
-        length=3,
-        selected_index=0,
-        animation_duration=200,
+
+    # TabBar und TabBarView miteinander verknüpfen (selected_index)
+    # In Flet 0.85+ passiert das oft über den Index
+
+    main_layout = ft.Column(
+        controls=[_tab_bar, _tab_view],
         expand=True,
-        content=ft.Column(
-            controls=[_tab_bar, _tab_view],
-            expand=True,
-            spacing=0,
-        ),
+        spacing=0,
     )
-    page.add(header, tabs)
+
+    page.add(header, main_layout)
 
 
 if __name__ == "__main__":
