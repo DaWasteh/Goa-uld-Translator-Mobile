@@ -17,7 +17,7 @@ if exist ".venv\Scripts\python.exe" (
 flet --version >nul 2>nul
 if errorlevel 1 (
     echo Flet CLI wurde nicht gefunden oder das lokale .venv ist defekt.
-    echo Bitte z.B. ausfuehren: py -3 -m pip install flet==0.84.0 pyyaml==6.0.2
+    echo Bitte z.B. ausfuehren: py -3 -m pip install flet==0.85.2 pyyaml==6.0.2
     exit /b 1
 )
 

@@ -11,7 +11,7 @@ dependencies = [
     # Muss zur Flet-CLI/Flutter-Template-Version passen, sonst drohen
     # Python-/Flutter-Protokoll-Mismatches im APK.
     "flet==0.85.2",
-    "pyyaml==6.0.2"
+    "pyyaml==6.0.3"
 ]
 
 [tool.flet]
