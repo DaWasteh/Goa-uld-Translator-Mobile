@@ -8,7 +8,8 @@ import re
 # ─────────────────────────────────────────────────────────────────────────────
 
 # Goa'uld hat keine Artikel, keine Hilfsverben im deutschen Sinne und kaum
-# Präpositionen — diese Wörter werden bei DE→Goa'uld stumm übersprungen.
+# Präpositionen — diese Wörter werden bei DE→Goa'uld stumm übersprungen,
+# ES SEI DENN, es gibt eine explizite Entsprechung im Lexicon (wie "ia" / "ka").
 GERMAN_STOP_WORDS: frozenset[str] = frozenset({
     # Artikel
     "der", "die", "das", "dem", "den", "des",
@@ -20,8 +21,7 @@ GERMAN_STOP_WORDS: frozenset[str] = frozenset({
     # Konjunktionen (koordinierend)
     "und", "oder", "aber", "doch", "sondern", "denn", "als", "wie",
     # Partikel / sonstige Funktionswörter
-    "auch", "nur", "schon", "noch", "ja", "nicht", "kein", "keine",
-    "sehr", "gar", "mal", "nun", "so",
+    "auch", "nur", "schon", "noch", "sehr", "gar", "mal", "nun", "so",
 })
 
 

@@ -6,7 +6,7 @@ import logging
 from typing import Optional
 
 from .search import SearchEngine
-from .lemma import de_lemma_candidates
+from .lemma import de_lemma_candidates, GERMAN_STOP_WORDS
 from .translator import DE_GOAULD_MAP
 
 log = logging.getLogger(__name__)
@@ -65,16 +65,11 @@ class SentenceAnalyzer:
             if direction == "de2goa":
 
                 # a) Stop word? → skip silently, don't add to translation
-                if words[i].lower() in frozenset({
-                    "der", "die", "das", "dem", "den", "des",
-                    "ein", "eine", "einen", "einem", "einer", "eines",
-                    "in", "im", "an", "am", "auf", "bei", "mit", "nach", "seit", "von",
-                    "vor", "zu", "zum", "zur", "durch", "für", "gegen", "ohne", "um",
-                    "über", "unter", "zwischen", "aus", "bis", "hinter", "neben",
-                    "und", "oder", "aber", "doch", "sondern", "denn", "als", "wie",
-                    "auch", "nur", "schon", "noch", "ja", "nicht", "kein", "keine",
-                    "sehr", "gar", "mal", "nun", "so",
-                }):
+                # Nur skippen, wenn NICHT im DE_GOAULD_MAP vorhanden (z.B. ia/ka)
+                if (
+                    words[i].lower() in GERMAN_STOP_WORDS
+                    and words[i].lower() not in DE_GOAULD_MAP
+                ):
                     result.append({
                         "token":        words[i],
                         "primary":      None,

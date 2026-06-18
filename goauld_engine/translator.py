@@ -22,13 +22,40 @@ def preserve_case(original: str, translated: str) -> str:
 
 
 def build_mapping(entries: list[dict], direction: str) -> dict[str, str]:
-    """Baut ein flaches {lowercase_source: target} Mapping für Wort-Übersetzung."""
+    """
+    Baut ein flaches {lowercase_source: target} Mapping für Wort-Übersetzung.
+    Sortiert die Einträge nach Priorität, damit qualitativ hochwertige
+    Quellen (Kanon) bei Duplikaten gewinnen (last-one-wins).
+    """
+    # Sortier-Hierarchie für last-one-wins:
+    # Höhere Priorität (Kanon) muss ans ENDE der Liste.
+    _PRIO_MAP = {
+        "SG1-Kanon": 10,
+        "Kanon": 9,
+        "Goa_uld-Wörterbuch.md": 8,
+        "Goa_uld-Dictionary.md": 8,
+        "Kanon-ext": 7,
+        "RPG-Lexikon": 6,
+        "Gap-Fill": 5,
+        "Fanon/RPG": 4,
+        "Fanon": 3,
+        "Goa_uld-Fictionary.md": 2,
+        "Goa_uld-Neologikum.md": 1,
+    }
+
+    # Stabiles Sortieren: Niedrige Prio zuerst, Hohe Prio zuletzt.
+    # Bei gleicher Prio gewinnt DE über EN (da DE in yaml_loader/lexicon später kommt).
+    sorted_entries = sorted(
+        entries,
+        key=lambda e: _PRIO_MAP.get(e.get("source", ""), 0)
+    )
+
     mapping: dict[str, str] = {}
     if direction == "goa2de":
-        for e in entries:
+        for e in sorted_entries:
             mapping[e["goauld"].lower()] = e["meaning"]
     else:
-        for e in entries:
+        for e in sorted_entries:
             mapping[e["meaning"].lower()] = e["goauld"]
     return mapping
 

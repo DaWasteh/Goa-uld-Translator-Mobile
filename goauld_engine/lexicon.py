@@ -213,6 +213,7 @@ def _load_mds(
                 all_entries += [{**e, "lang": "de"} for e in entries]
                 found_paths.append(de_path)
                 new_map = parse_de_map_from_entries([{**e, "lang": "de"} for e in entries])
+                # MD-Mappings füllen das Map (erste Datei gewinnt bei MD-internen Duplikaten)
                 for k, v in new_map.items():
                     if k not in DE_GOAULD_MAP:
                         DE_GOAULD_MAP[k] = v
@@ -227,12 +228,13 @@ def _load_mds(
 
     # ── Embedded gap-filling vocabulary ──────────────────────────────────────
     gap_map = parse_de_map_from_entries(_GAP_FILL)
+    # GAP_FILL hat höchste Priorität (Kanon-Fixes) -> überschreibt MD-Mappings
     for k, v in gap_map.items():
-        if k not in DE_GOAULD_MAP:
-            DE_GOAULD_MAP[k] = v
+        DE_GOAULD_MAP[k] = v
 
-    # Add gap entries to the main pool so they appear in search results too
-    all_entries = _GAP_FILL + all_entries  # low priority (prepended, MD wins via dedup)
+    # Add gap entries to the main pool so they appear in search results too.
+    # Appended at the end so build_mapping (last-one-wins) picks them over MD.
+    all_entries = all_entries + _GAP_FILL
 
     if not all_entries:
         log.error("Kein Vokabular geladen — bitte Wörterbuch-Dateien prüfen.")

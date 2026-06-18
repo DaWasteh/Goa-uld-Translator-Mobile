@@ -156,7 +156,9 @@ def load_lexicon_yaml(yaml_path: str) -> tuple[list[dict], dict, dict,
 
             # Emit a flat entry per (language, gloss) pair.
             # The engine deduplicates by (goauld_lower, meaning_lower).
-            for lang in ("de", "en"):
+            # Order: EN first, then DE -> DE entries appear later in the list,
+            # so build_mapping (last-one-wins) prefers DE over EN for meanings.
+            for lang in ("en", "de"):
                 for gloss in glosses.get(lang, []) or []:
                     flat_entries.append({
                         "goauld":   term,

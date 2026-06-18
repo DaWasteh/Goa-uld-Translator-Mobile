@@ -25,3 +25,5 @@ test_*.py
 tests/
 *.bat
 *.spec
+
+plans/
