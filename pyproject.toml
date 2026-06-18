@@ -11,6 +11,9 @@ dependencies = [
     # Muss zur Flet-CLI/Flutter-Template-Version passen, sonst drohen
     # Python-/Flutter-Protokoll-Mismatches im APK.
     "flet==0.85.2",
+    # Flet/serious_python bootstraps Android with certifi; keep it explicit so
+    # arm64 site-packages always contain the CA bundle module.
+    "certifi>=2024.8.30",
     "pyyaml==6.0.2"
 ]
 

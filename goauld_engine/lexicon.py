@@ -19,7 +19,7 @@ from typing import Optional
 
 from .parser import parse_de_map_from_entries, parse_markdown_dictionary
 from .resources import find_md_files, get_app_dir
-from .translator import DE_GOAULD_MAP
+from . import translator
 
 log = logging.getLogger(__name__)
 
@@ -137,8 +137,14 @@ def load_full_lexicon(
       - secondary_en: English alternatives for polysemous words
       - source: "yaml" or "markdown"
     """
-    # Reset DE_GOAULD_MAP before loading (FIX P4a from original)
-    DE_GOAULD_MAP.clear()
+    # Reset runtime maps before loading (FIX P4a from original)
+    translator.DE_GOAULD_MAP.clear()
+    translator.EN_GOAULD_MAP.clear()
+    translator.PRIMARY_GOAULD_MAPS = {
+        "de": translator.DE_GOAULD_MAP,
+        "en": translator.EN_GOAULD_MAP,
+    }
+    translator.SECONDARY_GOAULD_MAPS = {"de": {}, "en": {}}
 
     # YAML-first approach
     if YAML_LOADER_AVAILABLE:
@@ -151,8 +157,17 @@ def load_full_lexicon(
         yaml_path = find_lexicon_yaml(search_dirs=search_dirs)
         if yaml_path:
             entries, de_map, en_map, sec_de, sec_en = load_lexicon_yaml(yaml_path)
-            # Populate DE_GOAULD_MAP from YAML primary map
-            DE_GOAULD_MAP.update({k: v.lower() for k, v in de_map.items()})
+            # Populate runtime maps from YAML base + optional overlay.
+            translator.DE_GOAULD_MAP.update(de_map)
+            translator.EN_GOAULD_MAP.update(en_map)
+            translator.PRIMARY_GOAULD_MAPS = {
+                "de": translator.DE_GOAULD_MAP,
+                "en": translator.EN_GOAULD_MAP,
+            }
+            translator.SECONDARY_GOAULD_MAPS = {
+                "de": dict(sec_de),
+                "en": dict(sec_en),
+            }
             log.info("Lexicon loaded from YAML: %s (%d entries)",
                      yaml_path, len(entries))
             return LexiconResult(
@@ -170,8 +185,8 @@ def load_full_lexicon(
     return LexiconResult(
         entries=entries,
         found_paths=paths,
-        de_map=dict(DE_GOAULD_MAP),
-        en_map={},
+        de_map=dict(translator.DE_GOAULD_MAP),
+        en_map=dict(translator.EN_GOAULD_MAP),
         secondary_de={},
         secondary_en={},
         source="markdown",
@@ -188,6 +203,13 @@ def _load_mds(
     """
     all_entries: list[dict] = []
     found_paths: list[str] = []
+    translator.DE_GOAULD_MAP.clear()
+    translator.EN_GOAULD_MAP.clear()
+    translator.PRIMARY_GOAULD_MAPS = {
+        "de": translator.DE_GOAULD_MAP,
+        "en": translator.EN_GOAULD_MAP,
+    }
+    translator.SECONDARY_GOAULD_MAPS = {"de": {}, "en": {}}
 
     en_paths, de_paths = find_md_files(hint_en, hint_de)
 
@@ -215,8 +237,8 @@ def _load_mds(
                 new_map = parse_de_map_from_entries([{**e, "lang": "de"} for e in entries])
                 # MD-Mappings füllen das Map (erste Datei gewinnt bei MD-internen Duplikaten)
                 for k, v in new_map.items():
-                    if k not in DE_GOAULD_MAP:
-                        DE_GOAULD_MAP[k] = v
+                    if k not in translator.DE_GOAULD_MAP:
+                        translator.DE_GOAULD_MAP[k] = v
                 regular = sum(1 for e in entries if not e.get("de_map"))
                 map_cnt = len(new_map)
                 log.info("DE-Wörterbuch geladen: %s  (%d Einträge, %d DE→Goa'uld-Mappings)",
@@ -230,7 +252,7 @@ def _load_mds(
     gap_map = parse_de_map_from_entries(_GAP_FILL)
     # GAP_FILL hat höchste Priorität (Kanon-Fixes) -> überschreibt MD-Mappings
     for k, v in gap_map.items():
-        DE_GOAULD_MAP[k] = v
+        translator.DE_GOAULD_MAP[k] = v
 
     # Add gap entries to the main pool so they appear in search results too.
     # Appended at the end so build_mapping (last-one-wins) picks them over MD.

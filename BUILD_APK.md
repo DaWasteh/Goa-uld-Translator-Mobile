@@ -46,7 +46,13 @@ Goa'uld Translator Mobile/
 
 ```powershell
 cd "H:\LAB\Goa'uld Translator Mobile"
-flet build apk --arch arm64-v8a --verbose
+flet build apk --arch arm64-v8a --clear-cache --verbose --yes
+```
+
+Oder per Skript:
+
+```powershell
+.\build_apk.bat
 ```
 
 > Wichtig: Den generierten Ordner `build/flutter` nicht als primäre Quelle in
@@ -54,11 +60,16 @@ flet build apk --arch arm64-v8a --verbose
 > nötige `SERIOUS_PYTHON_SITE_PACKAGES`-Umgebung für Gradle und aktualisiert den
 > Entrypoint. Wenn du direkt aus Android Studio startest, muss diese Env-Variable
 > auf `<Projekt>\build\site-packages` zeigen.
+>
+> Der S25-Ultra-Fehler `ModuleNotFoundError: No module named "certifi"` entsteht,
+> wenn ein x86_64/emulatorisches Python-Site-Packages-Bundle in einer ARM64-APK
+> landet. Vor Geräte-Builds daher alte Artefakte löschen oder `--clear-cache`
+> verwenden und anschließend prüfen, dass die APK `lib/arm64-v8a/libpythonsitepackages.so`
+> enthält.
 
-Die Debug-APK wird erstellt in:
+Die APK wird erstellt in:
 ```
-build/apk/release/app-arm64-v8a-release.apk
-build/apk/release/app-x86_64-release.apk
+build/apk/goauld-translator-mobile.apk
 ```
 
 ### 2. Release-APK (signiert, für Store/Verteilung)
@@ -96,7 +107,7 @@ adaptive_icon_background = "#0a1628"
 
 ```powershell
 cd "H:\LAB\Goa'uld Translator Mobile"
-flet build apk --arch arm64-v8a --release
+flet build apk --arch arm64-v8a --clear-cache --verbose --yes
 ```
 
 ## Deployment auf Gerät
@@ -108,7 +119,7 @@ flet build apk --arch arm64-v8a --release
 adb devices
 
 # APK installieren
-adb install build/apk/release/app-arm64-v8a-release.apk
+adb install -r build/apk/goauld-translator-mobile.apk
 
 # App starten
 adb shell am start -n de.basti.goauld/.MainActivity
@@ -137,20 +148,30 @@ adb shell am start -n de.basti.goauld/.MainActivity
 - Prüfen ob Paket und APK-Dateien existieren:
   ```powershell
   dir build\flutter\app\app.zip
-  dir build\apk\release\*.apk
+  dir build\apk\*.apk
   ```
 - Wenn keine APKs: Siehe "Build crasht mit Error" unten
 
 ### "Build failed" / "Gradle build failed"
 
 ```powershell
-# Gradle-Cache löschen
-cd .flet\apk\release\android
-.\gradlew clean --info
+# Build-Artefakte löschen und Flet sauber neu paketieren
+rmdir /s /q build
+flet build apk --arch arm64-v8a --clear-cache --verbose --yes
+```
 
-# Flutter-Cache löschen
-flutter clean
-flet build apk --release
+Wenn Gradle/Lint unter Windows mit `FileSystemException ... kann nicht auf die Datei zugreifen`
+oder Kotlin-Cache-Fehlern abbricht, sind meist alte Java/Gradle/Kotlin-Daemons oder Android
+Studio an Cache-Dateien gebunden:
+
+```powershell
+# Android Studio schließen, dann Daemons finden/stoppen
+jps -l
+# PIDs von GradleDaemon/KotlinCompileDaemon ersetzen:
+taskkill /PID <PID> /F /T
+
+rmdir /s /q build
+flet build apk --arch arm64-v8a --clear-cache --verbose --yes
 ```
 
 ### APK startet mit schwarzem Bildschirm
@@ -200,8 +221,8 @@ adb logcat | findstr -i "flutter error"
 
 ```powershell
 # APK ist eine ZIP-Datei
-cd build\apk\release
-7z app-arm64-v8a-release.apk
+cd build\apk
+7z l goauld-translator-mobile.apk
 
 # Prüfen ob assets enthalten sind:
 # assets/

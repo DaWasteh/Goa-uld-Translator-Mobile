@@ -247,9 +247,11 @@ def _build_translator_tab(page: ft.Page) -> ft.Control:
             live_output.value = "…"
         else:
             mapping = STATE.goa2de_map if STATE.direction == "goa2de" else STATE.de2goa_map
-            live_output.value = translate_text(text, mapping, direction=STATE.direction)
-
             analysis = STATE.analyzer.analyze(text, direction=STATE.direction)
+            live_output.value = (
+                STATE.analyzer.build_translation(analysis, direction=STATE.direction)
+                if analysis else translate_text(text, mapping, direction=STATE.direction)
+            )
             for token in analysis:
                 analysis_list.controls.append(_make_analysis_row(token))
 

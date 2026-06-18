@@ -40,21 +40,24 @@ def get_app_dir() -> Path:
     _ASSET_NAMES = (
         "goa_uld_lexicon.yaml",
         "goauld_lexicon.yaml",
+        "goauld_overrides.yaml",
+        "goauld_root_registry.yaml",
+        "GOAULD_GRAMMAR.md",
         "Goa_uld-Dictionary.md",
         "Goa_uld-Wörterbuch.md",
         "Goa_uld-Fictionary.md",
         "Goa_uld-Neologikum.md",
     )
 
-    # ── Flet-Mobile / Android: ENV GOAULD_ASSETS_DIR ──────────────────────────
-    env_dir = os.environ.get("GOAULD_ASSETS_DIR")
+    # ── Flet-Mobile / Android: Flet sets FLET_ASSETS_DIR; GOAULD_ASSETS_DIR is a manual override.
+    env_dir = os.environ.get("GOAULD_ASSETS_DIR") or os.environ.get("FLET_ASSETS_DIR")
     if env_dir:
         p = Path(env_dir)
         if p.exists() and p.is_dir():
             # Direkter Pfad existiert — prüfe, ob Assets vorhanden sind
             has_assets = any((p / n).exists() for n in _ASSET_NAMES)
             if has_assets:
-                log.debug("get_app_dir: ENV GOAULD_ASSETS_DIR existiert mit Assets: %s", p)
+                log.debug("get_app_dir: ENV asset dir exists with Assets: %s", p)
                 return p
             # Verzeichnis existiert, aber keine Assets direkt — suche rekursiv
             log.debug("get_app_dir: ENV existiert, aber keine Assets direkt — suche rekursiv: %s", p)
@@ -69,7 +72,7 @@ def get_app_dir() -> Path:
 
         # ENV ist gesetzt, aber der Pfad existiert gar nicht.
         # Das kann passieren, wenn die ENV-Variable falsch gesetzt ist.
-        log.warning("get_app_dir: ENV GOAULD_ASSETS_DIR ist gesetzt, aber Pfad existiert nicht: %s", p)
+        log.warning("get_app_dir: ENV asset dir is set, but path does not exist: %s", p)
         # Fahre fort mit nächster Strategie (Dev-Modus)
 
     # ── PyInstaller-Frozen ────────────────────────────────────────────────────

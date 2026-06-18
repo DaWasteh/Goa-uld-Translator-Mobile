@@ -2,6 +2,7 @@
 # Getestet mit Python 3.14.5.
 # Flet-Version synchron zu pyproject.toml halten, sonst drohen APK-Protokoll-/Template-Mismatches.
 flet[cli]==0.85.2
+certifi>=2024.8.30
 PyYAML==6.0.2
 
 # Test-Runner für tests/

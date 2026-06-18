@@ -23,6 +23,7 @@ class SearchEngine:
         "Goa_uld-Dictionary.md": 3,
         "Goa_uld-Fictionary.md": 2,
         "Goa_uld-Neologikum.md": 1,
+        "Egyptian-Substrate": 1,
         "Gap-Fill": 2,
         "Kanon": 3,
         "Kanon-ext": 2,
@@ -41,7 +42,7 @@ class SearchEngine:
         for e in entries:
             key = (e["goauld"].lower(), e["meaning"].lower())
             src = e.get("source", "")
-            priority = self._SOURCE_PRIORITY.get(src, 0)
+            priority = self._SOURCE_PRIORITY.get(src, 0) * 1000 + int(e.get("priority", 0) or 0)
             if key not in seen:
                 seen[key] = (priority, e)
             else:
