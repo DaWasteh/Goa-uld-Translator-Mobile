@@ -1,0 +1,4571 @@
+# ═════════════════════════════════════════════════════════════════════
+#  GOA'ULD SPRACHAUSBAU v1  ·  Overlay-Erweiterung
+#  154 neue Einträge · Layer A/B/C · alle Prioritäten <= 60 (unter Canon)
+#  Wird von yaml_loader.py als zusätzliches Overlay nach goauld_overrides.yaml geladen.
+# ═════════════════════════════════════════════════════════════════════
+
+metadata:
+  purpose: 'Sprachausbau v1: Alltagswortschatz aus Registry-Root-Komposita und ägyptischem Substrat'
+  created: '2026-07-02'
+  updated: '2026-07-02'
+  schema_note: Gleiches Schema wie goauld_overrides.yaml; yaml_loader konsumiert entries.*.senses.*.glosses/source/priority.
+  design_rules:
+  - 'Canon bleibt dominant: alle Prioritäten <= 60, unterhalb jedes Canon-Eintrags.'
+  - 'Layer A (prio 60): fanon_strict-Komposita ausschließlich aus goauld_root_registry.yaml-Roots.'
+  - 'Layer B (prio 55): neue Roots aus ägyptischen Etyma, Phonologie-Mapping aus goauld_overrides.yaml
+    angewandt (ḫ→kh, š→sh, ḏ→dj, ṯ→tj, ꜣ/ꜥ→a, w→u, j→i).'
+  - 'Layer C (prio 55): Glossen-Nachträge für Registry-Roots, deren Kernbedeutung im Lexikon fehlte (kor=eisen,
+    tun=viel, shel=schützen, dan=richtig, cha=licht).'
+  - na-Präfix nur als lexikalisierte Antonyme gemäß GOAULD_GRAMMAR.md §6.
+  - 'review_status: proposed — Einträge können einzeln auf approved gehoben oder gestrichen werden.'
+entries:
+  exp_v1_kel_meta:
+    term: Kel'meta
+    variants:
+    - kel'meta
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Frage-Sprechen
+      components:
+      - kel
+      - meta
+    review_status: proposed
+    senses:
+    - id: exp-v1-kel-meta
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - fragen
+        - frage
+        - erfragen
+        en:
+        - to ask
+        - question (verb)
+        - inquiry
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Ta Kel'meta Lo.
+        de: Ich frage dich.
+        en: I ask you.
+        mode: literal
+  exp_v1_meta_kel:
+    term: Meta'kel
+    variants:
+    - meta'kel
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Sprechen-auf-Frage
+      components:
+      - meta
+      - kel
+    review_status: proposed
+    senses:
+    - id: exp-v1-meta-kel
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - antworten
+        - antwort
+        - erwidern
+        en:
+        - to answer
+        - answer
+        - reply
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Lo Meta'kel nok!
+        de: Antworte jetzt!
+        en: Answer now!
+        mode: literal
+  exp_v1_meta_ren:
+    term: Meta'ren
+    variants:
+    - meta'ren
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Atem-Sprechen
+      components:
+      - meta
+      - ren
+    review_status: proposed
+    senses:
+    - id: exp-v1-meta-ren
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - flüstern
+        - geflüster
+        en:
+        - to whisper
+        - whisper
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_medu:
+    term: Medu
+    variants:
+    - medu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Wort
+      etymology: Ägyptisch mdw (medu) – Wort, Rede; vgl. medu-netjer 'Gottesworte' (Hieroglyphen)
+    review_status: proposed
+    senses:
+    - id: exp-v1-medu
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - wort
+        - worte
+        - rede
+        en:
+        - word
+        - words
+        - utterance
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Medu ta Onak.
+        de: Das Wort des Gottes.
+        en: The word of the god.
+        mode: literal
+  exp_v1_kheru:
+    term: Kheru
+    variants:
+    - kheru
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Stimme
+      etymology: Ägyptisch ḫrw (kheru) – Stimme; vgl. mꜣꜥ-ḫrw 'wahr an Stimme'
+    review_status: proposed
+    senses:
+    - id: exp-v1-kheru
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - stimme
+        - ruf
+        en:
+        - voice
+        - call
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kheru_le:
+    term: Kheru'le
+    variants:
+    - kheru'le
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Stimme-intensiv
+      components:
+      - kheru
+      - le_suffix
+    review_status: proposed
+    senses:
+    - id: exp-v1-kheru-le
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - laut
+        - lautstark
+        en:
+        - loud
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_na_kheru:
+    term: Na'kheru
+    variants:
+    - na'kheru
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-laut
+      components:
+      - na_prefix
+      - kheru
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-kheru
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - leise
+        - still (leise)
+        en:
+        - quiet
+        - soft-spoken
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_sesh:
+    term: Sesh
+    variants:
+    - sesh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schreiben
+      etymology: Ägyptisch zẖꜣ (sesch) – schreiben; Schreiber
+    review_status: proposed
+    senses:
+    - id: exp-v1-sesh
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schreiben
+        - niederschreiben
+        - schreiber
+        en:
+        - to write
+        - scribe
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_shedi:
+    term: Shedi
+    variants:
+    - shedi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: lesen/rezitieren
+      etymology: Ägyptisch šdj (schedi) – lesen, rezitieren
+    review_status: proposed
+    senses:
+    - id: exp-v1-shedi
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - lesen
+        - vorlesen
+        - rezitieren
+        en:
+        - to read
+        - to recite
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_heseb:
+    term: Heseb
+    variants:
+    - heseb
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: zählen
+      etymology: Ägyptisch ḥsb (heseb) – zählen, berechnen
+    review_status: proposed
+    senses:
+    - id: exp-v1-heseb
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - zählen
+        - rechnen
+        - berechnen
+        en:
+        - to count
+        - to calculate
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_medjat:
+    term: Medjat
+    variants:
+    - medjat
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Schriftrolle
+      etymology: Ägyptisch mḏꜣt (medjat) – Schriftrolle, Buch
+    review_status: proposed
+    senses:
+    - id: exp-v1-medjat
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schriftrolle
+        - papier
+        - dokument
+        en:
+        - scroll
+        - paper
+        - document
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_ko_eetium:
+    term: Ko'eetium
+    variants:
+    - ko'eetium
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Wissen-nehmen
+      components:
+      - ko
+      - eetium
+    review_status: proposed
+    senses:
+    - id: exp-v1-ko-eetium
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - lernen
+        - erlernen
+        en:
+        - to learn
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Tap Ko'eetium medu ta Goa'uld.
+        de: Wir lernen die Worte der Goa'uld.
+        en: We learn the words of the Goa'uld.
+        mode: literal
+  exp_v1_yu_ko:
+    term: Yu'ko
+    variants:
+    - yu'ko
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Sehen-geben
+      components:
+      - ko
+      - yu_yu
+    review_status: proposed
+    senses:
+    - id: exp-v1-yu-ko
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - zeigen
+        - vorführen
+        en:
+        - to show
+        - to reveal
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_dan_kal:
+    term: Dan'kal
+    variants:
+    - dan'kal
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Wahrheit-in-der-Seele
+      components:
+      - dan
+      - kal
+    review_status: proposed
+    senses:
+    - id: exp-v1-dan-kal
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - glauben
+        - glaube
+        - vertrauen (glaube)
+        en:
+        - to believe
+        - belief
+        - faith
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_dan_sha_gluecklich:
+    term: Dan'sha
+    variants:
+    - dan'sha
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Freude/Glück
+      etymology: Bestandsform Dan'sha (Freude/Glück) – Adjektiv-Glossen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v1-dan-sha-gluecklich
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - glücklich
+        - froh
+        en:
+        - happy
+        - glad
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_sha_ai:
+    term: Sha'ai
+    variants:
+    - sha'ai
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Himmels-Gefühl
+      components:
+      - sha
+      - ai
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-ai
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - hoffen
+        - erhoffen
+        en:
+        - to hope
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_kel_dan:
+    term: Kel'dan
+    variants:
+    - kel'dan
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: fraglich-wahr
+      components:
+      - kel
+      - dan
+    review_status: proposed
+    senses:
+    - id: exp-v1-kel-dan
+      pos: adverb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - vielleicht
+        - möglicherweise
+        - womöglich
+        en:
+        - maybe
+        - perhaps
+        - possibly
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_nok_shak:
+    term: Nok'shak
+    variants:
+    - nok'shak
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Jetzt-Tat
+      components:
+      - nok
+      - shak
+    review_status: proposed
+    senses:
+    - id: exp-v1-nok-shak
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - beginnen
+        - anfangen (beginnen)
+        en:
+        - to begin
+        - to start
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_shak_mel:
+    term: Shak'mel
+    variants:
+    - shak'mel
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Tat-Ende
+      components:
+      - shak
+      - mel
+    review_status: proposed
+    senses:
+    - id: exp-v1-shak-mel
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - aufhören
+        - beenden (aufhören)
+        - einstellen
+        en:
+        - to stop
+        - to cease
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_mel_met:
+    term: Mel'met
+    variants:
+    - mel'met
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Ende-Zustand
+      components:
+      - mel
+      - met
+    review_status: proposed
+    senses:
+    - id: exp-v1-mel-met
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - ende
+        - abschluss
+        - schluss
+        en:
+        - end
+        - conclusion
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_shel_ko:
+    term: Shel'ko
+    variants:
+    - shel'ko
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Schutz-geben
+      components:
+      - shel
+      - ko
+    review_status: proposed
+    senses:
+    - id: exp-v1-shel-ko
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - helfen
+        - beistehen
+        - hilfe
+        en:
+        - to help
+        - to aid
+        - help
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Shel'ko tap!
+        de: Hilf uns!
+        en: Help us!
+        mode: literal
+  exp_v1_hol_kree:
+    term: Hol'kree
+    variants:
+    - hol'kree
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Bewegungs-Befehl
+      components:
+      - hol
+      - kree
+    review_status: proposed
+    senses:
+    - id: exp-v1-hol-kree
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - führen
+        - anführen
+        - führer (handelnd)
+        en:
+        - to lead
+        - to guide
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_ko_pac:
+    term: Ko'pac
+    variants:
+    - ko'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Transfer-auf-den-Weg
+      components:
+      - ko
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-ko-pac
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - senden
+        - schicken
+        - entsenden
+        en:
+        - to send
+        - to dispatch
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_ko_re:
+    term: Ko're
+    variants:
+    - ko're
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Transfer-kommen
+      components:
+      - ko
+      - re
+    review_status: proposed
+    senses:
+    - id: exp-v1-ko-re
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - empfangen
+        - erhalten
+        - entgegennehmen
+        en:
+        - to receive
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_re_ko:
+    term: Re'ko
+    variants:
+    - re'ko
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Kommen-mit-Transfer
+      components:
+      - re
+      - ko
+    review_status: proposed
+    senses:
+    - id: exp-v1-re-ko
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - bringen
+        - holen
+        - herbeischaffen
+        en:
+        - to bring
+        - to fetch
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_gem:
+    term: Gem
+    variants:
+    - gem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: finden
+      etymology: Ägyptisch gmj (gem) – finden, entdecken
+    review_status: proposed
+    senses:
+    - id: exp-v1-gem
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - finden
+        - entdecken
+        - auffinden
+        en:
+        - to find
+        - to discover
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_meh:
+    term: Meh
+    variants:
+    - meh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: ergreifen
+      etymology: Ägyptisch mḥ (meh) – ergreifen, packen, füllen
+    review_status: proposed
+    senses:
+    - id: exp-v1-meh
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - fangen
+        - ergreifen
+        - packen
+        - festnehmen
+        en:
+        - to catch
+        - to seize
+        - to grasp
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sedj:
+    term: Sedj
+    variants:
+    - sedj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: brechen
+      etymology: Ägyptisch sḏ (sedj) – zerbrechen
+    review_status: proposed
+    senses:
+    - id: exp-v1-sedj
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - brechen
+        - zerbrechen
+        - zerschlagen
+        en:
+        - to break
+        - to shatter
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_iteh:
+    term: Iteh
+    variants:
+    - iteh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: ziehen
+      etymology: Ägyptisch jtḥ (iteh) – ziehen, schleppen
+    review_status: proposed
+    senses:
+    - id: exp-v1-iteh
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - ziehen
+        - zerren
+        - schleppen
+        en:
+        - to pull
+        - to drag
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_tok_shak:
+    term: Tok'shak
+    variants:
+    - tok'shak
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gegen-Tat
+      components:
+      - tok
+      - shak
+    review_status: proposed
+    senses:
+    - id: exp-v1-tok-shak
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - drücken
+        - stoßen
+        - pressen
+        en:
+        - to push
+        - to press
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_fai:
+    term: Fai
+    variants:
+    - fai
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: tragen
+      etymology: Ägyptisch fꜣj (fai) – tragen, heben
+    review_status: proposed
+    senses:
+    - id: exp-v1-fai
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - tragen
+        - heben
+        - schleppen (tragen)
+        en:
+        - to carry
+        - to lift
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hol_kher:
+    term: Hol'kher
+    variants:
+    - hol'kher
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Bewegung-nach-unten
+      components:
+      - hol
+      - kher
+    review_status: proposed
+    senses:
+    - id: exp-v1-hol-kher
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - fallen
+        - stürzen
+        - hinabfallen
+        en:
+        - to fall
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_hol_ai:
+    term: Hol'ai
+    variants:
+    - hol'ai
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Bewegung-zum-Himmel
+      components:
+      - hol
+      - ai
+    review_status: proposed
+    senses:
+    - id: exp-v1-hol-ai
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - steigen
+        - aufsteigen
+        - klettern
+        en:
+        - to rise
+        - to climb
+        - to ascend
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_pekher:
+    term: Pekher
+    variants:
+    - pekher
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: drehen
+      etymology: Ägyptisch pẖr (pecher) – sich wenden, umkreisen
+    review_status: proposed
+    senses:
+    - id: exp-v1-pekher
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - drehen
+        - wenden
+        - umdrehen
+        en:
+        - to turn
+        - to rotate
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hemsi:
+    term: Hemsi
+    variants:
+    - hemsi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: sitzen
+      etymology: Ägyptisch ḥmsj (hemsi) – sitzen, sich setzen
+    review_status: proposed
+    senses:
+    - id: exp-v1-hemsi
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - sitzen
+        - sich setzen
+        en:
+        - to sit
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_un:
+    term: Un
+    variants:
+    - un
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: öffnen
+      etymology: Ägyptisch wn (un) – öffnen
+    review_status: proposed
+    senses:
+    - id: exp-v1-un
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - öffnen
+        - offen
+        - aufmachen
+        en:
+        - to open
+        - open
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Un Chappa'ai!
+        de: Öffnet das Tor!
+        en: Open the gate!
+        mode: literal
+  exp_v1_khetem:
+    term: Khetem
+    variants:
+    - khetem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: versiegeln
+      etymology: Ägyptisch ḫtm (chetem) – verschließen, versiegeln
+    review_status: proposed
+    senses:
+    - id: exp-v1-khetem
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schließen
+        - geschlossen
+        - versiegeln
+        - verschließen
+        en:
+        - to close
+        - closed
+        - to seal
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_un_lok:
+    term: Un'lok
+    variants:
+    - un'lok
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Bindung-öffnen
+      components:
+      - un
+      - lok
+    review_status: proposed
+    senses:
+    - id: exp-v1-un-lok
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - lösen
+        - aufbinden
+        - entfesseln
+        en:
+        - to loosen
+        - to release
+        - to untie
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_tjez:
+    term: Tjez
+    variants:
+    - tjez
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: binden
+      etymology: Ägyptisch ṯz (tjez) – knüpfen, binden
+    review_status: proposed
+    senses:
+    - id: exp-v1-tjez
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - binden
+        - fesseln
+        - festbinden
+        - knüpfen
+        en:
+        - to bind
+        - to tie
+        - to knot
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_ren_ko:
+    term: Ren'ko
+    variants:
+    - ren'ko
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Atem-nehmen
+      components:
+      - ren
+      - ko
+    review_status: proposed
+    senses:
+    - id: exp-v1-ren-ko
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - riechen
+        - wittern
+        en:
+        - to smell
+        - to scent
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_dep:
+    term: Dep
+    variants:
+    - dep
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schmecken
+      etymology: Ägyptisch dp (dep) – schmecken, kosten
+    review_status: proposed
+    senses:
+    - id: exp-v1-dep
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schmecken
+        - kosten (schmecken)
+        en:
+        - to taste
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hol_kek:
+    term: Hol'kek
+    variants:
+    - hol'kek
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Bewegung-zum-Tod
+      components:
+      - hol
+      - kek
+    review_status: proposed
+    senses:
+    - id: exp-v1-hol-kek
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - jagen
+        - jagd
+        - verfolgen (jagen)
+        en:
+        - to hunt
+        - hunt
+        - to chase
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_tok_hol_flucht:
+    term: Tok'hol
+    variants:
+    - tok'hol
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Weg-Bewegung
+      etymology: Bestandsform Tok'hol (fliehen/entkommen) – Nomen-Glosse ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v1-tok-hol-flucht
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - flucht
+        en:
+        - flight (escape)
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_ko_mel:
+    term: Ko'mel
+    variants:
+    - ko'mel
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Weg-Transfer
+      components:
+      - ko
+      - mel
+    review_status: proposed
+    senses:
+    - id: exp-v1-ko-mel
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - verkaufen
+        - veräußern
+        en:
+        - to sell
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_nakht:
+    term: Nakht
+    variants:
+    - nakht
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Sieg/Stärke
+      etymology: Ägyptisch nḫt (nacht) – Sieg, Stärke; vgl. Königsepitheton
+    review_status: proposed
+    senses:
+    - id: exp-v1-nakht
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - gewinnen
+        - siegen
+        - sieg
+        - triumph
+        en:
+        - to win
+        - victory
+        - triumph
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Nakht ta Jaffa!
+        de: Sieg den Jaffa!
+        en: Victory to the Jaffa!
+        mode: literal
+  exp_v1_na_nakht:
+    term: Na'nakht
+    variants:
+    - na'nakht
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Un-Sieg
+      components:
+      - na_prefix
+      - nakht
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-nakht
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - verlieren
+        - niederlage
+        - unterliegen
+        en:
+        - to lose
+        - defeat
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_sha_kek:
+    term: Sha'kek
+    variants:
+    - sha'kek
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühl-des-Todes
+      components:
+      - sha
+      - kek
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-kek
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - traurig
+        - trauer
+        - betrübt
+        en:
+        - sad
+        - grief
+        - sorrow
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_mesedj:
+    term: Mesedj
+    variants:
+    - mesedj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: hassen
+      etymology: Ägyptisch msḏj (mesedji) – hassen
+    review_status: proposed
+    senses:
+    - id: exp-v1-mesedj
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - hass
+        - hassen
+        - abscheu
+        en:
+        - hatred
+        - to hate
+        - loathing
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sha_tok:
+    term: Sha'tok
+    variants:
+    - sha'tok
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühl-des-Widerstands
+      components:
+      - sha
+      - tok
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-tok
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - zornig
+        - wütend
+        - erzürnt
+        en:
+        - angry
+        - wrathful
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_sha_onak:
+    term: Sha'onak
+    variants:
+    - sha'onak
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühl-eines-Gottes
+      components:
+      - sha
+      - onak
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-onak
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - stolz
+        - hochmut
+        en:
+        - pride
+        - hubris
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Sha'onak ta Goa'uld.
+        de: Der Stolz der Goa'uld.
+        en: The pride of the Goa'uld.
+        mode: literal
+  exp_v1_sha_taur:
+    term: Sha'taur
+    variants:
+    - sha'taur
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühl-des-Dieners
+      components:
+      - sha
+      - taur
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-taur
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - demut
+        - unterwerfung (innere)
+        en:
+        - humility
+        - submission (inner)
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_sha_tun:
+    term: Sha'tun
+    variants:
+    - sha'tun
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühl-nach-Vielem
+      components:
+      - sha
+      - tun
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-tun
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - gier
+        - habgier
+        - gierig
+        en:
+        - greed
+        - greedy
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_ska_ko:
+    term: Ska'ko
+    variants:
+    - ska'ko
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Leben-schenken
+      components:
+      - ska
+      - ko
+    review_status: proposed
+    senses:
+    - id: exp-v1-ska-ko
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - gnade
+        - begnadigen
+        - schonung
+        en:
+        - mercy
+        - to spare
+        - clemency
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Onak ia Ska'ko.
+        de: Ein Gott kennt keine Gnade.
+        en: A god knows no mercy.
+        mode: literal
+  exp_v1_kal_kor:
+    term: Kal'kor
+    variants:
+    - kal'kor
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: harte Seele
+      components:
+      - kal
+      - kor
+    review_status: proposed
+    senses:
+    - id: exp-v1-kal-kor
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - mut
+        - tapferkeit (mut)
+        - kühnheit
+        en:
+        - courage
+        - boldness
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_uredj:
+    term: Uredj
+    variants:
+    - uredj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: müde
+      etymology: Ägyptisch wrḏ (weredj) – müde, ermattet sein
+    review_status: proposed
+    senses:
+    - id: exp-v1-uredj
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - müde
+        - erschöpft
+        - ermattet
+        en:
+        - tired
+        - exhausted
+        - weary
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kek_kal:
+    term: Kek'kal
+    variants:
+    - kek'kal
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: schwache Seele
+      components:
+      - kek
+      - kal
+    review_status: proposed
+    senses:
+    - id: exp-v1-kek-kal
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - dumm
+        - töricht
+        - schwachsinnig
+        en:
+        - stupid
+        - foolish
+        - dull-minded
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_akh:
+    term: Akh
+    variants:
+    - akh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Geist
+      etymology: Ägyptisch ꜣḫ (ach) – Geist, verklärter Totengeist, wirkmächtig
+    review_status: proposed
+    senses:
+    - id: exp-v1-akh
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - geist
+        - totengeist
+        - verklärter geist
+        en:
+        - spirit
+        - ghost
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sedjer:
+    term: Sedjer
+    variants:
+    - sedjer
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Schlaf
+      etymology: Ägyptisch sḏr (sedjer) – schlafen, die Nacht verbringen
+    review_status: proposed
+    senses:
+    - id: exp-v1-sedjer
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schlaf
+        - ruhe (schlaf)
+        en:
+        - sleep
+        - slumber
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sedjer_yu:
+    term: Sedjer'yu
+    variants:
+    - sedjer'yu
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Schlaf-Sehen
+      components:
+      - sedjer
+      - yu_yu
+    review_status: proposed
+    senses:
+    - id: exp-v1-sedjer-yu
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - traum
+        - träumen
+        - vision (traum)
+        en:
+        - dream
+        - to dream
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_sebet:
+    term: Sebet
+    variants:
+    - sebet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: lachen
+      etymology: Ägyptisch zbṯ (sebetj) – lachen
+    review_status: proposed
+    senses:
+    - id: exp-v1-sebet
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - lachen
+        - gelächter
+        en:
+        - to laugh
+        - laughter
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_remi:
+    term: Remi
+    variants:
+    - remi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: weinen
+      etymology: Ägyptisch rmj (remi) – weinen, beweinen
+    review_status: proposed
+    senses:
+    - id: exp-v1-remi
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - weinen
+        - beweinen
+        - tränen vergießen
+        en:
+        - to weep
+        - to cry
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hesi:
+    term: Hesi
+    variants:
+    - hesi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: singen
+      etymology: Ägyptisch ḥsj (hesi) – singen; loben
+    review_status: proposed
+    senses:
+    - id: exp-v1-hesi
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - singen
+        - lobsingen
+        - gesang
+        en:
+        - to sing
+        - song
+        - to praise in song
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_khebi:
+    term: Khebi
+    variants:
+    - khebi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: tanzen
+      etymology: Ägyptisch ḫbj (chebi) – tanzen
+    review_status: proposed
+    senses:
+    - id: exp-v1-khebi
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - tanzen
+        - tanz
+        en:
+        - to dance
+        - dance
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sha_shak:
+    term: Sha'shak
+    variants:
+    - sha'shak
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühls-Tat
+      components:
+      - sha
+      - shak
+    review_status: proposed
+    senses:
+    - id: exp-v1-sha-shak
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - spielen
+        - spiel
+        en:
+        - to play
+        - game
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_nefer:
+    term: Nefer
+    variants:
+    - nefer
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schön
+      etymology: Ägyptisch nfr (nefer) – schön, gut, vollkommen
+    review_status: proposed
+    senses:
+    - id: exp-v1-nefer
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schön
+        - vollkommen
+        - herrlich
+        en:
+        - beautiful
+        - perfect
+        - fine
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Ai nefer.
+        de: Der Himmel ist schön.
+        en: The sky is beautiful.
+        mode: literal
+  exp_v1_bin:
+    term: Bin
+    variants:
+    - bin
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schlecht
+      etymology: Ägyptisch bjn (bin) – schlecht, böse, übel
+    review_status: proposed
+    senses:
+    - id: exp-v1-bin
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schlecht
+        - übel
+        - böse (schlecht)
+        en:
+        - bad
+        - evil
+        - wicked
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_ai_le:
+    term: Ai'le
+    variants:
+    - ai'le
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: himmelwärts-intensiv
+      components:
+      - ai
+      - le_suffix
+    review_status: proposed
+    senses:
+    - id: exp-v1-ai-le
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - hoch
+        - erhaben (hoch)
+        - emporragend
+        en:
+        - high
+        - tall
+        - lofty
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_medj:
+    term: Medj
+    variants:
+    - medj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: tief
+      etymology: Ägyptisch mḏ (medj) – tief, Tiefe
+    review_status: proposed
+    senses:
+    - id: exp-v1-medj
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - tief
+        - tiefe
+        - abgründig
+        en:
+        - deep
+        - depth
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_tal_le:
+    term: Tal'le
+    variants:
+    - tal'le
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Fläche-intensiv
+      components:
+      - tal
+      - le_suffix
+    review_status: proposed
+    senses:
+    - id: exp-v1-tal-le
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - breit
+        - weit (breit)
+        - ausgedehnt
+        en:
+        - broad
+        - wide
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_nok_pac:
+    term: Nok'pac
+    variants:
+    - nok'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Hier-Ort
+      components:
+      - nok
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-nok-pac
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - nah
+        - nahe
+        - in der nähe
+        en:
+        - near
+        - close
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_mel_pac:
+    term: Mel'pac
+    variants:
+    - mel'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Ort-jenseits
+      components:
+      - mel
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-mel-pac
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - fern
+        - entfernt
+        - weit weg
+        en:
+        - far
+        - distant
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_dens:
+    term: Dens
+    variants:
+    - dens
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schwer
+      etymology: Ägyptisch dns (denes) – schwer, gewichtig
+    review_status: proposed
+    senses:
+    - id: exp-v1-dens
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schwer
+        - gewichtig
+        - lastend
+        en:
+        - heavy
+        - weighty
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_na_dens:
+    term: Na'dens
+    variants:
+    - na'dens
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-schwer
+      components:
+      - na_prefix
+      - dens
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-dens
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - leicht
+        - federleicht
+        - mühelos (leicht)
+        en:
+        - light (weight)
+        - easy
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_shu:
+    term: Shu
+    variants:
+    - shu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: trocken/leer
+      etymology: Ägyptisch šw (schu) – trocken, leer; auch Gott der Luft
+    review_status: proposed
+    senses:
+    - id: exp-v1-shu
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - trocken
+        - leer
+        - dürr
+        en:
+        - dry
+        - empty
+        - arid
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_na_shu:
+    term: Na'shu
+    variants:
+    - na'shu
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-trocken
+      components:
+      - na_prefix
+      - shu
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-shu
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - nass
+        - feucht
+        - durchnässt
+        en:
+        - wet
+        - moist
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_wab:
+    term: Wab
+    variants:
+    - wab
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: rein
+      etymology: Ägyptisch wꜥb (wab) – rein, sauber; Priestertitel 'der Reine'
+    review_status: proposed
+    senses:
+    - id: exp-v1-wab
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - sauber
+        - rein
+        - geläutert
+        en:
+        - clean
+        - pure
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_na_wab:
+    term: Na'wab
+    variants:
+    - na'wab
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-rein
+      components:
+      - na_prefix
+      - wab
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-wab
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schmutzig
+        - unrein
+        - befleckt
+        en:
+        - dirty
+        - impure
+        - defiled
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_tut:
+    term: Tut
+    variants:
+    - tut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: gleich/Abbild
+      etymology: Ägyptisch twt (tut) – gleich, Abbild; vgl. Tut-anch-Amun 'lebendes Abbild des Amun'
+    review_status: proposed
+    senses:
+    - id: exp-v1-tut
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - gleich
+        - gleichartig
+        - ebenbild
+        en:
+        - equal
+        - alike
+        - image (likeness)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_na_tut:
+    term: Na'tut
+    variants:
+    - na'tut
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-gleich
+      components:
+      - na_prefix
+      - tut
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-tut
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - anders
+        - verschieden
+        - ungleich
+        en:
+        - different
+        - unlike
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_ter:
+    term: Ter
+    variants:
+    - ter
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Zeit
+      etymology: Ägyptisch tr (ter) – Zeit, Jahreszeit
+    review_status: proposed
+    senses:
+    - id: exp-v1-ter
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - zeit
+        - zeitpunkt
+        - weile
+        en:
+        - time
+        - moment (time)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Ter ta kek re.
+        de: Die Zeit des Todes kommt.
+        en: The time of death comes.
+        mode: literal
+  exp_v1_djet:
+    term: Djet
+    variants:
+    - djet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Ewigkeit
+      etymology: Ägyptisch ḏt (djet) – Ewigkeit, ewig
+    review_status: proposed
+    senses:
+    - id: exp-v1-djet
+      pos: adverb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - immer
+        - ewig (immer)
+        - für immer
+        en:
+        - always
+        - forever
+        - eternally
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Onak djet.
+        de: Ein Gott ist ewig.
+        en: A god is eternal.
+        mode: literal
+  exp_v1_ka_nok:
+    term: Ka'nok
+    variants:
+    - ka'nok
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: keine-Zeit
+      components:
+      - ka
+      - nok
+    review_status: proposed
+    senses:
+    - id: exp-v1-ka-nok
+      pos: adverb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - nie
+        - niemals
+        en:
+        - never
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_tun_nok:
+    term: Tun'nok
+    variants:
+    - tun'nok
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: viele-Male
+      components:
+      - tun
+      - nok
+    review_status: proposed
+    senses:
+    - id: exp-v1-tun-nok
+      pos: adverb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - oft
+        - häufig
+        - vielmals
+        en:
+        - often
+        - frequently
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_renpet:
+    term: Renpet
+    variants:
+    - renpet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Jahr
+      etymology: Ägyptisch rnpt (renpet) – Jahr
+    review_status: proposed
+    senses:
+    - id: exp-v1-renpet
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - jahr
+        - jahre
+        en:
+        - year
+        - years
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_abed:
+    term: Abed
+    variants:
+    - abed
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Monat
+      etymology: Ägyptisch ꜣbd (abed) – Monat
+    review_status: proposed
+    senses:
+    - id: exp-v1-abed
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - monat
+        - monate
+        - mondmonat
+        en:
+        - month
+        - months
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_unut:
+    term: Unut
+    variants:
+    - unut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Stunde
+      etymology: Ägyptisch wnwt (unut) – Stunde
+    review_status: proposed
+    senses:
+    - id: exp-v1-unut
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - stunde
+        - stunden
+        en:
+        - hour
+        - hours
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_dua:
+    term: Dua
+    variants:
+    - dua
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Morgen
+      etymology: Ägyptisch dwꜣ (dua) – Morgen, Morgendämmerung; auch anbeten
+    review_status: proposed
+    senses:
+    - id: exp-v1-dua
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - morgen (tageszeit)
+        - morgendämmerung
+        - frühe
+        en:
+        - morning
+        - dawn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_meshru:
+    term: Meshru
+    variants:
+    - meshru
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Abend
+      etymology: Ägyptisch mšrw (mescheru) – Abend
+    review_status: proposed
+    senses:
+    - id: exp-v1-meshru
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - abend
+        - abenddämmerung
+        en:
+        - evening
+        - dusk
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_tepi:
+    term: Tepi
+    variants:
+    - tepi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: erster
+      etymology: Ägyptisch tpj (tepi) – erster, an der Spitze; von tp 'Kopf'
+    review_status: proposed
+    senses:
+    - id: exp-v1-tepi
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - erste
+        - erster
+        - zuerst
+        - vorderster
+        en:
+        - first
+        - foremost
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_pehu:
+    term: Pehu
+    variants:
+    - pehu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: letzter
+      etymology: Ägyptisch pḥwj (pehui) – Ende, Hinterteil, letzter
+    review_status: proposed
+    senses:
+    - id: exp-v1-pehu
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - letzte
+        - letzter
+        - zuletzt
+        - hinterster
+        en:
+        - last
+        - final
+        - hindmost
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_ges:
+    term: Ges
+    variants:
+    - ges
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Hälfte
+      etymology: Ägyptisch gs (ges) – Hälfte, Seite
+    review_status: proposed
+    senses:
+    - id: exp-v1-ges
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - halb
+        - hälfte
+        en:
+        - half
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_tem:
+    term: Tem
+    variants:
+    - tem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: ganz
+      etymology: Ägyptisch tm (tem) – vollständig sein; Allherr Atum
+    review_status: proposed
+    senses:
+    - id: exp-v1-tem
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - ganz
+        - vollständig
+        - gesamt
+        en:
+        - whole
+        - complete
+        - entire
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_shet:
+    term: Shet
+    variants:
+    - shet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: hundert
+      etymology: Ägyptisch št (schet) – hundert
+    review_status: proposed
+    senses:
+    - id: exp-v1-shet
+      pos: numeral
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - hundert
+        en:
+        - hundred
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kha:
+    term: Kha
+    variants:
+    - kha
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: tausend
+      etymology: Ägyptisch ḫꜣ (cha) – tausend; Lotospflanze als Zahlzeichen
+    review_status: proposed
+    senses:
+    - id: exp-v1-kha
+      pos: numeral
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - tausend
+        en:
+        - thousand
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_demedj:
+    term: Demedj
+    variants:
+    - demedj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: vereinigen
+      etymology: Ägyptisch dmḏ (demedj) – vereinigen, zusammenfügen
+    review_status: proposed
+    senses:
+    - id: exp-v1-demedj
+      pos: adverb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - zusammen
+        - gemeinsam
+        - vereint
+        - vereinigen
+        en:
+        - together
+        - united
+        - to unite
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_ua:
+    term: Ua
+    variants:
+    - ua
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: allein
+      etymology: Ägyptisch wꜥ (ua) – eins, allein, einzig
+    review_status: proposed
+    senses:
+    - id: exp-v1-ua
+      pos: adverb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - allein
+        - einsam
+        - einzeln
+        - einzig
+        en:
+        - alone
+        - lonely
+        - single
+        - sole
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_khet_thing:
+    term: Khet
+    variants:
+    - khet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Ding
+      etymology: Ägyptisch ḫt (chet) – Ding, Sache
+    review_status: proposed
+    senses:
+    - id: exp-v1-khet-thing
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - etwas
+        - ding
+        - sache
+        en:
+        - something
+        - thing
+        - matter
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_na_tun:
+    term: Na'tun
+    variants:
+    - na'tun
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-viel
+      components:
+      - na_prefix
+      - tun
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-tun
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - wenig
+        - kaum
+        - gering (wenig)
+        en:
+        - few
+        - little (amount)
+        - scarce
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_em:
+    term: Em
+    variants:
+    - em
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: in/von
+      etymology: Ägyptisch m (em) – in, aus, von; Universalpräposition
+    review_status: proposed
+    senses:
+    - id: exp-v1-em
+      pos: preposition
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - in
+        - von
+        - aus (von)
+        en:
+        - in
+        - from
+        - out of
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_en:
+    term: En
+    variants:
+    - en
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: für/zu
+      etymology: Ägyptisch n (en) – für, zu; Dativpräposition
+    review_status: proposed
+    senses:
+    - id: exp-v1-en
+      pos: preposition
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - für
+        - zu
+        - an (für)
+        en:
+        - for
+        - to (dative)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_her_prep:
+    term: Her
+    variants:
+    - her
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: auf/über
+      etymology: Ägyptisch ḥr (her) – auf, über; wörtlich 'Gesicht'
+    review_status: proposed
+    senses:
+    - id: exp-v1-her-prep
+      pos: preposition
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - auf
+        - über
+        - obenauf
+        en:
+        - 'on'
+        - upon
+        - over
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_khent:
+    term: Khent
+    variants:
+    - khent
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: vor
+      etymology: Ägyptisch ḫnt (chenet) – vor, an der Spitze von
+    review_status: proposed
+    senses:
+    - id: exp-v1-khent
+      pos: preposition
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - vor
+        - voran
+        - an der spitze
+        en:
+        - before
+        - in front of
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_emsa:
+    term: Em'sa
+    variants:
+    - em'sa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: hinter
+      etymology: Ägyptisch m-sꜣ (em-sa) – hinter, nach; wörtlich 'im Rücken'
+    review_status: proposed
+    senses:
+    - id: exp-v1-emsa
+      pos: preposition
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - hinter
+        - nach (räumlich)
+        - im rücken
+        en:
+        - behind
+        - after (spatial)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hena:
+    term: Hena
+    variants:
+    - hena
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: mit
+      etymology: Ägyptisch ḥnꜥ (hena) – zusammen mit
+    review_status: proposed
+    senses:
+    - id: exp-v1-hena
+      pos: preposition
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - mit
+        - samt
+        - zusammen mit
+        en:
+        - with
+        - along with
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_mel_cha:
+    term: Mel'cha
+    variants:
+    - mel'cha
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Feuer-Licht
+      components:
+      - mel
+      - cha
+    review_status: proposed
+    senses:
+    - id: exp-v1-mel-cha
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - feuer
+        - flamme
+        - brand
+        en:
+        - fire
+        - flame
+        - blaze
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Mel'cha ta Onak!
+        de: Das Feuer des Gottes!
+        en: The fire of the god!
+        mode: literal
+  exp_v1_ai_met:
+    term: Ai'met
+    variants:
+    - ai'met
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Himmels-Substanz
+      components:
+      - ai
+      - met
+    review_status: proposed
+    senses:
+    - id: exp-v1-ai-met
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - wolke
+        - wolken
+        - gewölk
+        en:
+        - cloud
+        - clouds
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_ai_ren:
+    term: Ai'ren
+    variants:
+    - ai'ren
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Himmels-Atem
+      components:
+      - ai
+      - ren
+    review_status: proposed
+    senses:
+    - id: exp-v1-ai-ren
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - nebel
+        - dunst
+        en:
+        - mist
+        - fog
+        - haze
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_kheru_ai:
+    term: Kheru'ai
+    variants:
+    - kheru'ai
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Himmels-Stimme
+      components:
+      - kheru
+      - ai
+    review_status: proposed
+    senses:
+    - id: exp-v1-kheru-ai
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - donner
+        - donnergrollen
+        en:
+        - thunder
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_shut:
+    term: Shut
+    variants:
+    - shut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Schatten
+      etymology: Ägyptisch šwt (schut) – Schatten; Teil der Seele
+    review_status: proposed
+    senses:
+    - id: exp-v1-shut
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schatten
+        - schattenbild
+        en:
+        - shadow
+        - shade
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_yu_tal:
+    term: Yu'tal
+    variants:
+    - yu'tal
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Seh-Fläche
+      components:
+      - yu_yu
+      - tal
+    review_status: proposed
+    senses:
+    - id: exp-v1-yu-tal
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - spiegel
+        - spiegelbild
+        en:
+        - mirror
+        - reflection
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_cha_light:
+    term: Cha
+    variants:
+    - cha
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Licht
+      etymology: Registry-Root cha (Licht/Stern) – Glosse 'Licht' bislang nicht im Lexikon
+    review_status: proposed
+    senses:
+    - id: exp-v1-cha-light
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - licht
+        - schein
+        - leuchten
+        en:
+        - light
+        - glow
+        - shine
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_deshret:
+    term: Deshret
+    variants:
+    - deshret
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Wüste
+      etymology: Ägyptisch dšrt (descheret) – 'das Rote Land', Wüste
+    review_status: proposed
+    senses:
+    - id: exp-v1-deshret
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - wüste
+        - ödland
+        - rotes land
+        en:
+        - desert
+        - wasteland
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_iwa:
+    term: Iwa
+    variants:
+    - iwa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Insel
+      etymology: Ägyptisch jw (iu) – Insel; lautlich angepasst
+    review_status: proposed
+    senses:
+    - id: exp-v1-iwa
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - insel
+        - eiland
+        en:
+        - island
+        - isle
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sepet:
+    term: Sepet
+    variants:
+    - sepet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Ufer
+      etymology: Ägyptisch spt (sepet) – Ufer, Rand, Lippe
+    review_status: proposed
+    senses:
+    - id: exp-v1-sepet
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - ufer
+        - gestade
+        - rand (ufer)
+        en:
+        - shore
+        - bank (river)
+        - edge
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_tash:
+    term: Tash
+    variants:
+    - tash
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Grenze
+      etymology: Ägyptisch tꜣš (tasch) – Grenze
+    review_status: proposed
+    senses:
+    - id: exp-v1-tash
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - grenze
+        - grenzlinie
+        - grenzland
+        en:
+        - border
+        - boundary
+        - frontier
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kamu:
+    term: Kamu
+    variants:
+    - kamu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Garten
+      etymology: Ägyptisch kꜣmw (kamu) – Garten, Weingarten
+    review_status: proposed
+    senses:
+    - id: exp-v1-kamu
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - garten
+        - gärten
+        - weingarten
+        en:
+        - garden
+        - vineyard
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_peret:
+    term: Peret
+    variants:
+    - peret
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Saat
+      etymology: Ägyptisch prt (peret) – Saatgut; Jahreszeit des Hervorkommens
+    review_status: proposed
+    senses:
+    - id: exp-v1-peret
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - saat
+        - aussaat
+        - saatgut
+        en:
+        - seed (sowing)
+        - sowing
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_ska_khet:
+    term: Ska'khet
+    variants:
+    - ska'khet
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: lebendes Ding
+      components:
+      - ska
+      - khet
+    review_status: proposed
+    senses:
+    - id: exp-v1-ska-khet
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - tier
+        - tiere
+        - lebewesen
+        - kreatur
+        en:
+        - animal
+        - animals
+        - creature
+        - living thing
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_miu:
+    term: Miu
+    variants:
+    - miu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Katze
+      etymology: Ägyptisch mjw (miu) – Katze; lautmalerisch
+    review_status: proposed
+    senses:
+    - id: exp-v1-miu
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - katze
+        - katzen
+        - kater
+        en:
+        - cat
+        - cats
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_niut:
+    term: Niut
+    variants:
+    - niut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Stadt
+      etymology: Ägyptisch njwt (niut) – Stadt, Siedlung
+    review_status: proposed
+    senses:
+    - id: exp-v1-niut
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - stadt
+        - städte
+        - siedlung
+        en:
+        - city
+        - town
+        - settlement
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_wat:
+    term: Wat
+    variants:
+    - wat
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Weg
+      etymology: Ägyptisch wꜣt (uat) – Weg, Straße
+    review_status: proposed
+    senses:
+    - id: exp-v1-wat
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - weg
+        - straße
+        - pfad
+        en:
+        - way
+        - road
+        - street
+        - path
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Wat en Chappa'ai.
+        de: Der Weg zum Sternentor.
+        en: The way to the Stargate.
+        mode: literal
+  exp_v1_wat_tal:
+    term: Wat'tal
+    variants:
+    - wat'tal
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Weg-Fläche
+      components:
+      - wat
+      - tal
+    review_status: proposed
+    senses:
+    - id: exp-v1-wat-tal
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - brücke
+        - übergang (brücke)
+        - steg
+        en:
+        - bridge
+        - crossing
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_kek_pac:
+    term: Kek'pac
+    variants:
+    - kek'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Todes-Ort
+      components:
+      - kek
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-kek-pac
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - grab
+        - gruft
+        - grabstätte
+        en:
+        - grave
+        - tomb
+        - crypt
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_mel_kor:
+    term: Mel'kor
+    variants:
+    - mel'kor
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: geendeter Stein
+      components:
+      - mel
+      - kor
+    review_status: proposed
+    senses:
+    - id: exp-v1-mel-kor
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - ruine
+        - ruinen
+        - trümmer
+        en:
+        - ruin
+        - ruins
+        - rubble
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_kher_pac:
+    term: Kher'pac
+    variants:
+    - kher'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Unter-Ort
+      components:
+      - kher
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-kher-pac
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - graben
+        - grube
+        - schacht
+        en:
+        - ditch
+        - trench
+        - pit
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_un_pac:
+    term: Un'pac
+    variants:
+    - un'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Öffnungs-Ort
+      components:
+      - un
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-un-pac
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - tür
+        - tor (tür)
+        - eingang
+        - portal
+        en:
+        - door
+        - doorway
+        - entrance
+        - portal
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_lok_kor_umlaut:
+    term: Lok'kor
+    variants:
+    - lok'kor
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Bindungs-Metall
+      etymology: Bestandsform Lok'kor (schluessel) – Umlaut-Glosse ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v1-lok-kor-umlaut
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schlüssel
+        en:
+        - key
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_lok_kor:
+    term: Lok'kor
+    variants:
+    - lok'kor
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Bindungs-Metall
+      components:
+      - lok
+      - kor
+    review_status: proposed
+    senses:
+    - id: exp-v1-lok-kor
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - kette
+        - ketten
+        - fessel
+        en:
+        - chain
+        - chains
+        - shackle
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_cha_kor:
+    term: Cha'kor
+    variants:
+    - cha'kor
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: glänzendes Erz
+      components:
+      - cha
+      - kor
+    review_status: proposed
+    senses:
+    - id: exp-v1-cha-kor
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schatz
+        - schätze
+        - kostbarkeit
+        en:
+        - treasure
+        - treasures
+        - riches
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_pac_khet:
+    term: Pac'khet
+    variants:
+    - pac'khet
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Ort-der-Dinge
+      components:
+      - pac
+      - khet
+    review_status: proposed
+    senses:
+    - id: exp-v1-pac-khet
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - markt
+        - marktplatz
+        - handelsplatz
+        en:
+        - market
+        - marketplace
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_onak_pac:
+    term: Onak'pac
+    variants:
+    - onak'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Herrschaftsgebiet eines Gottes
+      components:
+      - onak
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-onak-pac
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - reich
+        - imperium
+        - herrschaftsgebiet
+        en:
+        - empire
+        - realm
+        - dominion
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Onak'pac ta Ra.
+        de: Das Reich des Ra.
+        en: The empire of Ra.
+        mode: literal
+  exp_v1_tun_ko:
+    term: Tun'ko
+    variants:
+    - tun'ko
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Viel-Besitz
+      components:
+      - tun
+      - ko
+    review_status: proposed
+    senses:
+    - id: exp-v1-tun-ko
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - reich (wohlhabend)
+        - wohlhabend
+        - vermögend
+        en:
+        - rich
+        - wealthy
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_nesut:
+    term: Nesut
+    variants:
+    - nesut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: König
+      etymology: Ägyptisch nswt (nesut) – König (von Oberägypten)
+    review_status: proposed
+    senses:
+    - id: exp-v1-nesut
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - könig
+        - weltlicher herrscher
+        - fürst
+        en:
+        - king
+        - secular ruler
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_khefti:
+    term: Khefti
+    variants:
+    - khefti
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Feind
+      etymology: Ägyptisch ḫftj (chefti) – Feind, Widersacher
+    review_status: proposed
+    senses:
+    - id: exp-v1-khefti
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - feind
+        - feinde
+        - widersacher
+        - gegner
+        en:
+        - enemy
+        - enemies
+        - adversary
+        - foe
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Kek en khefti ta Onak!
+        de: Tod den Feinden des Gottes!
+        en: Death to the enemies of the god!
+        mode: literal
+  exp_v1_khau:
+    term: Khau
+    variants:
+    - khau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Waffe
+      etymology: Ägyptisch ḫꜥw (chau) – Waffen, Gerät
+    review_status: proposed
+    senses:
+    - id: exp-v1-khau
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - waffe
+        - waffen
+        - bewaffnung
+        en:
+        - weapon
+        - weapons
+        - arms
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kat:
+    term: Kat
+    variants:
+    - kat
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Arbeit
+      etymology: Ägyptisch kꜣt (kat) – Arbeit, Werk
+    review_status: proposed
+    senses:
+    - id: exp-v1-kat
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - arbeit
+        - arbeiten
+        - werk (arbeit)
+        en:
+        - work
+        - labor
+        - to work
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_sekhem:
+    term: Sekhem
+    variants:
+    - sekhem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Kraft
+      etymology: Ägyptisch sḫm (sechem) – Macht, Kraft; Sechem-Zepter
+    review_status: proposed
+    senses:
+    - id: exp-v1-sekhem
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - kraft
+        - macht (physisch)
+        - gewalt (kraft)
+        en:
+        - power (physical)
+        - might
+        - force
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_seneb:
+    term: Seneb
+    variants:
+    - seneb
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Gesundheit
+      etymology: Ägyptisch snb (seneb) – Gesundheit; aus der Grußformel anch-udja-seneb
+    review_status: proposed
+    senses:
+    - id: exp-v1-seneb
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - gesundheit
+        - wohlergehen
+        - heil (gesundheit)
+        en:
+        - health
+        - well-being
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kree_lok:
+    term: Kree'lok
+    variants:
+    - kree'lok
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Befehls-Bindung
+      components:
+      - kree
+      - lok
+    review_status: proposed
+    senses:
+    - id: exp-v1-kree-lok
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - pflicht
+        - verpflichtung
+        - obliegenheit
+        en:
+        - duty
+        - obligation
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_lok_dan:
+    term: Lok'dan
+    variants:
+    - lok'dan
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: wahre Ordnung
+      components:
+      - lok
+      - dan
+    review_status: proposed
+    senses:
+    - id: exp-v1-lok-dan
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - recht
+        - gerechtigkeit (recht)
+        - rechtmäßigkeit
+        en:
+        - justice
+        - right (law)
+        - lawfulness
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_kek_lok:
+    term: Kek'lok
+    variants:
+    - kek'lok
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Todes-Ordnung
+      components:
+      - kek
+      - lok
+    review_status: proposed
+    senses:
+    - id: exp-v1-kek-lok
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - strafe
+        - bestrafung
+        - züchtigung
+        en:
+        - punishment
+        - penalty
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+      examples:
+      - goauld: Kek'lok en Shol'va.
+        de: Strafe für den Verräter.
+        en: Punishment for the traitor.
+        mode: literal
+  exp_v1_udja:
+    term: Udja
+    variants:
+    - udja
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Urteil
+      etymology: Ägyptisch wḏꜥ (udja) – richten, trennen, entscheiden
+    review_status: proposed
+    senses:
+    - id: exp-v1-udja
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - urteil
+        - richten (urteilen)
+        - richtspruch
+        - entscheiden (urteil)
+        en:
+        - judgment
+        - verdict
+        - to judge
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kor_iron:
+    term: Kor
+    variants:
+    - kor
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Eisen
+      etymology: Registry-Root kor (hart/Eisen/Stein) – Glossen 'eisen'/'hart' bislang nicht im Lexikon
+    review_status: proposed
+    senses:
+    - id: exp-v1-kor-iron
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - eisen
+        - hart
+        - erz
+        en:
+        - iron
+        - hard
+        - ore
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_tun_many:
+    term: Tun
+    variants:
+    - tun
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: viel
+      etymology: Registry-Root tun (viel/zahlreich) – Glosse 'viel' bislang nicht im Lexikon
+    review_status: proposed
+    senses:
+    - id: exp-v1-tun-many
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - viel
+        - viele
+        - zahlreich
+        en:
+        - much
+        - many
+        - numerous
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_shel_protect:
+    term: Shel
+    variants:
+    - shel
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schützen
+      etymology: Registry-Root shel (bewachen/schützen) – Glosse 'schützen' bislang nicht im Lexikon
+    review_status: proposed
+    senses:
+    - id: exp-v1-shel-protect
+      pos: verb
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - schützen
+        - bewachen (schützen)
+        - behüten
+        en:
+        - to protect
+        - to guard
+        - to shield
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_dan_correct:
+    term: Dan
+    variants:
+    - dan
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: richtig
+      etymology: Registry-Root dan (gut/wahr/richtig) – Glosse 'richtig' bislang nicht im Lexikon
+    review_status: proposed
+    senses:
+    - id: exp-v1-dan-correct
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - richtig
+        - korrekt
+        - zutreffend
+        en:
+        - correct
+        - right (correct)
+        - accurate
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
+      priority: 55
+  exp_v1_na_dan_false:
+    term: Na'dan
+    variants:
+    - na'dan
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: un-wahr (Grammatik §6)
+      components:
+      - na_prefix
+      - dan
+    review_status: proposed
+    senses:
+    - id: exp-v1-na-dan-false
+      pos: adjective
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - falsch
+        - unwahr
+        - unrichtig
+        en:
+        - 'false'
+        - untrue
+        - wrong
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
+  exp_v1_khemt:
+    term: Khemt
+    variants:
+    - khemt
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Kupfer
+      etymology: Ägyptisch ḥmtj (chemti) – Kupfer
+    review_status: proposed
+    senses:
+    - id: exp-v1-khemt
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - kupfer
+        en:
+        - copper
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hesmen:
+    term: Hesmen
+    variants:
+    - hesmen
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Bronze
+      etymology: Ägyptisch ḥsmn (hesmen) – Bronze; auch Natron
+    review_status: proposed
+    senses:
+    - id: exp-v1-hesmen
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - bronze
+        en:
+        - bronze
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_hedj:
+    term: Hedj
+    variants:
+    - hedj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Silber
+      etymology: Ägyptisch ḥḏ (hedj) – Silber; auch weiß, hell
+    review_status: proposed
+    senses:
+    - id: exp-v1-hedj
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - silber
+        - weißgold
+        - hell (silbern)
+        en:
+        - silver
+        - bright (silvery)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_tjehen:
+    term: Tjehen
+    variants:
+    - tjehen
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glas
+      etymology: Ägyptisch ṯḥnt (tjehenet) – Fayence, glänzendes Glasmaterial
+    review_status: proposed
+    senses:
+    - id: exp-v1-tjehen
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - glas
+        - fayence
+        - glasur
+        en:
+        - glass
+        - faience
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_merhet:
+    term: Merhet
+    variants:
+    - merhet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Öl
+      etymology: Ägyptisch mrḥt (merhet) – Öl, Salböl
+    review_status: proposed
+    senses:
+    - id: exp-v1-merhet
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - öl
+        - salböl
+        en:
+        - oil
+        - unguent
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_irtet:
+    term: Irtet
+    variants:
+    - irtet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Milch
+      etymology: Ägyptisch jrṯt (irtjet) – Milch
+    review_status: proposed
+    senses:
+    - id: exp-v1-irtet
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - milch
+        en:
+        - milk
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
+  exp_v1_kal_pac:
+    term: Kal'pac
+    variants:
+    - kal'pac
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Herz-Ort
+      components:
+      - kal
+      - pac
+    review_status: proposed
+    senses:
+    - id: exp-v1-kal-pac
+      pos: noun
+      category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
+      glosses:
+        de:
+        - mitte
+        - zentrum
+        - mittelpunkt
+        en:
+        - middle
+        - center
+        - midst
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
+      priority: 60
