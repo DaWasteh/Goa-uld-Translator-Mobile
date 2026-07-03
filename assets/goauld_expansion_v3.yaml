@@ -1,0 +1,988 @@
+# ═════════════════════════════════════════════════════════════════════
+#  GOA'ULD SPRACHAUSBAU v3  ·  Overlay-Erweiterung
+#  Beleidigungen, Schimpfwörter & derbe Sprache · 27 Einträge · Layer A/B/C/D
+#  Ladereihenfolge: goauld_overrides.yaml → v1 → v2 → diese Datei.
+# ═════════════════════════════════════════════════════════════════════
+
+metadata:
+  purpose: 'Sprachausbau v3: Beleidigungen, Schimpfwörter, Flüche und vulgäre Sprache (DE/EN)'
+  created: '2026-07-03'
+  updated: '2026-07-03'
+  schema_note: Gleiches Schema wie goauld_overrides.yaml; wird als Overlay nach v2 geladen.
+  design_rules:
+  - 'Canon bleibt dominant: alle Prioritäten <= 60. Bestehende Canon-Beleidigungen (Shol''va,
+    Ha''shak, Goe''nahk, Mikta, Mai''tac, Unas''kal, Kek''kal) bleiben unangetastet.'
+  - 'Layer A (prio 60): fanon_strict-Komposita ausschließlich aus Registry-Roots.'
+  - 'Layer B (prio 55): neue Roots aus ägyptischen Etyma (Phonologie-Mapping: ḫ→kh, š→sh, ḏ→dj,
+    ṯ→tj, ꜣ/ꜥ→a, w→u, j→i).'
+  - 'Layer C (prio 55): Glossen-Nachträge auf bestehende Formen (umgangssprachliche/vulgäre Synonyme).'
+  - 'Layer D (prio 55): fanon_derived-Komposita mit Substrat-/Canon-Roots.'
+  - 'Inhaltliche Leitplanke: allgemeine Vulgär- und Verachtungssprache ja; keine diskriminierenden
+    Slurs gegen reale Gruppen (Ethnie, Religion, Orientierung, Behinderung).'
+  - 'Stilprinzip: Goa''uld beleidigt über Verachtung und Herabsetzung (Wurm, Sklave, Abschaum,
+    Namenloser), nicht über moderne Anatomie-Slurs — vulgäre DE/EN-Glossen mappen auf diese Register.'
+  - 'review_status: proposed — einzeln hebbar oder streichbar.'
+entries:
+
+  # ── LAYER A · prio 60 · Registry-Root-Komposita ──────────────────────
+
+  exp_v3_na_ren:
+    term: Na'ren
+    variants:
+    - na'ren
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: ohne-Name
+      components:
+      - na_prefix
+      - ren
+    review_status: proposed
+    senses:
+    - id: exp-v3-na-ren
+      pos: adjective
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - namenlos
+        - ehrlos
+        - ohne namen
+        en:
+        - nameless
+        - without honor
+        - dishonored
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v3: Kompositum aus Registry-Roots (na + ren); ren = Name/Identität —
+          im ägyptischen Denken ist Namenlosigkeit Auslöschung der Existenz'
+      priority: 60
+
+  exp_v3_na_ren_tar:
+    term: Na'ren'tar
+    variants:
+    - na'ren'tar
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: ohne-Name-Person
+      components:
+      - na_prefix
+      - ren
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-na-ren-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - bastard
+        - hurensohn
+        - namenloser
+        - ehrloser
+        en:
+        - bastard
+        - son of a bitch
+        - nameless one
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v3: Kompositum aus Registry-Roots; schwerste Goa''uld-Beleidigung —
+          jemand ohne Namen hat keine Abstammung und keine Existenz'
+      priority: 60
+      examples:
+      - goauld: Lo Na'ren'tar, hol'mel!
+        de: Du Bastard, verschwinde!
+        en: You bastard, get out!
+        mode: literal
+
+  exp_v3_hol_mel:
+    term: Hol'mel
+    variants:
+    - hol'mel
+    - hol'mel!
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: geh-enden
+      components:
+      - hol
+      - mel
+    review_status: proposed
+    senses:
+    - id: exp-v3-hol-mel
+      pos: interjection
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - verpiss dich
+        - hau ab
+        - verschwinde
+        - zieh leine
+        - schleich dich
+        en:
+        - fuck off
+        - get lost
+        - piss off
+        - beat it
+        - get out
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v3: Kompositum aus Registry-Roots (hol=gehen + mel=enden/sterben) —
+          wörtlich "geh zugrunde"'
+      priority: 60
+      examples:
+      - goauld: Hol'mel, ha'shak!
+        de: Verpiss dich, Schwächling!
+        en: Fuck off, weakling!
+        mode: literal
+
+  # ── LAYER B · prio 55 · Neue ägyptische Substrat-Roots ───────────────
+
+  exp_v3_hesa:
+    term: Hesa
+    variants:
+    - hesa
+    - hesa!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Kot
+      etymology: Ägyptisch ḥs (hes) – Exkrement, Kot
+    review_status: proposed
+    senses:
+    - id: exp-v3-hesa
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - scheiße
+        - mist
+        - kacke
+        - kot
+        - so ein mist
+        en:
+        - shit
+        - crap
+        - dung
+        - bullshit
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (ḥs), Phonologie-Mapping angewandt; auch
+          als Ausruf verwendbar'
+      priority: 55
+      examples:
+      - goauld: Hesa! Chappa'ai kek.
+        de: Scheiße! Das Tor ist tot.
+        en: Shit! The gate is dead.
+        mode: literal
+
+  exp_v3_huru:
+    term: Huru
+    variants:
+    - huru
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: elend
+      etymology: Ägyptisch ḥwrw (huru) – elend, gering, verachtenswert
+    review_status: proposed
+    senses:
+    - id: exp-v3-huru
+      pos: adjective
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - erbärmlich
+        - jämmerlich
+        - armselig
+        - kläglich
+        - lächerlich schwach
+        en:
+        - pathetic
+        - wretched
+        - pitiful
+        - miserable
+        - sorry (pathetic)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (ḥwrw), Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v3_kheza:
+    term: Kheza
+    variants:
+    - kheza
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: niederträchtig
+      etymology: Ägyptisch ẖzj (khezi) – gemein, feige, schwach, verachtenswert
+    review_status: proposed
+    senses:
+    - id: exp-v3-kheza
+      pos: adjective
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - niederträchtig
+        - gemein
+        - verächtlich
+        - schäbig
+        - hinterhältig
+        en:
+        - vile
+        - base
+        - despicable
+        - craven
+        - mean
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (ẖzj), Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v3_khenra:
+    term: Khenra
+    variants:
+    - khenra
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Dirne
+      etymology: Ägyptisch ḫnr (khener) – Harem, Haremsdame; pejorativ verschoben
+    review_status: proposed
+    senses:
+    - id: exp-v3-khenra
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - hure
+        - schlampe
+        - dirne
+        - flittchen
+        en:
+        - whore
+        - slut
+        - bitch
+        - harlot
+        - tramp
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (ḫnr), Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v3_khenesh:
+    term: Khenesh
+    variants:
+    - khenesh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: stinken
+      etymology: Ägyptisch ḫnš (khenesch) – stinken, übel riechen
+    review_status: proposed
+    senses:
+    - id: exp-v3-khenesh
+      pos: verb
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - stinken
+        - gestank
+        - stinkend
+        - müffeln
+        en:
+        - to stink
+        - stench
+        - stinking
+        - to reek
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (ḫnš), Phonologie-Mapping angewandt'
+      priority: 55
+      examples:
+      - goauld: Lo khenesh, unas'kal!
+        de: Du stinkst, Köter!
+        en: You stink, cur!
+        mode: literal
+
+  exp_v3_but:
+    term: But
+    variants:
+    - but
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Abscheu
+      etymology: Ägyptisch bwt (but) – Abscheu, Tabu, Gräuel
+    review_status: proposed
+    senses:
+    - id: exp-v3-but
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - abscheu
+        - gräuel
+        - abscheulich
+        - ekelhaft
+        - widerlich
+        - widerwärtig
+        en:
+        - abomination
+        - loathing
+        - disgusting
+        - revolting
+        - repulsive
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (bwt = religiöses Tabu/Gräuel),
+          Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v3_henen:
+    term: Henen
+    variants:
+    - henen
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Phallus
+      etymology: Ägyptisch ḥnn (henen) – Phallus
+    review_status: proposed
+    senses:
+    - id: exp-v3-henen
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - schwanz (vulgär)
+        - pimmel
+        - penis (derb)
+        en:
+        - dick
+        - prick
+        - cock (vulgar)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: ägyptische Etymologie (ḥnn), Phonologie-Mapping angewandt;
+          vulgäres Register'
+      priority: 55
+
+  # ── LAYER C · prio 55 · Glossen-Nachträge auf Bestandsformen ─────────
+
+  exp_v3_c_goe_nahk_trottel:
+    term: Goe'nahk
+    variants:
+    - goe'nahk
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Idiot
+      etymology: Bestandsform Goe'nahk (Idiot, Canon) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v3-c-goe-nahk
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - trottel
+        - depp
+        - blödmann
+        - schwachkopf
+        - vollidiot
+        - dummkopf
+        en:
+        - moron
+        - dumbass
+        - dimwit
+        - imbecile
+        - halfwit
+        - twit
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v3_c_kek_kal_bloed:
+    term: Kek'kal
+    variants:
+    - kek'kal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: tote-Seele
+      etymology: Bestandsform Kek'kal (dumm/schwachsinnig) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v3-c-kek-kal
+      pos: adjective
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - blöd
+        - bescheuert
+        - dämlich
+        - doof
+        - hirnlos
+        - bekloppt
+        en:
+        - dumb
+        - brainless
+        - dense
+        - daft
+        - dopey
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v3_c_mai_tac_fluch:
+    term: Mai'tac
+    variants:
+    - mai'tac
+    - mai'tac!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: verdammt
+      etymology: Bestandsform Mai'tac (Damn!, Canon SG1) – Fluch-Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v3-c-mai-tac
+      pos: interjection
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - verflucht
+        - verdammt nochmal
+        - verdammte scheiße
+        - zum teufel
+        - mist!
+        en:
+        - damn it
+        - dammit
+        - goddammit
+        - fuck (interjection)
+        - curses
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v3_c_ha_shak_versager:
+    term: Ha'shak
+    variants:
+    - ha'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Schwächling
+      etymology: Bestandsform Ha'shak (Narr/Schwächling, Canon) – Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v3-c-ha-shak
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - versager
+        - weichei
+        - waschlappen
+        - flasche
+        - niete
+        en:
+        - loser
+        - wimp
+        - pushover
+        - weakling (insult)
+        - failure (person)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v3_c_unas_kal_koeter:
+    term: Unas'kal
+    variants:
+    - unas'kal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Unas-Seele
+      etymology: Bestandsform Unas'kal (Hund) – Schimpfwort-Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v3-c-unas-kal
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - köter
+        - mistvieh
+        - drecksköter
+        en:
+        - cur
+        - mongrel
+        - mutt
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  # ── LAYER D · prio 55 · Komposita mit Substrat-/Canon-Roots ──────────
+
+  exp_v3_fentj_tar:
+    term: Fentj'tar
+    variants:
+    - fentj'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Wurm-Person
+      components:
+      - fentj
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-fentj-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - made
+        - ungeziefer
+        - wurm (beleidigung)
+        - kriechendes gewürm
+        en:
+        - maggot
+        - vermin
+        - worm (insult)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (fentj=Wurm + tar=Person) — klassische
+          Goa''uld-Herabsetzung von Menschen'
+      priority: 55
+      examples:
+      - goauld: Kree, fentj'tar!
+        de: Kusch, Made!
+        en: Heel, maggot!
+        mode: literal
+
+  exp_v3_mikta_tar:
+    term: Mikta'tar
+    variants:
+    - mikta'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Hintern-Person
+      components:
+      - mikta
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-mikta-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - arschloch
+        - arsch (person)
+        - wichser
+        - blödes arschloch
+        en:
+        - asshole
+        - ass (person)
+        - jerk
+        - wanker
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (mikta=Hintern [Canon] + tar=Person)'
+      priority: 55
+
+  exp_v3_tak_tar:
+    term: Tak'tar
+    variants:
+    - tak'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Lüge-Person
+      components:
+      - tak
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-tak-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - lügner
+        - betrüger
+        - schwindler
+        - heuchler
+        en:
+        - liar
+        - deceiver
+        - fraud
+        - hypocrite
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (tak=Lüge + tar=Person)'
+      priority: 55
+
+  exp_v3_bak_tar:
+    term: Bak'tar
+    variants:
+    - bak'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Dienen-Person
+      components:
+      - bak
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-bak-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - kriecher
+        - speichellecker
+        - lakai
+        - schleimer
+        en:
+        - bootlicker
+        - lackey
+        - sycophant
+        - toady
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (bak=dienen + tar=Person) — abwertend für
+          unterwürfige Diener'
+      priority: 55
+
+  exp_v3_bin_tar:
+    term: Bin'tar
+    variants:
+    - bin'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: schlecht-Person
+      components:
+      - bin
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-bin-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - schuft
+        - mistkerl
+        - halunke
+        - drecksack
+        - bösewicht
+        - schurke
+        en:
+        - scoundrel
+        - villain
+        - rascal
+        - rogue
+        - dirtbag
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (bin=schlecht/böse + tar=Person)'
+      priority: 55
+
+  exp_v3_paca_le:
+    term: Paca'le
+    variants:
+    - paca'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: klein-intensiv
+      components:
+      - paca
+      - le_suffix
+    review_status: proposed
+    senses:
+    - id: exp-v3-paca-le
+      pos: adjective
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - mickrig
+        - winzig
+        - kümmerlich
+        - popelig
+        - lächerlich klein
+        en:
+        - puny
+        - measly
+        - paltry
+        - tiny (derogatory)
+        - pitifully small
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (paca=klein + le=Intensiv-Suffix) —
+          "so klein, dass es beleidigend ist"'
+      priority: 55
+      examples:
+      - goauld: Lo tel paca'le ha'tak.
+        de: Du hast ein mickriges Schiff.
+        en: You have a puny ship.
+        mode: literal
+
+  exp_v3_kheza_tar:
+    term: Kheza'tar
+    variants:
+    - kheza'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: niederträchtig-Person
+      components:
+      - kheza
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-kheza-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - feigling
+        - duckmäuser
+        - memme
+        - hasenfuß
+        en:
+        - coward
+        - craven (person)
+        - chicken (coward)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (kheza [v3-Root] + tar=Person)'
+      priority: 55
+
+  exp_v3_but_tar:
+    term: But'tar
+    variants:
+    - but'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Abscheu-Person
+      components:
+      - but
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-but-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - missgeburt
+        - scheusal
+        - abscheulicher
+        - monstrum
+        en:
+        - abomination (person)
+        - freak
+        - monstrosity
+        - wretch (vile)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (but [v3-Root, ägypt. Tabu/Gräuel] + tar=Person)'
+      priority: 55
+
+  exp_v3_hesa_tar:
+    term: Hesa'tar
+    variants:
+    - hesa'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kot-Person
+      components:
+      - hesa
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-hesa-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - abschaum
+        - dreckskerl
+        - drecksau
+        - stück scheiße
+        en:
+        - scum
+        - scumbag
+        - piece of shit
+        - filthy wretch
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (hesa [v3-Root] + tar=Person)'
+      priority: 55
+
+  exp_v3_hesa_met:
+    term: Hesa'met
+    variants:
+    - hesa'met
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kot-Substanz
+      components:
+      - hesa
+      - met
+    review_status: proposed
+    senses:
+    - id: exp-v3-hesa-met
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - dreck
+        - schmutz
+        - unrat
+        - müll (abwertend)
+        en:
+        - filth
+        - dirt
+        - muck
+        - grime
+        - garbage (derogatory)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (hesa [v3-Root] + met=Substanz [Registry])'
+      priority: 55
+
+  exp_v3_shu_kal:
+    term: Shu'kal
+    variants:
+    - shu'kal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: leer-Seele
+      components:
+      - shu
+      - kal
+    review_status: proposed
+    senses:
+    - id: exp-v3-shu-kal
+      pos: adjective
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - wertlos
+        - nutzlos
+        - nichtig
+        - zu nichts zu gebrauchen
+        en:
+        - worthless
+        - useless
+        - good-for-nothing
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (shu=leer [v1-Root] + kal=Seele [Registry]) —
+          "mit leerer Seele" = ohne jeden Wert'
+      priority: 55
+
+  exp_v3_huru_tar:
+    term: Huru'tar
+    variants:
+    - huru'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: elend-Person
+      components:
+      - huru
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v3-huru-tar
+      pos: noun
+      category: Sprachausbau v3 (Beleidigungen & derbe Sprache)
+      glosses:
+        de:
+        - wicht
+        - jammergestalt
+        - armseliger wurm
+        - erbärmliche kreatur
+        en:
+        - wretch
+        - pitiful creature
+        - sorry excuse
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v3: Kompositum (huru [v3-Root, ägypt. ḥwrw] + tar=Person)'
+      priority: 55

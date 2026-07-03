@@ -35,6 +35,7 @@ LEXICON_OVERLAY_CANDIDATES = (
     "goauld_overrides.yml",
     "goauld_expansion_v1.yaml",
     "goauld_expansion_v2.yaml",
+    "goauld_expansion_v3.yaml",
 )
 
 
