@@ -413,22 +413,20 @@ entries:
         tier: fanon_strict
         ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
       priority: 60
-  exp_v1_dan_kal:
-    term: Dan'kal
+  exp_v1_nehet:
+    term: Nehet
     variants:
-    - dan'kal
-    register: fanon_strict
+    - nehet
+    register: fanon_derived
     dialect: standard_goauld
-    priority: 60
+    priority: 55
     morphology:
-      type: compound
-      literal: Wahrheit-in-der-Seele
-      components:
-      - dan
-      - kal
+      type: root
+      literal: vertrauen
+      etymology: Ägyptisch nḥt (nehet) – vertrauen, glauben
     review_status: proposed
     senses:
-    - id: exp-v1-dan-kal
+    - id: exp-v1-nehet
       pos: verb
       category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
       glosses:
@@ -441,9 +439,9 @@ entries:
         - belief
         - faith
       source:
-        tier: fanon_strict
-        ref: 'Sprachausbau v1: Kompositum aus Registry-Roots'
-      priority: 60
+        tier: fanon_derived
+        ref: 'Sprachausbau v1: ägyptische Etymologie, Phonologie-Mapping angewandt'
+      priority: 55
   exp_v1_dan_sha_gluecklich:
     term: Dan'sha
     variants:
@@ -3770,22 +3768,22 @@ entries:
         tier: fanon_strict
         ref: 'Sprachausbau v1: Registry-Root-Glosse im Lexikon nachgetragen'
       priority: 55
-  exp_v1_lok_kor:
-    term: Lok'kor
+  exp_v1_meh_kor:
+    term: Meh'kor
     variants:
-    - lok'kor
+    - meh'kor
     register: fanon_strict
     dialect: standard_goauld
     priority: 60
     morphology:
       type: compound
-      literal: Bindungs-Metall
+      literal: Greifendes-Metall
       components:
-      - lok
+      - meh
       - kor
     review_status: proposed
     senses:
-    - id: exp-v1-lok-kor
+    - id: exp-v1-meh-kor
       pos: noun
       category: Sprachausbau v1 (Ägyptisch-Substrat & Root-Komposita)
       glosses:

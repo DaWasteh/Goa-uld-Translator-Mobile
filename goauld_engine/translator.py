@@ -83,6 +83,34 @@ def _direct_goauld_lookup(key: str) -> str | None:
     return DE_GOAULD_MAP.get(key) or EN_GOAULD_MAP.get(key)
 
 
+def _lemma_goauld_lookup(low: str, mapping: dict[str, str]) -> str | None:
+    """
+    Fallback: try German (then English) lemma candidates of an unknown token
+    against the primary maps and the flat fallback mapping.
+
+    Fixes the gap where inflected forms ("opfert", "findet", "schwöre") failed
+    even though the base form ("opfern", "finden", "schwören") is in the lexicon.
+    """
+    from .lemma import (
+        GERMAN_STOP_WORDS, ENGLISH_STOP_WORDS,
+        de_lemma_candidates, en_lemma_candidates,
+    )
+
+    # Funktionswörter (haben/ist/der …) nie über Lemma-Raten übersetzen
+    if low in GERMAN_STOP_WORDS or low in ENGLISH_STOP_WORDS:
+        return None
+
+    for cand in de_lemma_candidates(low)[1:]:
+        hit = _direct_goauld_lookup(cand) or mapping.get(cand)
+        if hit:
+            return hit
+    for cand in en_lemma_candidates(low)[1:]:
+        hit = _direct_goauld_lookup(cand) or mapping.get(cand)
+        if hit:
+            return hit
+    return None
+
+
 def translate_text(text: str, mapping: dict[str, str],
                    direction: str = "goa2de") -> str:
     """Translate free text word-by-word using primary maps plus fallback mapping."""
@@ -112,6 +140,8 @@ def translate_text(text: str, mapping: dict[str, str],
                     continue
             if low in mapping:
                 result.append(preserve_case(tok, mapping[low]))
+            elif direction != "goa2de" and (hit := _lemma_goauld_lookup(low, mapping)):
+                result.append(preserve_case(tok, hit))
             else:
                 result.append(tok)
         else:
