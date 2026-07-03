@@ -47,7 +47,10 @@ def get_app_dir() -> Path:
         "Goa_uld-Wörterbuch.md",
         "Goa_uld-Fictionary.md",
         "Goa_uld-Neologikum.md",
-        "goauld_expansion_v1.yaml"
+        "goauld_expansion_v1.yaml",
+        "goauld_expansion_v2.yaml",
+        "goauld_expansion_v3.yaml",
+        "goauld_expansion_v4.yaml",
     )
 
     # ── Flet-Mobile / Android: Flet sets FLET_ASSETS_DIR; GOAULD_ASSETS_DIR is a manual override.

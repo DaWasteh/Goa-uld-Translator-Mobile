@@ -1,0 +1,662 @@
+# ═════════════════════════════════════════════════════════════════════
+#  GOA'ULD SPRACHAUSBAU v4  ·  Overlay-Erweiterung
+#  Bairische Beleidigungen, Flüche & Kraftausdrücke · 19 Einträge · Layer A/C/D
+#  Ladereihenfolge: overrides → v1 → v2 → v3 → diese Datei.
+# ═════════════════════════════════════════════════════════════════════
+
+metadata:
+  purpose: 'Sprachausbau v4: Bairische Schimpfwörter, Flüche und Kraftausdrücke (Boarisch → Goa''uld)'
+  created: '2026-07-03'
+  updated: '2026-07-03'
+  schema_note: Gleiches Schema wie goauld_overrides.yaml; wird als Overlay nach v3 geladen.
+  design_rules:
+  - 'Canon bleibt dominant: alle Prioritäten <= 60.'
+  - 'Layer A (prio 60): fanon_strict-Komposita ausschließlich aus Registry-Roots.'
+  - 'Layer C (prio 55): bairische Glossen-Nachträge auf bestehende Formen (Canon + v3).'
+  - 'Layer D (prio 55): fanon_derived-Komposita mit Substrat-/Canon-/v3-Roots.'
+  - 'Übersetzungsprinzip: Bairisch flucht blasphemisch über Kruzifix und Herrgott — Goa''uld
+    flucht äquivalent über die (toten) Götter (onak+kek). Semantische Register statt
+    Wort-für-Wort-Übertragung.'
+  - 'Regionalspott (Preiß/Saupreiß) wird als "Zugereister/Fremder" (na+pac+tar) abgebildet —
+    jocular-folkloristisch, kein Slur-Register.'
+  - 'review_status: proposed — einzeln hebbar oder streichbar.'
+entries:
+
+  # ── LAYER A · prio 60 · Registry-Root-Komposita ──────────────────────
+
+  exp_v4_onak_kek:
+    term: Onak'kek
+    variants:
+    - onak'kek
+    - onak'kek!
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gott-Tod
+      components:
+      - onak
+      - kek
+    review_status: proposed
+    senses:
+    - id: exp-v4-onak-kek
+      pos: interjection
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - kreizkruzefix
+        - kruzifix (fluch)
+        - himmelherrgott
+        - himme hergott
+        - himmiherrgott
+        - sakrament (fluch)
+        - kreizsakrament
+        - herrgottsakrament
+        en:
+        - for heaven's sake
+        - by the dead gods
+        - goddammit (blasphemous)
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v4: Kompositum onak+kek — der blasphemische Fluch. Wie der Bayer
+          beim Kruzifix flucht, flucht der Jaffa bei den toten Göttern: "Gott-Tod!" ist die
+          schwerste denkbare Gotteslästerung im Goa''uld-Kult'
+      priority: 60
+      examples:
+      - goauld: Onak'kek! Ha'tak kek.
+        de: Kreizkruzefix! Das Schiff ist hin.
+        en: Goddammit! The ship is done for.
+        mode: literal
+
+  exp_v4_na_pac_tar:
+    term: Na'pac'tar
+    variants:
+    - na'pac'tar
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: nicht-Ort-Person
+      components:
+      - na_prefix
+      - pac
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v4-na-pac-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - preiß
+        - saupreiß
+        - zuagroaster
+        - zugereister
+        - preuße (spöttisch)
+        en:
+        - outsider (derogatory)
+        - northerner (mocking)
+        - interloper
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v4: Kompositum na+pac+tar = "Person nicht von diesem Ort" —
+          folkloristischer Regionalspott: der Fremde von der falschen Seite des Chappa''ai'
+      priority: 60
+      examples:
+      - goauld: Kree, na'pac'tar!
+        de: Obacht, Saupreiß!
+        en: Heel, interloper!
+        mode: literal
+
+  exp_v4_tun_shak_tar:
+    term: Tun'shak'tar
+    variants:
+    - tun'shak'tar
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: viel-Tat-Person
+      components:
+      - tun
+      - shak
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v4-tun-shak-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - gschaftlhuber
+        - gschaftler
+        - wichtigtuer
+        en:
+        - busybody
+        - self-important meddler
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v4: Kompositum tun+shak+tar = "Person vielen Tuns" — der
+          Gschaftlhuber, der überall wichtig herumwerkelt'
+      priority: 60
+
+  exp_v4_eetium_tar:
+    term: Eetium'tar
+    variants:
+    - eetium'tar
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Wissen-Person
+      components:
+      - eetium
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v4-eetium-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - gscheidhaferl
+        - klugscheißer
+        - besserwisser
+        - neunmalgscheiter
+        en:
+        - know-it-all
+        - smart aleck
+        - smartass
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v4: Kompositum eetium+tar = "Wissens-Person", pejorativ gewendet —
+          das Gscheidhaferl'
+      priority: 60
+
+  exp_v4_sha_tok_tar:
+    term: Sha'tok'tar
+    variants:
+    - sha'tok'tar
+    register: fanon_strict
+    dialect: standard_goauld
+    priority: 60
+    morphology:
+      type: compound
+      literal: Gefühl-gegen-Person
+      components:
+      - sha
+      - tok
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v4-sha-tok-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - grantler
+        - grantlhuaba
+        - zwiderwurzn
+        - miesepeter
+        - sauertopf
+        en:
+        - grump
+        - grouch
+        - sourpuss
+      source:
+        tier: fanon_strict
+        ref: 'Sprachausbau v4: Kompositum auf Basis der Bestandsform Sha''tok (zornig) + tar —
+          die Person, deren Grundzustand der Grant ist'
+      priority: 60
+
+  # ── LAYER D · prio 55 · Komposita mit Substrat-/Canon-/v3-Roots ──────
+
+  exp_v4_hesa_meta:
+    term: Hesa'meta
+    variants:
+    - hesa'meta
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kot-Rede
+      components:
+      - hesa
+      - meta
+    review_status: proposed
+    senses:
+    - id: exp-v4-hesa-meta
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - schmarrn
+        - gschmarri
+        - blödsinn
+        - quatsch
+        - dummes gschwätz
+        - geschwafel
+        en:
+        - nonsense
+        - drivel
+        - hogwash
+        - baloney
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: Kompositum hesa (v3) + meta = wörtlich "Kot-Rede" — a Schmarrn
+          hoit'
+      priority: 55
+      examples:
+      - goauld: Lo meta hesa'meta.
+        de: Du redest einen Schmarrn.
+        en: You are talking nonsense.
+        mode: literal
+
+  exp_v4_henen_tar:
+    term: Henen'tar
+    variants:
+    - henen'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Phallus-Person
+      components:
+      - henen
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v4-henen-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - zipfeklatscher
+        - zipfelklatscher
+        - zipfe (schimpfwort)
+        en:
+        - dickhead
+        - knob (insult)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: Kompositum henen (v3, ägypt. ḥnn=Phallus) + tar — exakte
+          Entsprechung des bairischen Zipfeklatschers'
+      priority: 55
+      examples:
+      - goauld: Lo Henen'tar!
+        de: Du Zipfeklatscher!
+        en: You dickhead!
+        mode: literal
+
+  exp_v4_unas_tar:
+    term: Unas'tar
+    variants:
+    - unas'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Unas-Person
+      components:
+      - unas
+      - tar
+    review_status: proposed
+    senses:
+    - id: exp-v4-unas-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - lackl
+        - rüpel
+        - flegel
+        - grobian
+        en:
+        - oaf
+        - lout
+        - brute (person)
+        - boor
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: Kompositum Unas (Canon: urtümliche, grobschlächtige Wirtsspezies)
+          + tar — der Lackl'
+      priority: 55
+
+  # ── LAYER C · prio 55 · Bairische Glossen-Nachträge ──────────────────
+
+  exp_v4_c_goe_nahk_saudepp:
+    term: Goe'nahk
+    variants:
+    - goe'nahk
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Idiot
+      etymology: Bestandsform Goe'nahk (Idiot, Canon) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-goe-nahk
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - saudepp
+        - volldepp
+        - dodl
+        - breznsoiza
+        - doagaff
+        - krullemuck
+        - kasperl
+        en:
+        - numbskull
+        - blockhead
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag. Breznsoiza=Tölpel, Doagaff=
+          Begriffsstutziger; Krullemuck regional unscharf belegt (wunderlicher Kauz/Depp)'
+      priority: 55
+
+  exp_v4_c_kek_kal_damisch:
+    term: Kek'kal
+    variants:
+    - kek'kal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: tote-Seele
+      etymology: Bestandsform Kek'kal (dumm) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-kek-kal
+      pos: adjective
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - damisch
+        - deppert
+        - narrisch
+        - hirnrissig
+        en:
+        - daft
+        - soft in the head
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v4_c_mai_tac_zefix:
+    term: Mai'tac
+    variants:
+    - mai'tac
+    - mai'tac!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: verdammt
+      etymology: Bestandsform Mai'tac (Damn!, Canon SG1) – bairische Flüche ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-mai-tac
+      pos: interjection
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - zefix
+        - sakra
+        - sakradi
+        - herrschaftszeiten
+        - sapperlot
+        - kreizteifi
+        en:
+        - dagnabbit
+        - blast it
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag — die milderen Alltags-Flüche;
+          schwere Blasphemie siehe Onak''kek'
+      priority: 55
+
+  exp_v4_c_hol_mel_schleich_di:
+    term: Hol'mel
+    variants:
+    - hol'mel
+    - hol'mel!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: geh-enden
+      etymology: Bestandsform Hol'mel (verpiss dich, v3) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-hol-mel
+      pos: interjection
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - schleich di
+        - geh weida
+        - pack di
+        - verzupf di
+        - zieh o
+        en:
+        - clear off
+        - shove off
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag auf v3-Form'
+      priority: 55
+
+  exp_v4_c_unas_kal_hundskrippe:
+    term: Unas'kal
+    variants:
+    - unas'kal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Unas-Seele
+      etymology: Bestandsform Unas'kal (Hund/Köter) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-unas-kal
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - hundskrippe
+        - hundskrüppel
+        - hundling
+        - sauhund
+        - mistviech
+        en:
+        - mangy cur
+        - dirty dog
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag. Sauhund kann im Bairischen auch
+          widerwillige Anerkennung ausdrücken ("a Hund bist scho")'
+      priority: 55
+
+  exp_v4_c_hesa_tar_saubaer:
+    term: Hesa'tar
+    variants:
+    - hesa'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kot-Person
+      etymology: Bestandsform Hesa'tar (Abschaum, v3) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-hesa-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - saubär
+        - dreckschleuder
+        - dreckbatzn
+        en:
+        - filthy pig (insult)
+        - mucky wretch
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag auf v3-Form'
+      priority: 55
+
+  exp_v4_c_bin_tar_bazi:
+    term: Bin'tar
+    variants:
+    - bin'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: schlecht-Person
+      etymology: Bestandsform Bin'tar (Schuft, v3) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-bin-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - bazi
+        - strizzi
+        - hallodri
+        - lump
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag. Bazi/Strizzi oft halb anerkennend
+          gemeint (durchtriebener Schlingel)'
+      priority: 55
+
+  exp_v4_c_ha_shak_loamsiada:
+    term: Ha'shak
+    variants:
+    - ha'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Schwächling
+      etymology: Bestandsform Ha'shak (Narr/Schwächling, Canon) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-ha-shak
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - loamsiada
+        - loamsieder
+        - fader hund
+        - schlappschwanz
+        en:
+        - stick-in-the-mud
+        - milksop
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag. Loamsiada = träger, fader Mensch
+          ("Lehmsieder")'
+      priority: 55
+
+  exp_v4_c_khenra_matz:
+    term: Khenra
+    variants:
+    - khenra
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Dirne
+      etymology: Bestandsform Khenra (Hure/Schlampe, v3) – bairisches Synonym ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-khenra
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - matz
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag. Matz kann kontextabhängig auch
+          Lob ausdrücken ("a Matz bist scho, des host guad gmacht")'
+      priority: 55
+
+  exp_v4_c_dal_shak_kree_goschn:
+    term: Dal'shak kree
+    variants:
+    - dal'shak kree
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: phrase
+      literal: Schweigen-Befehl
+      etymology: Bestandsform Dal'shak kree (Halt die Klappe!, Canon) – bairische Varianten ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-dal-shak-kree
+      pos: interjection
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - halt dei goschn
+        - goschn zua
+        - halt's maul
+        en:
+        - shut yer gob
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag auf bestehende Phrase'
+      priority: 55
+
+  exp_v4_c_huru_tar_spinodwachtl:
+    term: Huru'tar
+    variants:
+    - huru'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: elend-Person
+      etymology: Bestandsform Huru'tar (Wicht/Jammergestalt, v3) – bairische Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v4-c-huru-tar
+      pos: noun
+      category: Sprachausbau v4 (Bairische Beleidigungen & Flüche)
+      glosses:
+        de:
+        - spinodwachtl
+        - hascherl (abwertend)
+        - gstalt (armselige)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v4: bairischer Glossen-Nachtrag. Spinodwachtl = schrullige,
+          seltsam wirkende Person ("spinnerte Wachtel")'
+      priority: 55
