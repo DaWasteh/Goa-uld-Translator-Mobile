@@ -106,7 +106,7 @@ adaptive_icon_background = "#0a1628"
 #### Release-Build starten
 
 ```powershell
-cd "H:\LAB\Goa'uld Translator Mobile"
+cd "L:\GitHub\Goa'uld Translator Mobile"
 flet build apk --arch arm64-v8a --clear-cache --verbose --yes
 ```
 
