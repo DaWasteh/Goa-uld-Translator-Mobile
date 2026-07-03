@@ -1,0 +1,3490 @@
+# ═════════════════════════════════════════════════════════════════════
+#  GOA'ULD SPRACHAUSBAU v5  ·  Overlay-Erweiterung
+#  Grundwortschatz-Lücken DE/EN/Bairisch · 68 neue Einträge + 63 Glossen-Nachträge
+#  Ladereihenfolge: overrides → v1 → v2 → v3 → v4 → diese Datei.
+# ═════════════════════════════════════════════════════════════════════
+
+metadata:
+  purpose: 'Sprachausbau v5: systematische Schließung von Grundwortschatz-Lücken (DE/EN/Bairisch) — Zeit,
+    Familie, Richtungen, Alltagsverben/-adjektive, Essen, bairischer Alltag sowie fehlende EN/DE-Glossen
+    auf Bestandsformen'
+  created: '2026-07-03'
+  updated: '2026-07-03'
+  schema_note: Gleiches Schema wie goauld_overrides.yaml; wird als Overlay nach v4 geladen.
+  design_rules:
+  - 'Canon bleibt dominant: alle Prioritäten <= 60; v5 durchgehend konservativ fanon_derived (prio 55).'
+  - 'Neue Roots aus ägyptischen Etyma (Phonologie-Mapping: ḫ→kh, š→sh, ḏ→dj, ṯ→tj, ꜣ/ꜥ→a, w→u, j→i); Komposita
+    aus etablierten Bestandsroots.'
+  - Glossen-Nachträge (Slug-Präfix exp_v5_c_) ergänzen fehlende EN- oder DE-Glossen sowie bairische Synonyme
+    auf bestehenden Formen.
+  - 'Basis: systematischer Lückenscan von Hochfrequenzvokabular DE/EN/Bairisch gegen die Engine inkl.
+    Lemmatizer.'
+  - 'review_status: proposed — einzeln hebbar oder streichbar.'
+entries:
+  exp_v5_metra:
+    term: Metra
+    variants:
+    - metra
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Mittag
+      etymology: Ägyptisch mtr.t (meteret) – Mittag
+    review_status: proposed
+    senses:
+    - id: exp-v5-metra
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - mittag
+        - mittagszeit
+        en:
+        - noon
+        - midday
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (mtr.t)'
+      priority: 55
+  exp_v5_paca_unut:
+    term: Paca'unut
+    variants:
+    - paca'unut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum paca+unut = kleine-Stunde
+      etymology: Kompositum paca+unut = kleine-Stunde
+    review_status: proposed
+    senses:
+    - id: exp-v5-paca-unut
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - minute
+        en:
+        - minute
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (paca=klein + unut=Stunde)'
+      priority: 55
+  exp_v5_noka_cha:
+    term: Noka'cha
+    variants:
+    - noka'cha
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum noka+cha = Zehn-Tage (Dekade)
+      etymology: Kompositum noka+cha = Zehn-Tage (Dekade)
+    review_status: proposed
+    senses:
+    - id: exp-v5-noka-cha
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - woche
+        - dekade
+        en:
+        - week
+        - decade (10 days)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum aus noka (zehn, geclippt aus noka''shem) + cha (Tag, geclippt
+          aus cha''nok) — die ägyptische Zehn-Tage-Woche'
+      priority: 55
+  exp_v5_min:
+    term: Min
+    variants:
+    - min
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: heute
+      etymology: Ägyptisch mjn (min) – heute
+    review_status: proposed
+    senses:
+    - id: exp-v5-min
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - heute
+        en:
+        - today
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (mjn); Anklang an den Gott Min ist zufällig'
+      priority: 55
+  exp_v5_sef:
+    term: Sef
+    variants:
+    - sef
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: gestern
+      etymology: Ägyptisch sf (sef) – gestern
+    review_status: proposed
+    senses:
+    - id: exp-v5-sef
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gestern
+        en:
+        - yesterday
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (sf)'
+      priority: 55
+  exp_v5_duau:
+    term: Duau
+    variants:
+    - duau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: der Morgen, morgen
+      etymology: Ägyptisch dwꜣw (duau) – der Morgen, morgen
+    review_status: proposed
+    senses:
+    - id: exp-v5-duau
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - morgen (adverb)
+        - morgen früh
+        - morgen
+        en:
+        - tomorrow
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (dwꜣw); verwandt mit Dua (Morgen)'
+      priority: 55
+  exp_v5_sep:
+    term: Sep
+    variants:
+    - sep
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Mal, Fall, Gelegenheit
+      etymology: Ägyptisch zp (sep) – Mal, Fall, Gelegenheit
+    review_status: proposed
+    senses:
+    - id: exp-v5-sep
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - mal (gelegenheit)
+        - gelegenheit
+        en:
+        - time (instance)
+        - occasion
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (zp)'
+      priority: 55
+  exp_v5_sep_sep:
+    term: Sep'sep
+    variants:
+    - sep'sep
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Reduplikation von sep = Mal-Mal
+      etymology: Reduplikation von sep = Mal-Mal
+    review_status: proposed
+    senses:
+    - id: exp-v5-sep-sep
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - manchmal
+        - ab und zu
+        - hin und wieder
+        - gelegentlich
+        en:
+        - sometimes
+        - now and then
+        - occasionally
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Reduplikation als Distributiv ("mal um mal")'
+      priority: 55
+  exp_v5_shemu:
+    term: Shemu
+    variants:
+    - shemu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Erntezeit/Trockenzeit
+      etymology: Ägyptisch šmw – Erntezeit/Trockenzeit
+    review_status: proposed
+    senses:
+    - id: exp-v5-shemu
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - sommer
+        en:
+        - summer
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Jahreszeit šmw (Ernte-/Trockenzeit)'
+      priority: 55
+  exp_v5_peret_ter:
+    term: Peret'ter
+    variants:
+    - peret'ter
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum peret+ter = Saat-Zeit
+      etymology: Kompositum peret+ter = Saat-Zeit
+    review_status: proposed
+    senses:
+    - id: exp-v5-peret-ter
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - winter
+        en:
+        - winter
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (peret=Saat [v1] + ter=Zeit) — die ägyptische Jahreszeit prt'
+      priority: 55
+  exp_v5_akhet_ter:
+    term: Akhet'ter
+    variants:
+    - akhet'ter
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum akhet+ter = Flut-Zeit
+      etymology: Kompositum akhet+ter = Flut-Zeit
+    review_status: proposed
+    senses:
+    - id: exp-v5-akhet-ter
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - herbst
+        en:
+        - autumn
+        - fall (season)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (akhet=Horizont/Achet [v2] + ter=Zeit) — die ägyptische Überschwemmungszeit
+          ꜣḫt'
+      priority: 55
+  exp_v5_hau:
+    term: Hau
+    variants:
+    - hau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Überschuss, Mehr
+      etymology: Ägyptisch ḥꜣw – Überschuss, Mehr
+    review_status: proposed
+    senses:
+    - id: exp-v5-hau
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - mehr
+        en:
+        - more
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ḥꜣw = Überfluss)'
+      priority: 55
+  exp_v5_na_hau:
+    term: Na'hau
+    variants:
+    - na'hau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum na+hau = nicht-mehr
+      etymology: Kompositum na+hau = nicht-mehr
+    review_status: proposed
+    senses:
+    - id: exp-v5-na-hau
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - weniger
+        en:
+        - less
+        - fewer
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: na-Präfix-Antonym zu Hau'
+      priority: 55
+  exp_v5_dan_hau:
+    term: Dan'hau
+    variants:
+    - dan'hau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum dan+hau = gutes-Maß
+      etymology: Kompositum dan+hau = gutes-Maß
+    review_status: proposed
+    senses:
+    - id: exp-v5-dan-hau
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - genug
+        - ausreichend
+        en:
+        - enough
+        - sufficient
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (dan=gut + hau=Maß/Menge)'
+      priority: 55
+  exp_v5_mehut:
+    term: Mehut
+    variants:
+    - mehut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Familie, Sippe
+      etymology: Ägyptisch mhwt – Familie, Sippe
+    review_status: proposed
+    senses:
+    - id: exp-v5-mehut
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - familie
+        - sippe
+        en:
+        - family
+        - clan (family)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (mhwt)'
+      priority: 55
+  exp_v5_nekhen:
+    term: Nekhen
+    variants:
+    - nekhen
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Kleinkind, Säugling
+      etymology: Ägyptisch nḫn – Kleinkind, Säugling
+    review_status: proposed
+    senses:
+    - id: exp-v5-nekhen
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - baby
+        - säugling
+        - kleinkind
+        en:
+        - baby
+        - infant
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (nḫn)'
+      priority: 55
+  exp_v5_kal_ma_ma:
+    term: Kal'ma'ma
+    variants:
+    - kal'ma'ma
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Mutter-der-Mutter
+      etymology: Kompositum = Mutter-der-Mutter
+    review_status: proposed
+    senses:
+    - id: exp-v5-kal-ma-ma
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - großmutter
+        - oma
+        en:
+        - grandmother
+        - grandma
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: periphrastisch wie im Ägyptischen (mwt-mwt)'
+      priority: 55
+  exp_v5_kal_pa_pa:
+    term: Kal'pa'pa
+    variants:
+    - kal'pa'pa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Vater-des-Vaters
+      etymology: Kompositum = Vater-des-Vaters
+    review_status: proposed
+    senses:
+    - id: exp-v5-kal-pa-pa
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - großvater
+        - opa
+        en:
+        - grandfather
+        - grandpa
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: periphrastisch wie im Ägyptischen (jt-jt)'
+      priority: 55
+  exp_v5_lok_pa_pa:
+    term: Lok'pa'pa
+    variants:
+    - lok'pa'pa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Bruder-des-Vaters
+      etymology: Kompositum = Bruder-des-Vaters
+    review_status: proposed
+    senses:
+    - id: exp-v5-lok-pa-pa
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - onkel
+        en:
+        - uncle
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: periphrastisch (sn-jt = Bruder des Vaters); vereinfachend für beide Linien'
+      priority: 55
+  exp_v5_lok_ma_pa:
+    term: Lok'ma'pa
+    variants:
+    - lok'ma'pa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Schwester-des-Vaters
+      etymology: Kompositum = Schwester-des-Vaters
+    review_status: proposed
+    senses:
+    - id: exp-v5-lok-ma-pa
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - tante
+        en:
+        - aunt
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: periphrastisch (sn.t-jt); vereinfachend für beide Linien'
+      priority: 55
+  exp_v5_sheri:
+    term: Sheri
+    variants:
+    - sheri
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Junge, Knabe
+      etymology: Ägyptisch šrj – Junge, Knabe
+    review_status: proposed
+    senses:
+    - id: exp-v5-sheri
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - junge
+        - bub
+        - bua
+        - knabe
+        en:
+        - boy
+        - lad
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (šrj); bairisch Bua'
+      priority: 55
+  exp_v5_sherit:
+    term: Sherit
+    variants:
+    - sherit
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Mädchen
+      etymology: Ägyptisch šrj.t – Mädchen
+    review_status: proposed
+    senses:
+    - id: exp-v5-sherit
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - mädchen
+        - madl
+        - dirndl (mädchen)
+        - deandl
+        - dirndl
+        en:
+        - girl
+        - lass
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (šrj.t); bairisch Madl/Dirndl'
+      priority: 55
+  exp_v5_pesed:
+    term: Pesed
+    variants:
+    - pesed
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Rücken
+      etymology: Ägyptisch psḏ – Rücken
+    review_status: proposed
+    senses:
+    - id: exp-v5-pesed
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - rücken
+        en:
+        - back (body)
+        - back
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (psḏ), gekürzt zur Kollisionsvermeidung'
+      priority: 55
+  exp_v5_heret:
+    term: Heret
+    variants:
+    - heret
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Gesicht
+      etymology: Ägyptisch ḥr – Gesicht
+    review_status: proposed
+    senses:
+    - id: exp-v5-heret
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gesicht
+        - antlitz
+        en:
+        - face
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ḥr + Femininendung)'
+      priority: 55
+  exp_v5_tjau:
+    term: Tjau
+    variants:
+    - tjau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Luft, Atem, Hauch
+      etymology: Ägyptisch ṯꜣw – Luft, Atem, Hauch
+    review_status: proposed
+    senses:
+    - id: exp-v5-tjau
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - luft
+        - atem
+        - hauch
+        en:
+        - air
+        - breath
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ṯꜣw)'
+      priority: 55
+  exp_v5_tjau_ryn:
+    term: Tjau'ryn
+    variants:
+    - tjau'ryn
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum tjau+ryn = Luft-Lage
+      etymology: Kompositum tjau+ryn = Luft-Lage
+    review_status: proposed
+    senses:
+    - id: exp-v5-tjau-ryn
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - wetter
+        en:
+        - weather
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (tjau [v5] + ryn-Nominalsuffix)'
+      priority: 55
+  exp_v5_satu:
+    term: Satu
+    variants:
+    - satu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Erdboden, Land
+      etymology: Ägyptisch sꜣtw – Erdboden, Land
+    review_status: proposed
+    senses:
+    - id: exp-v5-satu
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - land
+        - gebiet
+        - territorium
+        en:
+        - land
+        - territory
+        - country
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (sꜣtw); tꜣ selbst ist bereits als Pronomen belegt'
+      priority: 55
+  exp_v5_nakht_khet:
+    term: Nakht'khet
+    variants:
+    - nakht'khet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum nakht+khet = Kraft-Tier
+      etymology: Kompositum nakht+khet = Kraft-Tier
+    review_status: proposed
+    senses:
+    - id: exp-v5-nakht-khet
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - bär
+        en:
+        - bear
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: deskriptives Kompositum (nakht=Kraft/Sieg + khet aus ska''khet=Tier); kein
+          gesichertes ägypt. Etymon für Bär'
+      priority: 55
+  exp_v5_iba:
+    term: Iba
+    variants:
+    - iba
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Zicklein, Ziege
+      etymology: Ägyptisch jb – Zicklein, Ziege
+    review_status: proposed
+    senses:
+    - id: exp-v5-iba
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - ziege
+        - zicklein
+        en:
+        - goat
+        - kid (goat)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (jb)'
+      priority: 55
+  exp_v5_tal_ryn_kor:
+    term: Tal'ryn'kor
+    variants:
+    - tal'ryn'kor
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Vogel-des-Hauses
+      etymology: Kompositum = Vogel-des-Hauses
+    review_status: proposed
+    senses:
+    - id: exp-v5-tal-ryn-kor
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - huhn
+        - henne
+        - hendl
+        en:
+        - chicken
+        - hen
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: deskriptiv "Hausvogel" — Hühner kamen erst spät nach Ägypten; bairisch
+          Hendl'
+      priority: 55
+  exp_v5_at:
+    term: At
+    variants:
+    - at
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Kammer, Raum
+      etymology: Ägyptisch ꜥt – Kammer, Raum
+    review_status: proposed
+    senses:
+    - id: exp-v5-at
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - zimmer
+        - kammer
+        - raum (zimmer)
+        en:
+        - room
+        - chamber
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ꜥt)'
+      priority: 55
+  exp_v5_henit:
+    term: Henit
+    variants:
+    - henit
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Speer, Lanze
+      etymology: Ägyptisch ḥnyt – Speer, Lanze
+    review_status: proposed
+    senses:
+    - id: exp-v5-henit
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - speer
+        - lanze
+        en:
+        - spear
+        - lance
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ḥnyt)'
+      priority: 55
+  exp_v5_meses:
+    term: Meses
+    variants:
+    - meses
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Hemd, Tunika
+      etymology: Ägyptisch mss – Hemd, Tunika
+    review_status: proposed
+    senses:
+    - id: exp-v5-meses
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - hemd
+        - tunika
+        en:
+        - shirt
+        - tunic
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (mss)'
+      priority: 55
+  exp_v5_hol_hebes:
+    term: Hol'hebes
+    variants:
+    - hol'hebes
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Bein-Kleid
+      etymology: Kompositum = Bein-Kleid
+    review_status: proposed
+    senses:
+    - id: exp-v5-hol-hebes
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - hose
+        en:
+        - trousers
+        - pants
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (hol aus hol''ryn=Bein + hebes=Kleidung) — deskriptiv, Ägypter
+          kannten keine Hosen'
+      priority: 55
+  exp_v5_shat:
+    term: Shat
+    variants:
+    - shat
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Brief, Dokument
+      etymology: Ägyptisch šꜥt – Brief, Dokument
+    review_status: proposed
+    senses:
+    - id: exp-v5-shat
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - brief
+        - schreiben (dokument)
+        - dokument
+        en:
+        - letter (mail)
+        - document
+        - letter
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (šꜥt)'
+      priority: 55
+  exp_v5_satu_sesh:
+    term: Satu'sesh
+    variants:
+    - satu'sesh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Land-Schrift
+      etymology: Kompositum = Land-Schrift
+    review_status: proposed
+    senses:
+    - id: exp-v5-satu-sesh
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - karte (landkarte)
+        - landkarte
+        - plan (karte)
+        - karte
+        en:
+        - map
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (satu [v5] + sesh=schreiben)'
+      priority: 55
+  exp_v5_irtet_met:
+    term: Irtet'met
+    variants:
+    - irtet'met
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Milch-Substanz
+      etymology: Kompositum = Milch-Substanz
+    review_status: proposed
+    senses:
+    - id: exp-v5-irtet-met
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - käse
+        - obazda (käsezubereitung)
+        en:
+        - cheese
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (irtet=Milch + met=Substanz); bairisch Obazda als Zubereitung'
+      priority: 55
+  exp_v5_rer_met:
+    term: Rer'met
+    variants:
+    - rer'met
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Schwein-Substanz
+      etymology: Kompositum = Schwein-Substanz
+    review_status: proposed
+    senses:
+    - id: exp-v5-rer-met
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - wurst
+        - weißwurscht
+        - weißwurst
+        - bratwurst
+        en:
+        - sausage
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (rer=Schwein + met=Substanz); inkl. der Königin der Würste'
+      priority: 55
+  exp_v5_depeh:
+    term: Depeh
+    variants:
+    - depeh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Apfel
+      etymology: Ägyptisch dpḥ – Apfel
+    review_status: proposed
+    senses:
+    - id: exp-v5-depeh
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - apfel
+        en:
+        - apple
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (dpḥ)'
+      priority: 55
+  exp_v5_henket_kor:
+    term: Henket'kor
+    variants:
+    - henket'kor
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Bier-Haus
+      etymology: Kompositum = Bier-Haus
+    review_status: proposed
+    senses:
+    - id: exp-v5-henket-kor
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - wirtshaus
+        - gasthaus
+        - schenke
+        - taverne
+        - kneipe
+        - biergarten
+        en:
+        - tavern
+        - pub
+        - inn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (henket=Bier + kor=Haus) — das ägyptische pr-ḥqt, quasi der
+          Ur-Biergarten'
+      priority: 55
+  exp_v5_wenen:
+    term: Wenen
+    variants:
+    - wenen
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: sein, existieren
+      etymology: Ägyptisch wnn – sein, existieren
+    review_status: proposed
+    senses:
+    - id: exp-v5-wenen
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - sein (existieren)
+        - existieren
+        - sein
+        en:
+        - to be
+        - to exist
+        - be
+        - exist
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (wnn)'
+      priority: 55
+  exp_v5_kher:
+    term: Kher
+    variants:
+    - kher
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: unter/tragend, idiomatisch besitzen
+      etymology: Ägyptisch ẖr – unter/tragend, idiomatisch besitzen
+    review_status: proposed
+    senses:
+    - id: exp-v5-kher
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - haben
+        - besitzen
+        en:
+        - to have
+        - to possess
+        - to own
+        - have
+        - possess
+        - own
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ẖr) — Ägyptisch drückt Besitz periphrastisch aus'
+      priority: 55
+  exp_v5_res:
+    term: Res
+    variants:
+    - res
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: erwachen, wachen
+      etymology: Ägyptisch rs – erwachen, wachen
+    review_status: proposed
+    senses:
+    - id: exp-v5-res
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - aufwachen
+        - erwachen
+        - wachen
+        - wach
+        en:
+        - to wake
+        - to awaken
+        - awake
+        - wake
+        - awaken
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (rs)'
+      priority: 55
+  exp_v5_sen:
+    term: Sen
+    variants:
+    - sen
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: küssen (riechen)
+      etymology: Ägyptisch sn – küssen (riechen)
+    review_status: proposed
+    senses:
+    - id: exp-v5-sen
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - küssen
+        - kuss
+        - bussi
+        - busserl
+        en:
+        - to kiss
+        - kiss
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (sn = küssen/riechen — Ägypter "küssten" mit der
+          Nase); bairisch Bussi'
+      priority: 55
+  exp_v5_khenem:
+    term: Khenem
+    variants:
+    - khenem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: sich vereinen, umschließen
+      etymology: Ägyptisch ẖnm – sich vereinen, umschließen
+    review_status: proposed
+    senses:
+    - id: exp-v5-khenem
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - umarmen
+        - umarmung
+        en:
+        - to hug
+        - to embrace
+        - embrace
+        - hug
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ẖnm)'
+      priority: 55
+  exp_v5_qeb:
+    term: Qeb
+    variants:
+    - qeb
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: kalt/kühl sein
+      etymology: Ägyptisch qbb – kalt/kühl sein
+    review_status: proposed
+    senses:
+    - id: exp-v5-qeb
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - frieren
+        - erfrieren
+        en:
+        - to freeze
+        - to be cold
+        - freeze
+        - be cold
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (qbb)'
+      priority: 55
+  exp_v5_serudj:
+    term: Serudj
+    variants:
+    - serudj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: instand setzen, festmachen
+      etymology: Ägyptisch srwḏ – instand setzen, festmachen
+    review_status: proposed
+    senses:
+    - id: exp-v5-serudj
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - reparieren
+        - instand setzen
+        - richten (reparieren)
+        en:
+        - to repair
+        - to fix
+        - to mend
+        - repair
+        - fix
+        - mend
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (srwḏ)'
+      priority: 55
+  exp_v5_meta_wab:
+    term: Meta'wab
+    variants:
+    - meta'wab
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = rein-sprechen
+      etymology: Kompositum = rein-sprechen
+    review_status: proposed
+    senses:
+    - id: exp-v5-meta-wab
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - erklären
+        - erläutern
+        en:
+        - to explain
+        - to clarify
+        - explain
+        - clarify
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (meta=sprechen + wab=rein) — "klar sprechen"'
+      priority: 55
+  exp_v5_hetep_ko:
+    term: Hetep'ko
+    variants:
+    - hetep'ko
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Frieden-geben
+      etymology: Kompositum = Frieden-geben
+    review_status: proposed
+    senses:
+    - id: exp-v5-hetep-ko
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - vergeben
+        - verzeihen
+        en:
+        - to forgive
+        - to pardon
+        - forgive
+        - pardon
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (hetep=ruhen/Frieden [v2] + ko=geben/übertragen)'
+      priority: 55
+  exp_v5_umet:
+    term: Umet
+    variants:
+    - umet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: dick, massiv
+      etymology: Ägyptisch wmt – dick, massiv
+    review_status: proposed
+    senses:
+    - id: exp-v5-umet
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - dick
+        - massig
+        en:
+        - thick
+        - fat (thick)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (wmt)'
+      priority: 55
+  exp_v5_gau:
+    term: Gau
+    variants:
+    - gau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: eng, dünn, Mangel
+      etymology: Ägyptisch gꜣw – eng, dünn, Mangel
+    review_status: proposed
+    senses:
+    - id: exp-v5-gau
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - dünn
+        - mager
+        en:
+        - thin
+        - skinny
+        - lean
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (gꜣw)'
+      priority: 55
+  exp_v5_wer:
+    term: Wer
+    variants:
+    - wer
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: groß, bedeutend
+      etymology: Ägyptisch wr – groß, bedeutend
+    review_status: proposed
+    senses:
+    - id: exp-v5-wer
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - wichtig
+        - bedeutend
+        en:
+        - important
+        - significant
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (wr = groß/Großer)'
+      priority: 55
+  exp_v5_shepes:
+    term: Shepes
+    variants:
+    - shepes
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: edel, kostbar
+      etymology: Ägyptisch šps – edel, kostbar
+    review_status: proposed
+    senses:
+    - id: exp-v5-shepes
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - teuer
+        - kostbar
+        - edel (kostbar)
+        en:
+        - expensive
+        - precious
+        - costly
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (šps)'
+      priority: 55
+  exp_v5_na_shepes:
+    term: Na'shepes
+    variants:
+    - na'shepes
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum na+shepes = nicht-kostbar
+      etymology: Kompositum na+shepes = nicht-kostbar
+    review_status: proposed
+    senses:
+    - id: exp-v5-na-shepes
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - billig
+        - wohlfeil
+        en:
+        - cheap
+        - inexpensive
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: na-Präfix-Antonym zu Shepes'
+      priority: 55
+  exp_v5_kem:
+    term: Kem
+    variants:
+    - kem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: vollenden
+      etymology: Ägyptisch km – vollenden
+    review_status: proposed
+    senses:
+    - id: exp-v5-kem
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - fertig
+        - vollendet
+        - abgeschlossen
+        en:
+        - ready
+        - finished
+        - complete
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (km = vollenden; homonym zu km=schwarz/Kemet)'
+      priority: 55
+  exp_v5_sekher:
+    term: Sekher
+    variants:
+    - sekher
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Plan, Absicht
+      etymology: Ägyptisch sḫr – Plan, Absicht
+    review_status: proposed
+    senses:
+    - id: exp-v5-sekher
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - ziel
+        - absicht
+        - vorhaben
+        en:
+        - goal
+        - aim
+        - intention
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (sḫr)'
+      priority: 55
+  exp_v5_sha_meta_tal:
+    term: Sha'meta'tal
+    variants:
+    - sha'meta'tal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = Denk-Ding
+      etymology: Kompositum = Denk-Ding
+    review_status: proposed
+    senses:
+    - id: exp-v5-sha-meta-tal
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gedanke
+        - idee
+        - einfall
+        en:
+        - thought
+        - idea
+        - notion
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (sha''meta=denken + tal-Nominalelement wie in tak''tal)'
+      priority: 55
+  exp_v5_heri:
+    term: Heri
+    variants:
+    - heri
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: oben, über
+      etymology: Ägyptisch ḥry – oben, über
+    review_status: proposed
+    senses:
+    - id: exp-v5-heri
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - oben
+        - oberhalb
+        en:
+        - up
+        - above
+        - on top
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ḥry)'
+      priority: 55
+  exp_v5_kheri:
+    term: Kheri
+    variants:
+    - kheri
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: unten, unter
+      etymology: Ägyptisch ẖry – unten, unter
+    review_status: proposed
+    senses:
+    - id: exp-v5-kheri
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - unten
+        - unterhalb
+        en:
+        - down
+        - below
+        - beneath
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ẖry) — Gegenstück zu Heri'
+      priority: 55
+  exp_v5_iabi:
+    term: Iabi
+    variants:
+    - iabi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: links
+      etymology: Ägyptisch jꜣby – links
+    review_status: proposed
+    senses:
+    - id: exp-v5-iabi
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - links
+        en:
+        - left (direction)
+        - left
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (jꜣby); wörtlich die Ostseite — Ägypter orientierten
+          sich nach Süden'
+      priority: 55
+  exp_v5_unemi:
+    term: Unemi
+    variants:
+    - unemi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: rechts
+      etymology: Ägyptisch wnmy – rechts
+    review_status: proposed
+    senses:
+    - id: exp-v5-unemi
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - rechts
+        en:
+        - right (direction)
+        - right
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (wnmy)'
+      priority: 55
+  exp_v5_khenu:
+    term: Khenu
+    variants:
+    - khenu
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: das Innere
+      etymology: Ägyptisch ẖnw – das Innere
+    review_status: proposed
+    senses:
+    - id: exp-v5-khenu
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - innen
+        - drinnen
+        - inneres
+        en:
+        - inside
+        - within
+        - interior
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (ẖnw)'
+      priority: 55
+  exp_v5_ruti:
+    term: Ruti
+    variants:
+    - ruti
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: außen, draußen
+      etymology: Ägyptisch rwty – außen, draußen
+    review_status: proposed
+    senses:
+    - id: exp-v5-ruti
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - außen
+        - draußen
+        en:
+        - outside
+        - outdoors
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (rwty)'
+      priority: 55
+  exp_v5_mok_ta_pac:
+    term: Mok'ta'pac
+    variants:
+    - mok'ta'pac
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kompositum = alle-Orte
+      etymology: Kompositum = alle-Orte
+    review_status: proposed
+    senses:
+    - id: exp-v5-mok-ta-pac
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - überall
+        en:
+        - everywhere
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Kompositum (mok''ta=alle + pac=Ort)'
+      priority: 55
+  exp_v5_mehet:
+    term: Mehet
+    variants:
+    - mehet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Norden
+      etymology: Ägyptisch mḥt – Norden
+    review_status: proposed
+    senses:
+    - id: exp-v5-mehet
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - norden
+        en:
+        - north
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (mḥt = Unterägypten/Norden)'
+      priority: 55
+  exp_v5_resi:
+    term: Resi
+    variants:
+    - resi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Süden
+      etymology: Ägyptisch rsy – Süden
+    review_status: proposed
+    senses:
+    - id: exp-v5-resi
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - süden
+        en:
+        - south
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (rsy = Oberägypten/Süden)'
+      priority: 55
+  exp_v5_iabet:
+    term: Iabet
+    variants:
+    - iabet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Osten
+      etymology: Ägyptisch jꜣbtt – Osten
+    review_status: proposed
+    senses:
+    - id: exp-v5-iabet
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - osten
+        en:
+        - east
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (jꜣbtt) — die Seite des Sonnenaufgangs'
+      priority: 55
+  exp_v5_imenet:
+    term: Imenet
+    variants:
+    - imenet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Westen
+      etymology: Ägyptisch jmntt – Westen
+    review_status: proposed
+    senses:
+    - id: exp-v5-imenet
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - westen
+        en:
+        - west
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: ägyptische Etymologie (jmntt) — die Seite der Toten; im Goa''uld-Kult entsprechend
+          unheilvoll konnotiert'
+      priority: 55
+  exp_v5_c_nok:
+    term: Nok
+    variants:
+    - nok
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nok – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nok
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to become
+        - become
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_kel_meta:
+    term: Kel'meta
+    variants:
+    - kel'meta
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Kel'meta – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-kel-meta
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to ask
+        - question
+        - ask
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_nehet:
+    term: Nehet
+    variants:
+    - nehet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nehet – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nehet
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to believe
+        - believe
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_nehep:
+    term: Nehep
+    variants:
+    - nehep
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nehep – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nehep
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to jump
+        - to leap
+        - jump
+        - leap
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_hol_kher:
+    term: Hol'kher
+    variants:
+    - hol'kher
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Hol'kher – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-hol-kher
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to fall
+        - fall
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_hol_ai:
+    term: Hol'ai
+    variants:
+    - hol'ai
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Hol'ai – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-hol-ai
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to climb
+        - to ascend
+        - climb
+        - ascend
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_re_ko:
+    term: Re'ko
+    variants:
+    - re'ko
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Re'ko – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-re-ko
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to bring
+        - to fetch
+        - bring
+        - fetch
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_yu_yu_ryn:
+    term: Yu'yu'ryn
+    variants:
+    - yu'yu'ryn
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Yu'yu'ryn – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-yu-yu-ryn
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to seek
+        - to search
+        - seek
+        - search
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_gem:
+    term: Gem
+    variants:
+    - gem
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Gem – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-gem
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to find
+        - find
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_na_nakht:
+    term: Na'nakht
+    variants:
+    - na'nakht
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Na'nakht – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-na-nakht
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to lose
+        - lose
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_nakht:
+    term: Nakht
+    variants:
+    - nakht
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nakht – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nakht
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to win
+        - victory
+        - win
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sha_shak:
+    term: Sha'shak
+    variants:
+    - sha'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sha'shak – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sha-shak
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to play
+        - play
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sebet:
+    term: Sebet
+    variants:
+    - sebet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sebet – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sebet
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to laugh
+        - laughter
+        - laugh
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_remi:
+    term: Remi
+    variants:
+    - remi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Remi – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-remi
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to cry
+        - to weep
+        - cry
+        - weep
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_meta_le:
+    term: Meta'le
+    variants:
+    - meta'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Meta'le – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-meta-le
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to scream
+        - to shout
+        - to yell
+        - scream
+        - shout
+        - yell
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_hesi:
+    term: Hesi
+    variants:
+    - hesi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Hesi – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-hesi
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to sing
+        - sing
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sedj:
+    term: Sedj
+    variants:
+    - sedj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sedj – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sedj
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to break
+        - break
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sam_pak_shesh:
+    term: Sam'pak'shesh
+    variants:
+    - sam'pak'shesh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sam'pak'shesh – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sam-pak-shesh
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to buy
+        - to purchase
+        - buy
+        - purchase
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_ko_mel:
+    term: Ko'mel
+    variants:
+    - ko'mel
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Ko'mel – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-ko-mel
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to sell
+        - sell
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_ko_eetium:
+    term: Ko'eetium
+    variants:
+    - ko'eetium
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Ko'eetium – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-ko-eetium
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to learn
+        - learn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_shedi:
+    term: Shedi
+    variants:
+    - shedi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Shedi – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-shedi
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to read
+        - read
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sesh:
+    term: Sesh
+    variants:
+    - sesh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sesh – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sesh
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to write
+        - write
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_heseb:
+    term: Heseb
+    variants:
+    - heseb
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Heseb – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-heseb
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to count
+        - to calculate
+        - count
+        - calculate
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_khai:
+    term: Khai
+    variants:
+    - khai
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Khai – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-khai
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to measure
+        - measure
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_meh:
+    term: Meh
+    variants:
+    - meh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Meh – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-meh
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to catch
+        - to seize
+        - catch
+        - seize
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_iteh:
+    term: Iteh
+    variants:
+    - iteh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Iteh – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-iteh
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to pull
+        - to drag
+        - pull
+        - drag
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_tok_shak:
+    term: Tok'shak
+    variants:
+    - tok'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Tok'shak – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-tok-shak
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to push
+        - to press
+        - push
+        - press
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_hui:
+    term: Hui
+    variants:
+    - hui
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Hui – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-hui
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - watschn
+        - ohrfeige
+        - backpfeife
+        - schelle
+        en:
+        - to hit
+        - to strike
+        - slap
+        - hit
+        - strike
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: die Watschn'
+      priority: 55
+  exp_v5_c_red_shak:
+    term: Red'shak
+    variants:
+    - red'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Red'shak – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-red-shak
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to kick
+        - kick
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_men:
+    term: Men
+    variants:
+    - men
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Men – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-men
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to stay
+        - to remain
+        - stay
+        - remain
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_mel_hol:
+    term: Mel'hol
+    variants:
+    - mel'hol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Mel'hol – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-mel-hol
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to leave
+        - to depart
+        - leave
+        - depart
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_kree_hol_v:
+    term: Kree'hol
+    variants:
+    - kree'hol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Kree'hol – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-kree-hol-v
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to travel
+        - to journey
+        - travel
+        - journey
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_re_pac:
+    term: Re'pac
+    variants:
+    - re'pac
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Re'pac – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-re-pac
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to arrive
+        - arrive
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_nok_shak:
+    term: Nok'shak
+    variants:
+    - nok'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nok'shak – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nok-shak
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to begin
+        - to start
+        - begin
+        - start
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_yu_ko:
+    term: Yu'ko
+    variants:
+    - yu'ko
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Yu'ko – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-yu-ko
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to show
+        - show
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_dua:
+    term: Dua
+    variants:
+    - dua
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Dua – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-dua
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - morgen (tageszeit)
+        en:
+        - to thank
+        - thank
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_meta_hetep:
+    term: Meta'hetep
+    variants:
+    - meta'hetep
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Meta'hetep – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-meta-hetep
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - to greet
+        - greeting
+        - greet
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_ko_ryn:
+    term: Ko'ryn
+    variants:
+    - ko'ryn
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Ko'ryn – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-ko-ryn
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        en:
+        - poor
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_dan:
+    term: Dan
+    variants:
+    - dan
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Dan – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-dan
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - zünftig
+        en:
+        - right (correct)
+        - correct
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch zünftig = richtig/ordentlich'
+      priority: 55
+  exp_v5_c_dan_sha:
+    term: Dan'sha
+    variants:
+    - dan'sha
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Dan'sha – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-dan-sha
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gaudi
+        - spaß
+        - hetz
+        en:
+        - luck
+        - fun
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: die Gaudi'
+      priority: 55
+  exp_v5_c_chappa_met_ryn:
+    term: Chappa'met'ryn
+    variants:
+    - chappa'met'ryn
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Chappa'met'ryn – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-chappa-met-ryn
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - frühling
+        - lenz
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_skanat_kal:
+    term: Skanat'kal
+    variants:
+    - skanat'kal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Skanat'kal – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-skanat-kal
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - mahlzeit
+        - brotzeit
+        - schmankerl
+        - leckerbissen
+        en:
+        - snack
+        - treat
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: Brotzeit und Schmankerl'
+      priority: 55
+  exp_v5_c_met_ko_ryn:
+    term: Met'ko'ryn
+    variants:
+    - met'ko'ryn
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Met'ko'ryn – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-met-ko-ryn
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - stoff
+        - gewebe
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sha_meta_le:
+    term: Sha'meta'le
+    variants:
+    - sha'meta'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sha'meta'le – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sha-meta-le
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - grund
+        - ursache
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_hat:
+    term: Hat
+    variants:
+    - hat
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Hat – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-hat
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - vorne
+        - vorn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_em_sa:
+    term: Em'sa
+    variants:
+    - em'sa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Em'sa – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-em-sa
+      pos: adverb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - hinten
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_sepet:
+    term: Sepet
+    variants:
+    - sepet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Sepet – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-sepet
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - rand
+        - kante
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_wab:
+    term: Wab
+    variants:
+    - wab
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Wab – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-wab
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - putzen
+        - säubern
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_chel_hol:
+    term: Chel hol
+    variants:
+    - chel hol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Chel hol – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-chel-hol
+      pos: interjection
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - servus
+        - grias di
+        - griaß eich
+        - habedere
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairische Grußformeln'
+      priority: 55
+  exp_v5_c_lek_tol:
+    term: Lek tol
+    variants:
+    - lek tol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Lek tol – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-lek-tol
+      pos: interjection
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - pfiat di
+        - pfiat eich
+        - pfiat gott
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairische Abschiedsformeln'
+      priority: 55
+  exp_v5_c_henket:
+    term: Henket
+    variants:
+    - henket
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Henket – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-henket
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - radler
+        - halbe (bier)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairische Bierkultur; Radler als
+          Näherung'
+      priority: 55
+  exp_v5_c_meta:
+    term: Meta
+    variants:
+    - meta
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Meta – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-meta
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - ratschen
+        - tratschen
+        - plaudern
+        - ratsch
+        en:
+        - to chat
+        - to gossip
+        - chat
+        - gossip
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: der Ratsch'
+      priority: 55
+  exp_v5_c_nefer:
+    term: Nefer
+    variants:
+    - nefer
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nefer – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nefer
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - fesch
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch fesch = hübsch/schick'
+      priority: 55
+  exp_v5_c_mel_ryn_le:
+    term: Mel'ryn'le
+    variants:
+    - mel'ryn'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Mel'ryn'le – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-mel-ryn-le
+      pos: adjective
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gschwind
+        - zackig
+        - hurtig
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch gschwind = schnell'
+      priority: 55
+  exp_v5_c_kree_hol_g:
+    term: Kree hol
+    variants:
+    - kree hol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Kree hol – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-kree-hol-g
+      pos: interjection
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gemma
+        - auf geht's
+        - los geht's
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch gemma = gehen wir'
+      priority: 55
+  exp_v5_c_shal_met:
+    term: Shal met
+    variants:
+    - shal met
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Shal met – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-shal-met
+      pos: interjection
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - oans zwoa gsuffa
+        - zum wohl
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairischer Trinkspruch'
+      priority: 55
+  exp_v5_c_heb:
+    term: Heb
+    variants:
+    - heb
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Heb – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-heb
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - hoagascht
+        - hoagartn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: geselliges Beisammensein
+          mit Musik'
+      priority: 55
+  exp_v5_c_nesut:
+    term: Nesut
+    variants:
+    - nesut
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nesut – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nesut
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - kini
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: da Kini (der König)'
+      priority: 55
+  exp_v5_c_nokia_tal:
+    term: Nokia'tal
+    variants:
+    - nokia'tal
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Nokia'tal – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-nokia-tal
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - gschicht
+        - gschichtn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+  exp_v5_c_mes_pac:
+    term: Mes'pac
+    variants:
+    - mes'pac
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Mes'pac – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-mes-pac
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - dahoam
+        - daheim
+        - zuhause
+        en:
+        - at home
+        - home (adverb)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisch: dahoam is dahoam'
+      priority: 55
+  exp_v5_c_kor_tal_dan:
+    term: Kor'tal'dan
+    variants:
+    - kor'tal'dan
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Kor'tal'dan – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-kor-tal-dan
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - stammtisch
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairische Institution; Näherung über
+          Tisch'
+      priority: 55
+  exp_v5_c_ska_kor_mel:
+    term: Ska'kor'mel
+    variants:
+    - ska'kor'mel
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Ska'kor'mel – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-ska-kor-mel
+      pos: noun
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - brezn
+        - breze
+        - brezel
+        - semmel
+        - knödel
+        en:
+        - pretzel
+        - bread roll
+        - dumpling
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. bairisches Backwerk als Näherung
+          über Brot; Knödel als Teigkloß'
+      priority: 55
+  exp_v5_c_kheper:
+    term: Kheper
+    variants:
+    - kheper
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Glossen-Nachtrag
+      etymology: Bestandsform Kheper – Glossen-Nachtrag
+    review_status: proposed
+    senses:
+    - id: exp-v5-c-kheper
+      pos: verb
+      category: Sprachausbau v5 (Grundwortschatz-Lücken DE/EN/Bairisch)
+      glosses:
+        de:
+        - ändern
+        - wandeln
+        - sich verwandeln
+        - verwandeln
+        en:
+        - to change
+        - to transform
+        - change
+        - transform
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v5: Glossen-Nachtrag auf bestehende Form. ḫpr = werden/sich wandeln — der Skarabäus
+          als Symbol der Verwandlung'
+      priority: 55
