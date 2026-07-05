@@ -32,12 +32,19 @@ path = "."
 module = "main"
 # serious_python wertet .flet-ignore nicht aus; ohne diese Excludes landen .venv,
 # .git, IDE-Dateien und Tests im app.zip und verzögern/gefährden den Android-Start.
+# WICHTIG: .home ist ein geleakter Flutter/Android-SDK-Cache (entstanden durch einen
+# Build mit HOME=<projekt>/.home). Ohne dieses Exclude landen ~2.9 GB SDK im app.zip.
 exclude = [
     ".git",
     ".github",
     ".idea",
     ".venv",
     ".flet",
+    ".home",
+    ".home/*",
+    ".home\\*",
+    ".home/**/*",
+    ".home\\**\\*",
     "build",
     ".flet-ignore",
     "__pycache__",
