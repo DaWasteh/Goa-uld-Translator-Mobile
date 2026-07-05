@@ -49,7 +49,7 @@ class AppState:
         self.analyzer: Any = None
         self.goa2de_map: dict = {}
         self.de2goa_map: dict = {}
-        self.direction: str = "goa2de"
+        self.direction: str = "de2goa"
         self.refresh_lexicon = None
         self.refresh_translator = None
 
@@ -344,3 +344,4 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.app(target=main)
+    

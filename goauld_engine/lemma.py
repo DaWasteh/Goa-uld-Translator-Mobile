@@ -34,7 +34,8 @@ GERMAN_AUXILIARIES: frozenset[str] = frozenset({
     "bin", "bist", "ist", "sind", "seid", "sein", "sei", "war", "waren",
     "wart", "gewesen", "habe", "hast", "hat", "haben", "habt", "hatte",
     "hatten", "werde", "wirst", "wird", "werden", "werdet", "würde",
-    "würden",
+    "würden", "wurde", "wurden", "wurdest", "worden", "wäre", "wären",
+    "wärst", "seien", "warst", "hätte", "hätten", "hättest", "gehabt",
 })
 GERMAN_MODAL_SEMANTIC: frozenset[str] = frozenset({
     "kann", "kannst", "können", "könnt", "muss", "musst", "müssen",
@@ -43,6 +44,15 @@ GERMAN_MODAL_SEMANTIC: frozenset[str] = frozenset({
 GERMAN_LIGHT_PARTICLES: frozenset[str] = frozenset({
     "auch", "nur", "schon", "noch", "doch", "sondern", "denn", "als",
     "sehr", "gar", "mal", "nun", "so",
+    # Reflexiv-, Partikel- und Subjunktionsformen ohne eigenes
+    # Goa'uld-Äquivalent (Grammatik: Kontext trägt die Bedeutung)
+    "sich", "ob", "dass", "daß", "statt", "anstatt", "hin", "eben",
+    "halt", "wohl", "etwa", "je", "erst", "ne", "nen", "während",
+    "obwohl", "falls", "sobald", "sodass",
+    # Pronominaladverbien (Präposition + es): getilgt wie Präpositionen
+    "damit", "dafür", "davon", "dazu", "daran", "darin", "darauf",
+    "darüber", "dabei", "dagegen", "davor",
+    "deren", "denen", "dessen",
 })
 GERMAN_STOP_WORDS: frozenset[str] = (
     GERMAN_ARTICLES | GERMAN_PREPOSITIONS | GERMAN_AUXILIARIES | GERMAN_LIGHT_PARTICLES
@@ -53,6 +63,11 @@ ENGLISH_PREPOSITIONS: frozenset[str] = frozenset({
     "in", "on", "at", "by", "with", "from", "for", "to", "of", "into",
     "onto", "over", "under", "between", "through", "before", "after",
     "within", "without", "as",
+    "around", "along", "across", "behind", "above", "below", "beside",
+    "near", "toward", "towards", "upon", "during", "than",
+})
+ENGLISH_CONJUNCTIONS: frozenset[str] = frozenset({
+    "while", "although", "though", "unless", "until", "since", "whether",
 })
 ENGLISH_AUXILIARIES: frozenset[str] = frozenset({
     "am", "are", "is", "be", "being", "been", "was", "were", "do", "does",
@@ -61,15 +76,50 @@ ENGLISH_AUXILIARIES: frozenset[str] = frozenset({
 ENGLISH_MODAL_SEMANTIC: frozenset[str] = frozenset({
     "shall", "should", "can", "could", "may", "might", "must",
 })
-ENGLISH_LIGHT_PARTICLES: frozenset[str] = frozenset({"just", "very", "already", "still"})
+ENGLISH_LIGHT_PARTICLES: frozenset[str] = frozenset({
+    "just", "very", "already", "still", "too", "quite", "let",
+})
 ENGLISH_STOP_WORDS: frozenset[str] = (
-    ENGLISH_ARTICLES | ENGLISH_PREPOSITIONS | ENGLISH_AUXILIARIES | ENGLISH_LIGHT_PARTICLES
+    ENGLISH_ARTICLES | ENGLISH_PREPOSITIONS | ENGLISH_AUXILIARIES
+    | ENGLISH_CONJUNCTIONS | ENGLISH_LIGHT_PARTICLES
 )
 
 STOP_WORDS_BY_LANG: dict[str, frozenset[str]] = {
     "de": GERMAN_STOP_WORDS,
     "en": ENGLISH_STOP_WORDS,
 }
+
+# Marker für die leichte Sprachheuristik (Funktionswörter mit hoher Frequenz,
+# die zwischen DE und EN eindeutig unterscheiden).
+_DE_LANG_MARKERS: frozenset[str] = frozenset({
+    "der", "die", "das", "und", "ich", "ist", "nicht", "ein", "eine", "zu",
+    "mit", "für", "auf", "du", "wir", "ihr", "sie", "er", "es", "den", "dem",
+    "aber", "auch", "sich", "wird", "sind", "war", "hat", "habe", "kein",
+    "mein", "dein", "wenn", "dann", "noch", "schon", "mich", "dich", "mir",
+})
+_EN_LANG_MARKERS: frozenset[str] = frozenset({
+    "the", "and", "is", "you", "to", "of", "a", "in", "that", "it", "for",
+    "we", "they", "not", "are", "was", "with", "have", "has", "will", "but",
+    "my", "your", "his", "her", "this", "what", "when", "who", "me", "him",
+    "them", "us", "our", "their", "there", "here", "do", "does", "did",
+})
+
+
+def detect_lang(text: str) -> str:
+    """
+    Leichte DE/EN-Heuristik auf Funktionswort- und Zeichenbasis.
+
+    Löst Ambiguitäten wie DE-Artikel "die" vs. EN-Verb "die" oder
+    DE-Auxiliar "hat" vs. EN-Nomen "hat" auf Satzebene statt Tokenebene.
+    Unentschieden → "de" (App-Kontext).
+    """
+    low = normalize_lookup(text)
+    if any(ch in low for ch in "äöüß"):
+        return "de"
+    tokens = re.findall(r"[a-zà-ÿ']+", low)
+    de_score = sum(1 for t in tokens if t in _DE_LANG_MARKERS)
+    en_score = sum(1 for t in tokens if t in _EN_LANG_MARKERS)
+    return "en" if en_score > de_score else "de"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -127,6 +177,32 @@ _DE_IRREGULAR: dict[str, str] = {
     "dachte": "denken", "brachte": "bringen", "wusste": "wissen",
     "kannte": "kennen", "nannte": "nennen", "brannte": "brennen",
     "sandte": "senden", "wandte": "wenden", "rannte": "rennen",
+    # Modalverben: Präteritum/Konjunktiv/1.-3. Person → Infinitiv
+    "konnte": "können", "konnten": "können", "könnte": "können",
+    "könnten": "können", "musste": "müssen", "mussten": "müssen",
+    "müsste": "müssen", "müssten": "müssen", "sollte": "sollen",
+    "sollten": "sollen", "wollte": "wollen", "wollten": "wollen",
+    "wollte": "wollen", "willst": "wollen", "wollt": "wollen",
+    "mag": "mögen", "magst": "mögen", "mochte": "mögen",
+    "mochten": "mögen", "möchte": "mögen", "möchten": "mögen",
+    "möchtest": "mögen", "darf": "dürfen", "darfst": "dürfen",
+    "dürft": "dürfen", "durfte": "dürfen", "durften": "dürfen",
+    "dürfte": "dürfen", "durftest": "dürfen",
+    # Pronomen-Kasusfaltung: Goa'uld-Pronomen flektieren nicht (Grammatik §4);
+    # Akkusativ-/Dativ- und Possessivformen falten auf das Basispronomen.
+    "mich": "ich", "mir": "ich", "dich": "du", "dir": "du",
+    "ihm": "er", "ihn": "er", "ihnen": "sie", "uns": "wir", "euch": "ihr",
+    "mein": "ich", "meine": "ich", "meinen": "ich", "meinem": "ich",
+    "meiner": "ich", "meines": "ich", "meins": "ich",
+    "dein": "du", "deine": "du", "deinen": "du", "deinem": "du",
+    "deiner": "du", "deines": "du", "deins": "du",
+    "seine": "er", "seinen": "er", "seinem": "er", "seiner": "er",
+    "seines": "er", "ihre": "sie", "ihren": "sie", "ihrem": "sie",
+    "ihrer": "sie", "ihres": "sie",
+    "unser": "wir", "unsere": "wir", "unseren": "wir", "unserem": "wir",
+    "unserer": "wir", "unseres": "wir",
+    "euer": "ihr", "eure": "ihr", "euren": "ihr", "eurem": "ihr",
+    "eurer": "ihr", "eures": "ihr",
     "gebar": "gebären", "starben": "sterben", "gaben": "geben",
     "nahmen": "nehmen", "sahen": "sehen", "kamen": "kommen",
     "gingen": "gehen", "standen": "stehen", "fanden": "finden",
@@ -320,19 +396,65 @@ def de_lemma_candidates(word: str) -> list[str]:
     return result
 
 
+# Unregelmäßige englische Formen: Kontraktionen, Kopula, starke Präterita
+# und Partizipien sowie Pronomen-Kasus-/Possessivfaltung (Grammatik §4).
+_EN_IRREGULAR: dict[str, list[str]] = {
+    "am": ["be"], "are": ["be"], "is": ["be"], "was": ["be"], "were": ["be"],
+    "i'm": ["i"], "you're": ["you"], "we're": ["we"], "they're": ["they"],
+    "don't": ["do not", "not"], "dont": ["do not", "not"],
+    "doesn't": ["does not", "not"], "doesnt": ["does not", "not"],
+    "didn't": ["did not", "not"], "didnt": ["did not", "not"],
+    "can't": ["can not", "not"], "cant": ["can not", "not"],
+    "won't": ["will not", "not"], "wont": ["will not", "not"],
+    # Starke Präterita → Grundform
+    "going": ["go"], "doing": ["do"], "gonna": ["go"],
+    "came": ["come"], "took": ["take"], "got": ["get"], "gotten": ["get"],
+    "said": ["say"], "went": ["go"], "saw": ["see"], "knew": ["know"],
+    "heard": ["hear"], "gave": ["give"], "told": ["tell"], "found": ["find"],
+    "kept": ["keep"], "made": ["make"], "brought": ["bring"],
+    "thought": ["think"], "felt": ["feel"], "held": ["hold"], "met": ["meet"],
+    "won": ["win"], "sat": ["sit"], "stood": ["stand"], "ran": ["run"],
+    "spoke": ["speak"], "wrote": ["write"], "paid": ["pay"], "lost": ["lose"],
+    "built": ["build"], "sent": ["send"], "spent": ["spend"],
+    "fell": ["fall"], "broke": ["break"], "chose": ["choose"],
+    "drove": ["drive"], "ate": ["eat"], "drank": ["drink"],
+    "slept": ["sleep"], "fought": ["fight"], "bought": ["buy"],
+    "caught": ["catch"], "taught": ["teach"], "sold": ["sell"],
+    "became": ["become"], "began": ["begin"], "grew": ["grow"],
+    "flew": ["fly"], "threw": ["throw"], "drew": ["draw"], "wore": ["wear"],
+    "rode": ["ride"], "rose": ["rise"], "woke": ["wake"], "left": ["leave"],
+    "meant": ["mean"], "died": ["die"], "led": ["lead"], "laid": ["lay"],
+    "sought": ["seek"], "forgot": ["forget"], "understood": ["understand"],
+    "swore": ["swear"], "stole": ["steal"], "shot": ["shoot"],
+    "hid": ["hide"], "bit": ["bite"], "hit": ["hit"], "cut": ["cut"],
+    # Partizipien → Grundform
+    "done": ["do"], "gone": ["go"], "seen": ["see"], "given": ["give"],
+    "taken": ["take"], "known": ["know"], "shown": ["show"],
+    "written": ["write"], "spoken": ["speak"], "broken": ["break"],
+    "chosen": ["choose"], "driven": ["drive"], "eaten": ["eat"],
+    "fallen": ["fall"], "forgotten": ["forget"], "grown": ["grow"],
+    "flown": ["fly"], "thrown": ["throw"], "drawn": ["draw"],
+    "worn": ["wear"], "risen": ["rise"], "woken": ["wake"],
+    "begun": ["begin"], "become": ["become"], "sworn": ["swear"],
+    "stolen": ["steal"], "hidden": ["hide"], "bitten": ["bite"],
+    # Pronomen-Kasus-/Possessivfaltung → Basispronomen
+    "me": ["i"], "him": ["he"], "her": ["she"], "them": ["they"], "us": ["we"],
+    "my": ["i"], "mine": ["i"], "your": ["you"], "yours": ["you"],
+    "his": ["he"], "its": ["it"], "our": ["we"], "ours": ["we"],
+    "their": ["they"], "theirs": ["they"],
+    "these": ["this"], "those": ["that"],
+    "myself": ["i"], "yourself": ["you"], "himself": ["he"],
+    "herself": ["she"], "itself": ["it"], "ourselves": ["we"],
+    "themselves": ["they"],
+}
+
+
 def en_lemma_candidates(word: str) -> list[str]:
     """Small English lemmatizer for low-resource direct lookup."""
     w = normalize_lookup(word)
     candidates = [w]
 
-    irregular: dict[str, list[str]] = {
-        "am": ["be"], "are": ["be"], "is": ["be"], "was": ["be"], "were": ["be"],
-        "i'm": ["i"], "you're": ["you"], "we're": ["we"], "they're": ["they"],
-        "don't": ["do not", "not"], "dont": ["do not", "not"],
-        "doesn't": ["does not", "not"], "doesnt": ["does not", "not"],
-        "didn't": ["did not", "not"], "didnt": ["did not", "not"],
-    }
-    candidates.extend(irregular.get(w, []))
+    candidates.extend(_EN_IRREGULAR.get(w, []))
 
     if w.endswith("ies") and len(w) > 4:
         candidates.append(w[:-3] + "y")
@@ -340,12 +462,18 @@ def en_lemma_candidates(word: str) -> list[str]:
         candidates.append(w[:-2])
     if w.endswith("s") and len(w) > 3 and not w.endswith("ss"):
         candidates.append(w[:-1])
-    if w.endswith("ing") and len(w) > 5:
+    if w.endswith("ing") and len(w) >= 5:
         stem = w[:-3]
         candidates.extend([stem, stem + "e"])
-    if w.endswith("ed") and len(w) > 4:
+        # Konsonantenverdopplung: getting → get, running → run
+        if len(stem) >= 3 and stem[-1] == stem[-2]:
+            candidates.append(stem[:-1])
+    if w.endswith("ed") and len(w) >= 4:
         stem = w[:-2]
-        candidates.extend([stem, stem + "e"])
+        # stem+e zuerst: "used" → "use" (nicht über "us" fehlmatchen)
+        candidates.extend([stem + "e", stem])
+        if len(stem) >= 3 and stem[-1] == stem[-2]:
+            candidates.append(stem[:-1])
 
     seen: set[str] = set()
     result: list[str] = []

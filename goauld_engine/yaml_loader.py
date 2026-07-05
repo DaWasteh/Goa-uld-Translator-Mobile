@@ -39,6 +39,7 @@ LEXICON_OVERLAY_CANDIDATES = (
     "goauld_expansion_v4.yaml",
     "goauld_expansion_v5.yaml",
     "goauld_expansion_v6.yaml",
+    "goauld_expansion_v7.yaml",
 )
 
 
@@ -320,3 +321,4 @@ if __name__ == "__main__":
         alts = sec_map.get(probe, [])
         alts_str = f"   (auch: {', '.join(alts[:3])})" if alts else ""
         print(f"  {probe!r:<14} → {hit!r}{alts_str}")
+        

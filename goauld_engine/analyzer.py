@@ -19,6 +19,7 @@ from .lemma import (
     GERMAN_STOP_WORDS,
     STOP_WORDS_BY_LANG,
     de_lemma_candidates,
+    detect_lang,
     en_lemma_candidates,
     normalize_lookup,
 )
@@ -234,6 +235,12 @@ class SentenceAnalyzer:
         if not words:
             return []
 
+        # Satzsprache heuristisch bestimmen: Stopword-Tilgung folgt der
+        # tatsächlichen Eingabesprache statt nur lang_pref (löst z. B.
+        # EN-Artikel "the" bei lang_pref="de" korrekt auf).
+        if direction == "de2goa":
+            lang_pref = detect_lang(text)
+
         max_phrase = 6
         result: list[dict] = []
         i = 0
@@ -439,3 +446,4 @@ class SentenceAnalyzer:
         if direction == "de2goa" and mode == "goauld_style":
             return self._apply_goauld_style(output)
         return output
+    

@@ -1,0 +1,92 @@
+# -*- coding: utf-8 -*-
+"""Regressionstests Sprachausbau v7 + Funktionswort-Politik."""
+import pytest
+
+from goauld_engine import (
+    load_full_lexicon,
+    build_mapping,
+    translate_text,
+    de_lemma_candidates,
+    en_lemma_candidates,
+    detect_lang,
+)
+
+
+@pytest.fixture(scope="module")
+def mapping():
+    lex = load_full_lexicon()
+    return build_mapping(lex.entries, "de2goa")
+
+
+# ── Sprachheuristik ─────────────────────────────────────────────────────
+def test_detect_lang_de():
+    assert detect_lang("Die Welt ist ein gefährlicher Ort.") == "de"
+
+def test_detect_lang_en():
+    assert detect_lang("You will die, Tau'ri!") == "en"
+
+
+# ── Funktionswort-Politik (Grammatik §3) ────────────────────────────────
+def test_articles_and_copula_dropped(mapping):
+    out = translate_text("Ich bin ein Jaffa.", mapping, direction="de2goa")
+    assert out == "Ta Jaffa."
+
+def test_en_die_not_dropped_in_en_sentence(mapping):
+    out = translate_text("You will die, Tau'ri!", mapping, direction="de2goa")
+    assert "Shakka" in out
+
+def test_single_word_lookup_not_dropped(mapping):
+    # Einzelwort-Eingaben werden nicht getilgt
+    out = translate_text("die", mapping, direction="de2goa")
+    assert out != ""
+
+
+# ── Modalverben (Grammatik §10) ─────────────────────────────────────────
+def test_modal_preterite_translates(mapping):
+    out = translate_text("Er musste gehen.", mapping, direction="de2goa")
+    assert "Kree" in out
+
+def test_de_modal_lemma():
+    assert "können" in de_lemma_candidates("konnte")
+    assert "mögen" in de_lemma_candidates("möchte")
+
+
+# ── Pronomen-Kasusfaltung (Grammatik §4) ────────────────────────────────
+def test_de_pronoun_fold():
+    assert "ich" in de_lemma_candidates("mir")
+    assert "er" in de_lemma_candidates("ihm")
+
+def test_en_pronoun_fold():
+    assert "they" in en_lemma_candidates("them")
+    assert "i" in en_lemma_candidates("my")
+
+
+# ── EN-Irregular-Pasts ──────────────────────────────────────────────────
+def test_en_irregular_pasts():
+    assert "come" in en_lemma_candidates("came")
+    assert "take" in en_lemma_candidates("took")
+    assert "go" in en_lemma_candidates("went")
+    assert "go" in en_lemma_candidates("going")
+    assert "get" in en_lemma_candidates("getting")
+
+def test_en_used_prefers_use():
+    cands = en_lemma_candidates("used")
+    assert cands.index("use") < cands.index("us")
+
+
+# ── v7-Kernwortschatz ───────────────────────────────────────────────────
+@pytest.mark.parametrize("word,expected", [
+    ("Welt", "Ta'djer"),
+    ("Problem", "Kesen"),
+    ("einfach", "Na'kesen"),
+    ("warum", "Kel'pac'mel"),
+    ("brauchen", "Debeh"),
+    ("zurück", "Hemi"),
+    ("world", "Ta'djer"),
+    ("need", "Debeh"),
+    ("choose", "Setep"),
+    ("other", "Ki"),
+])
+def test_v7_core_vocab(mapping, word, expected):
+    out = translate_text(word, mapping, direction="de2goa")
+    assert expected.lower() in out.lower()

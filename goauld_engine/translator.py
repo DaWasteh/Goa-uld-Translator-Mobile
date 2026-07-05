@@ -140,6 +140,18 @@ def translate_text(text: str, mapping: dict[str, str],
             if core_lower in mapping:
                 return prefix + preserve_case(core, mapping[core_lower]) + suffix
 
+    from .lemma import STOP_WORDS_BY_LANG, detect_lang
+
+    # Satzsprache einmal bestimmen, damit ambige Formen (DE-Artikel "die" vs.
+    # EN-Verb "die", DE-Auxiliar "hat" vs. EN-Nomen "hat") korrekt behandelt
+    # werden. Grammatik §3: Artikel, Kopula und Auxiliare werden getilgt.
+    src_lang = detect_lang(text) if direction == "de2goa" else "de"
+    stop_words = STOP_WORDS_BY_LANG[src_lang]
+    # Tilgung nur im Satzkontext: Einzelwort-Eingaben ("die", "hat") sind
+    # Lexikon-Lookups und werden nicht verworfen.
+    if len(re.findall(r"[A-Za-zÄÖÜäöüßÀ-ÿ']+", text)) < 2:
+        stop_words = frozenset()
+
     tokens = re.split(r"([A-Za-zÄÖÜäöüßÀ-ÿ']+)", text)
     result: list[str] = []
     for tok in tokens:
@@ -148,6 +160,8 @@ def translate_text(text: str, mapping: dict[str, str],
         if re.match(r"^[A-Za-zÄÖÜäöüßÀ-ÿ']+$", tok):
             low = normalize_lookup(tok)
             if direction == "de2goa":
+                if low in stop_words:
+                    continue
                 direct = _direct_goauld_lookup(low)
                 if direct:
                     result.append(direct)
@@ -160,4 +174,11 @@ def translate_text(text: str, mapping: dict[str, str],
                 result.append(tok)
         else:
             result.append(tok)
-    return "".join(result)
+
+    out = "".join(result)
+    if direction == "de2goa":
+        # Nach der Tilgung: doppelte Leerzeichen und hängende Satzzeichen glätten
+        out = re.sub(r"[ \t]{2,}", " ", out)
+        out = re.sub(r" +([.,!?;:])", r"\1", out)
+        out = out.strip()
+    return out
