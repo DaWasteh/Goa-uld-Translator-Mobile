@@ -12,7 +12,7 @@ from .translator import (
     PRIMARY_GOAULD_MAPS,
     SECONDARY_GOAULD_MAPS,
 )
-from .lemma import de_lemma_candidates, en_lemma_candidates, GERMAN_STOP_WORDS
+from .lemma import de_lemma_candidates, en_lemma_candidates, detect_lang, GERMAN_STOP_WORDS
 from .resources import get_app_dir
 from .parser import parse_markdown_dictionary, parse_de_map_from_entries
 
@@ -29,6 +29,7 @@ __all__ = [
     "SECONDARY_GOAULD_MAPS",
     "de_lemma_candidates",
     "en_lemma_candidates",
+    "detect_lang",
     "GERMAN_STOP_WORDS",
     "get_app_dir",
     "parse_markdown_dictionary",
