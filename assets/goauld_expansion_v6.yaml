@@ -1,0 +1,1620 @@
+# ═════════════════════════════════════════════════════════════════════
+#  GOA'ULD SPRACHAUSBAU v6  ·  Overlay-Erweiterung
+#  Slang & Umgangssprache DE/EN · neue Roots, Komposita & Glossen-Nachträge
+#  Ladereihenfolge: overrides → v1 → v2 → v3 → v4 → v5 → diese Datei.
+# ═════════════════════════════════════════════════════════════════════
+
+metadata:
+  purpose: 'Sprachausbau v6: systematische Schließung von Slang- und Umgangssprache-Lücken (DE/EN) —
+    Vulgärregister (Fick-Komplex), Umgangsverben, Slang-Nomen/-Adjektive, Interjektionen und
+    Internet-Kurzformen (wtf, omg, lol) für flüssigere Alltagsübersetzung'
+  created: '2026-07-04'
+  updated: '2026-07-04'
+  schema_note: Gleiches Schema wie goauld_overrides.yaml; wird als Overlay nach v5 geladen.
+  design_rules:
+  - 'Canon bleibt dominant: alle Prioritäten <= 60; v6 durchgehend konservativ fanon_derived (prio 55).'
+  - 'Neue Roots aus ägyptischen Etyma (Phonologie-Mapping: ḫ→kh, š→sh, ḏ→dj, ṯ→tj, ꜣ/ꜥ→a, w→u, j→i);
+    Komposita aus etablierten Bestandsroots.'
+  - Glossen-Nachträge (Slug-Präfix exp_v6_c_) ergänzen umgangssprachliche/vulgäre DE- und EN-Synonyme
+    auf bestehenden Formen (neue Keys, gleiche Terme — Bestandseinträge unangetastet).
+  - 'Inhaltliche Leitplanke wie v3: allgemeine Vulgär- und Umgangssprache ja; keine diskriminierenden
+    Slurs gegen reale Gruppen (Ethnie, Religion, Orientierung, Behinderung).'
+  - 'Basis: Lückenscan von ~65 hochfrequenten Slang-/Umgangsformen DE/EN gegen die Engine inkl. Lemmatizer
+    (Stand nach v5).'
+  - 'review_status: proposed — einzeln hebbar oder streichbar.'
+
+entries:
+
+  # ── LAYER B · prio 55 · Neue Roots aus ägyptischen Etyma ─────────────
+
+  exp_v6_nek:
+    term: Nek
+    variants:
+    - nek
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: kopulieren
+      etymology: Ägyptisch nk (nek) – kopulieren; im Ägyptischen selbst vulgäres Register
+    review_status: proposed
+    senses:
+    - id: exp-v6-nek-verb
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - ficken
+        - vögeln
+        - bumsen
+        - poppen
+        - nageln (vulgär)
+        en:
+        - fuck
+        - screw (vulgar)
+        - bang (vulgar)
+        - shag
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (nk), Phonologie-Mapping angewandt;
+          vulgäres Register bereits im Etymon'
+      priority: 55
+      examples:
+      - goauld: Nek lo!
+        de: Fick dich!
+        en: Fuck you!
+        mode: literal
+    - id: exp-v6-nek-noun
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - fick
+        en:
+        - fuck (noun)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Nominalisierung des Verbs Nek'
+      priority: 55
+
+  exp_v6_tekhi:
+    term: Tekhi
+    variants:
+    - tekhi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: betrunken
+      etymology: Ägyptisch tḫj (tekhi) – betrunken sein; vgl. Fest der Trunkenheit (tḫ)
+    review_status: proposed
+    senses:
+    - id: exp-v6-tekhi
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - betrunken
+        - besoffen
+        - blau (betrunken)
+        - dicht (betrunken)
+        - hackedicht
+        - breit (betrunken)
+        en:
+        - drunk
+        - wasted
+        - hammered
+        - plastered
+        - tipsy
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (tḫj), Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v6_kaa:
+    term: Kaa
+    variants:
+    - kaa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: erbrechen
+      etymology: Ägyptisch qꜣꜥ (qaa) – ausspeien, erbrechen
+    review_status: proposed
+    senses:
+    - id: exp-v6-kaa
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - kotzen
+        - erbrechen
+        - reihern
+        - übergeben (erbrechen)
+        en:
+        - vomit
+        - puke
+        - barf
+        - throw up
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (qꜣꜥ), Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v6_usesh:
+    term: Usesh
+    variants:
+    - usesh
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: urinieren
+      etymology: Ägyptisch wsš (usesh) – urinieren, ausscheiden
+    review_status: proposed
+    senses:
+    - id: exp-v6-usesh
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - pissen
+        - pinkeln
+        - urinieren
+        - strullen
+        en:
+        - piss
+        - pee
+        - urinate
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (wsš), Phonologie-Mapping angewandt'
+      priority: 55
+
+  exp_v6_c_merkabt_karre:
+    term: Merkabt
+    variants:
+    - merkabt
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Streitwagen
+      etymology: Bestandsform Merkabt (Wagen/Streitwagen, ägypt. mrkbt) – umgangssprachliche
+        Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-merkabt
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - auto
+        - karre
+        - kiste (auto)
+        - schlitten (auto)
+        - gefährt
+        en:
+        - car
+        - ride (car)
+        - vehicle
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form — Merkabt (mrkbt) ist
+          bereits das etymologisch korrekte Fahrzeugwort'
+      priority: 55
+
+  exp_v6_sebi:
+    term: Sebi
+    variants:
+    - sebi
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Rebell/Unhold
+      etymology: Ägyptisch sbj (sebi) – Rebell, Feind der Ordnung; stehendes Epitheton des
+        Chaos-Schlangendämons Apophis
+    review_status: proposed
+    senses:
+    - id: exp-v6-sebi
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - teufel
+        - satan (generisch)
+        - unhold
+        en:
+        - devil
+        - fiend
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (sbj); ermöglicht u. a. "zum Teufel"-Konstruktionen'
+      priority: 55
+
+  exp_v6_shenet:
+    term: Shenet
+    variants:
+    - shenet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: streiten/verfluchen
+      etymology: Ägyptisch šnṯ (shenetj) – streiten, schmähen, verfluchen
+    review_status: proposed
+    senses:
+    - id: exp-v6-shenet-verb
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - nerven
+        - ärgern
+        - aufregen
+        - zoffen
+        en:
+        - annoy
+        - bug (annoy)
+        - pester
+        - piss off
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (šnṯ), Phonologie-Mapping angewandt'
+      priority: 55
+    - id: exp-v6-shenet-adj
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - nervig
+        - lästig
+        - anstrengend (nervig)
+        en:
+        - annoying
+        - irritating
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: adjektivische Verwendung des Roots Shenet'
+      priority: 55
+
+  exp_v6_neseb:
+    term: Neseb
+    variants:
+    - neseb
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: lecken
+      etymology: Ägyptisch nsb (neseb) – lecken, auflecken
+    review_status: proposed
+    senses:
+    - id: exp-v6-neseb
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - lecken
+        - ablecken
+        - schlecken
+        en:
+        - lick
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: ägyptische Etymologie (nsb), Phonologie-Mapping angewandt'
+      priority: 55
+
+  # ── LAYER D · prio 55 · Komposita & Phrasen mit Bestandsroots ────────
+
+  exp_v6_nek_le:
+    term: Nek'le
+    variants:
+    - nek'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: fick-intensiv
+      components:
+      - nek
+      - le_suffix
+    review_status: proposed
+    senses:
+    - id: exp-v6-nek-le
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - verfickt
+        - verflucht (vulgär)
+        en:
+        - fucking
+        - frigging
+        - goddamn
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Kompositum (nek [v6-Root] + le=Intensiv-Suffix) — vulgärer Verstärker'
+      priority: 55
+      examples:
+      - goauld: Hako nek'le hesa!
+        de: Das ist verfickte Scheiße!
+        en: That is fucking shit!
+        mode: literal
+
+  exp_v6_shal_nek:
+    term: Shal'nek
+    variants:
+    - shal'nek
+    - shal'nek?!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: was-fick
+      components:
+      - shal
+      - nek
+    review_status: proposed
+    senses:
+    - id: exp-v6-shal-nek
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - was zum fick
+        - was zum teufel
+        - was soll der scheiß
+        - wtf
+        en:
+        - what the fuck
+        - what the hell
+        - wtf
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Kompositum (shal=was [Registry] + nek [v6-Root]) — ungläubig-empörter
+          Ausruf; deckt auch die Internet-Kurzform wtf ab'
+      priority: 55
+      examples:
+      - goauld: Shal'nek?! Chappa'ai kek!
+        de: Was zum Fick?! Das Tor ist tot!
+        en: What the fuck?! The gate is dead!
+        mode: literal
+
+  exp_v6_hesa_le:
+    term: Hesa'le
+    variants:
+    - hesa'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kot-intensiv
+      components:
+      - hesa
+      - le_suffix
+    review_status: proposed
+    senses:
+    - id: exp-v6-hesa-le
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - beschissen
+        - scheißig
+        - verschissen
+        en:
+        - shitty
+        - crappy
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Kompositum (hesa=Kot [v3-Root] + le=Intensiv-Suffix)'
+      priority: 55
+
+  exp_v6_na_khet:
+    term: Na'khet
+    variants:
+    - na'khet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: ohne-Sache
+      components:
+      - na_prefix
+      - khet
+    review_status: proposed
+    senses:
+    - id: exp-v6-na-khet
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - egal
+        - gleichgültig
+        - wurscht
+        - wurst (egal)
+        - schnuppe
+        - scheißegal
+        en:
+        - whatever
+        - indifferent
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Kompositum (na=ohne [Registry] + khet=Sache/Ding [v2-Root]) —
+          wörtlich "keine Sache", vgl. dt. "kein Ding"'
+      priority: 55
+      examples:
+      - goauld: Hako na'khet.
+        de: Das ist egal.
+        en: That is whatever.
+        mode: literal
+
+  exp_v6_kal_hui:
+    term: Kal'hui
+    variants:
+    - kal'hui
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Seele-geschlagen
+      components:
+      - kal
+      - hui
+    review_status: proposed
+    senses:
+    - id: exp-v6-kal-hui
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - verrückt
+        - irre
+        - wahnsinnig
+        - durchgeknallt
+        - gaga
+        - plemplem
+        en:
+        - crazy
+        - insane
+        - nuts
+        - mad (crazy)
+        - bonkers
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Kompositum (kal=Seele [Registry] + hui=schlagen [v2-Root]) —
+          "seelen-geschlagen" = von Sinnen'
+      priority: 55
+
+  exp_v6_neseb_mikta:
+    term: Neseb Mikta
+    variants:
+    - neseb mikta
+    - neseb mikta!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: phrase
+      literal: leck (den) Hintern
+      components:
+      - neseb
+      - mikta
+    review_status: proposed
+    senses:
+    - id: exp-v6-neseb-mikta
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - leck mich
+        - leck mich am arsch
+        - lmaa
+        en:
+        - kiss my ass
+        - bite me
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Phrase (neseb=lecken [v6-Root] + Mikta=Hintern [Canon])'
+      priority: 55
+
+  exp_v6_mol_kek_kaputt:
+    term: Mol kek
+    variants:
+    - mol kek
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: phrase
+      literal: zerstört-tot
+      etymology: Satzinterne Variante der Canon-Exklamation "Mol kek!" (zerstört) — ohne Ausrufezeichen
+        für flüssige Adjektivverwendung
+    review_status: proposed
+    senses:
+    - id: exp-v6-mol-kek
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - kaputt
+        - hinüber
+        - im eimer
+        - futsch
+        - schrott (kaputt)
+        en:
+        - broken
+        - busted
+        - wrecked
+        - trashed
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: umgangssprachliche Adjektiv-Glossen auf Canon-Form Mol kek'
+      priority: 55
+
+  # ── LAYER C · prio 55 · Glossen-Nachträge auf Bestandsformen ─────────
+  #    (neue Keys, gleiche Terme — Bestandseinträge unangetastet)
+
+  exp_v6_c_eetium_checken:
+    term: Eetium
+    variants:
+    - eetium
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: verstehen
+      etymology: Bestandsform Eetium (verstehen/wissen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-eetium
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - checken
+        - kapieren
+        - raffen
+        - schnallen
+        - peilen
+        - blicken (verstehen)
+        - kapiert
+        - gecheckt
+        en:
+        - get it
+        - grasp
+        - catch on
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_meta_labern:
+    term: Meta
+    variants:
+    - meta
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: sprechen
+      etymology: Bestandsform Meta (sprechen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-meta
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - labern
+        - quatschen
+        - schwafeln
+        - sabbeln
+        - schnacken
+        - plaudern
+        en:
+        - chat
+        - babble
+        - yak
+        - blab
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_hesa_meta_gelaber:
+    term: Hesa'meta
+    variants:
+    - hesa'meta
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Kot-Rede
+      etymology: Bestandsform Hesa'meta (Quatsch/Unsinn) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-hesa-meta
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - gelaber
+        - geschwafel
+        - gequatsche
+        - blabla
+        - schwachsinn
+        - bockmist
+        - humbug
+        en:
+        - drivel
+        - baloney
+        - crap (nonsense)
+        - nonsense
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_dormata_pennen:
+    term: Dormata
+    variants:
+    - dormata
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schlafen
+      etymology: Bestandsform Dormata (schlafen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-dormata
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - pennen
+        - ratzen
+        - dösen
+        en:
+        - snooze
+        - doze
+        - crash (sleep)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_skanatryn_fressen:
+    term: skanat'ryn
+    variants:
+    - skanat'ryn
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: essen
+      etymology: Bestandsform skanat'ryn (essen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-skanatryn
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - fressen
+        - futtern
+        - mampfen
+        - spachteln
+        en:
+        - chow down
+        - munch
+        - scoff (eat)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_metrynhol_saufen:
+    term: met'ryn'hol
+    variants:
+    - met'ryn'hol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: trinken
+      etymology: Bestandsform met'ryn'hol (trinken) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-metrynhol
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - saufen
+        - picheln
+        - bechern
+        en:
+        - booze
+        - chug
+        - guzzle
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_tokhol_abhauen:
+    term: tok'hol
+    variants:
+    - tok'hol
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: fliehen
+      etymology: Bestandsform tok'hol (fliehen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-tokhol
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - abhauen
+        - abzischen
+        - verduften
+        - türmen
+        - verpissen (sich)
+        en:
+        - bail
+        - scram
+        - bolt (flee)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_shashak_zocken:
+    term: Sha'shak
+    variants:
+    - sha'shak
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: spielen
+      etymology: Bestandsform Sha'shak (spielen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-shashak
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - zocken
+        - daddeln
+        en:
+        - game (verb)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_kat_malochen:
+    term: Kat
+    variants:
+    - kat
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: arbeiten
+      etymology: Bestandsform Kat (arbeiten) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-kat
+      pos: verb
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - malochen
+        - schuften
+        - ackern
+        - rackern
+        en:
+        - slave away
+        - grind (work)
+        - toil
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_dantar_kumpel:
+    term: Dan'tar
+    variants:
+    - dan'tar
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: gut-Person
+      etymology: Bestandsform Dan'tar (Freund) – umgangssprachliche Anreden ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-dantar
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - kumpel
+        - digga
+        - digger
+        - bro
+        - alter (anrede)
+        - alta
+        - homie
+        - spezl
+        en:
+        - buddy
+        - dude
+        - bro
+        - mate
+        - pal
+        - homie
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_nonakor_bude:
+    term: nona'kor
+    variants:
+    - nona'kor
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Haus
+      etymology: Bestandsform nona'kor (Haus) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-nonakor
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - bude
+        - hütte (wohnung)
+        - butze
+        en:
+        - crib (home)
+        - pad (home)
+        - shack
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_khet_kram:
+    term: Khet
+    variants:
+    - khet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Sache/Ding
+      etymology: Bestandsform Khet (Sache/Ding) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-khet
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - kram
+        - zeug
+        - zeugs
+        - krempel
+        - klimbim
+        - plunder
+        en:
+        - stuff
+        - junk
+        - gear (stuff)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_kree_ey:
+    term: Kree
+    variants:
+    - kree
+    - kree!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Achtung/hört her
+      etymology: Bestandsform Kree (Achtung!/hört her, Canon) – umgangssprachliche Anrufe ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-kree
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - ey
+        - hey
+        - yo
+        - oi
+        - he da
+        en:
+        - hey
+        - yo
+        - oi
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf Canon-Form Kree (Aufmerksamkeitsruf)'
+      priority: 55
+
+  exp_v6_c_onak_omg:
+    term: Onak
+    variants:
+    - onak
+    - onak!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Gott
+      etymology: Bestandsform Onak (Gott, Canon) – Ausruf-Phrasen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-onak
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - oh mein gott
+        - oh gott
+        - omg
+        - ach du meine güte
+        en:
+        - oh my god
+        - oh my gosh
+        - omg
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf Canon-Form Onak — bei den Goa''uld
+          ruft man den Gott direkt an'
+      priority: 55
+
+  exp_v6_c_sebet_lol:
+    term: Sebet
+    variants:
+    - sebet
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: lachen
+      etymology: Bestandsform Sebet (lachen) – Internet-Kurzformen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-sebet
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - lol
+        en:
+        - lol
+        - lmao
+        - rofl
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form (lachen → Lach-Kurzformen)'
+      priority: 55
+
+  exp_v6_c_nefer_krass:
+    term: Nefer
+    variants:
+    - nefer
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schön/vollkommen
+      etymology: Bestandsform Nefer (schön/vollkommen, ägypt. nfr) – Slang-Superlative ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-nefer-adj
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - geil
+        - geil (toll)
+        - krass
+        - krass (super)
+        - mega
+        - hammer (super)
+        - abgefahren
+        - nice
+        - spitze
+        - bombe (super)
+        - heftig (gut)
+        en:
+        - awesome
+        - cool (great)
+        - sick (slang)
+        - dope
+        - lit
+        - wicked (great)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form — nfr trägt im Ägyptischen
+          bereits die Bandbreite gut/schön/vollkommen'
+      priority: 55
+    - id: exp-v6-c-nefer-intj
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - boah
+        - wow
+        - whoa
+        - krass (ausruf)
+        en:
+        - wow
+        - whoa
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Staun-Ausruf auf Bestandsform Nefer'
+      priority: 55
+
+  exp_v6_c_bin_mies:
+    term: Bin
+    variants:
+    - bin
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: schlecht
+      etymology: Bestandsform Bin (schlecht/übel) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-bin
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - mies
+        - ätzend (schlecht)
+        - lausig
+        - lahm (langweilig)
+        en:
+        - lame
+        - lousy
+        - crummy
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_mikta_arsch:
+    term: Mikta
+    variants:
+    - mikta
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Hintern
+      etymology: Bestandsform Mikta (Arsch/Hintern, Canon) – saubere Einzelglossen ergänzt
+        (Canon-Eintrag führt nur die Kombiglosse "Arsch"/"Hintern")
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-mikta
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - arsch
+        - hintern
+        - po
+        - gesäß
+        en:
+        - ass
+        - butt
+        - arse
+        - backside
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf Canon-Form Mikta'
+      priority: 55
+
+  exp_v6_c_sau_bulle:
+    term: Sau
+    variants:
+    - sau
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Wächter
+      etymology: Bestandsform Sau (Wächter, ägypt. sꜣw) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-sau
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - bulle
+        - bulle (polizist)
+        - cop
+        - polizist (ugs.)
+        en:
+        - cop
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form — der Wächter (sꜣw) als
+          Ordnungshüter; ironische Doppelung zu dt. "Sau"'
+      priority: 55
+
+  exp_v6_c_kreeko_bock:
+    term: Kree'ko
+    variants:
+    - kree'ko
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Verlangen
+      etymology: Bestandsform Kree'ko (Verlangen) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-kreeko
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - bock
+        - lust
+        en:
+        - urge
+        - craving
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form — ermöglicht "kein Bock" →
+          "Ka Kree''ko"'
+      priority: 55
+
+  exp_v6_c_dalshakkree_fresse:
+    term: Dal'shak kree
+    variants:
+    - dal'shak kree
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: phrase
+      literal: schweig
+      etymology: Bestandsform Dal'shak kree (Schweig!/Halt's Maul) – umgangssprachliche
+        Phrasen-Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-dalshakkree
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - halt die fresse
+        - halt die schnauze
+        - halt die klappe
+        - schnauze
+        - klappe (sei still)
+        - fresse (sei still)
+        en:
+        - shut up
+        - shut the fuck up
+        - stfu
+        - shut it
+        - zip it
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_holmel_verpiss:
+    term: Hol'mel
+    variants:
+    - hol'mel
+    - hol'mel!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: geh-weg
+      etymology: Bestandsform Hol'mel (verschwinde/verpiss dich, v3) – weitere Phrasen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-holmel
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - hau ab
+        - zieh leine
+        - schwirr ab
+        - mach die fliege
+        - verzieh dich
+        en:
+        - piss off
+        - fuck off
+        - get lost
+        - beat it
+        - buzz off
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf v3-Form Hol''mel'
+      priority: 55
+
+  exp_v6_c_ka_noe:
+    term: Ka
+    variants:
+    - ka
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: nein
+      etymology: Bestandsform Ka (nein, Canon) – umgangssprachliche Varianten ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-ka
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - nö
+        - nee
+        - nix da
+        en:
+        - nope
+        - nah
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf Canon-Form Ka'
+      priority: 55
+
+  exp_v6_c_arik_jo:
+    term: arik
+    variants:
+    - arik
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: ja
+      etymology: Bestandsform arik (ja, Canon) – umgangssprachliche Varianten ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-arik
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - jo
+        - jep
+        - jap
+        - jup
+        - joa
+        - klar (zustimmung)
+        en:
+        - yep
+        - yup
+        - yeah
+        - sure (yes)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf Canon-Form arik'
+      priority: 55
+
+  exp_v6_c_nakalnok_nix:
+    term: na'kal'nok
+    variants:
+    - na'kal'nok
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: nichts
+      etymology: Bestandsform na'kal'nok (nichts) – umgangssprachliche Varianten ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-nakalnok
+      pos: pronoun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - nix
+        - nüscht
+        en:
+        - nada
+        - zilch
+        - zip (nothing)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_tarpa_typ:
+    term: Tar'pa
+    variants:
+    - tar'pa
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Mann
+      etymology: Bestandsform Tar'pa (Mann) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-tarpa
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - typ
+        - kerl
+        en:
+        - guy
+        - dude (guy)
+        - bloke
+        - fella
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_tarma_maedel:
+    term: Tar'ma
+    variants:
+    - tar'ma
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Frau
+      etymology: Bestandsform Tar'ma (Frau) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-tarma
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - mädel
+        - braut (ugs. frau)
+        en:
+        - chick
+        - gal
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_hesa_holyshit:
+    term: Hesa
+    variants:
+    - hesa
+    - hesa!
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Kot
+      etymology: Bestandsform Hesa (Scheiße, v3) – Ausruf-Phrasen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-hesa
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - heilige scheiße
+        - ach du scheiße
+        - oh scheiße
+        en:
+        - holy shit
+        - holy crap
+        - oh shit
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf v3-Form Hesa (Phrasen-Ausrufe)'
+      priority: 55
+
+  exp_v6_c_hedj_kohle:
+    term: Hedj
+    variants:
+    - hedj
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: Silber
+      etymology: Bestandsform Hedj (Silber, ägypt. ḥḏ) – ḥḏ ist im Ägyptischen zugleich das Wort
+        für Geld/Zahlungsmittel; Geld-Glossen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-hedj
+      pos: noun
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - geld
+        - kohle
+        - knete
+        - moos (geld)
+        - zaster
+        - kies (geld)
+        - mäuse (geld)
+        en:
+        - money
+        - cash
+        - dough
+        - bucks
+        - bread (money)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form — etymologisch exakt,
+          da ḥḏ (Silber) das ägyptische Standardwort für Geld ist'
+      priority: 55
+
+  exp_v6_c_shatok_sauer:
+    term: Sha'tok
+    variants:
+    - sha'tok
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: wütend
+      etymology: Bestandsform Sha'tok (wütend) – umgangssprachliche Synonyme ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-shatok
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - sauer (wütend)
+        - angepisst
+        - angefressen
+        - stinkig
+        - stocksauer
+        en:
+        - pissed
+        - pissed off
+        - mad (angry)
+        - fuming
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_schande_peinlich:
+    term: na'dan'shak'le
+    variants:
+    - na'dan'shak'le
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: compound
+      literal: Schande
+      etymology: Bestandsform na'dan'shak'le (Schande) – adjektivische Slang-Glossen ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-schande
+      pos: adjective
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - peinlich
+        - beschämend
+        - cringe
+        en:
+        - embarrassing
+        - cringe
+        - cringeworthy
+        - awkward (embarrassing)
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55
+
+  exp_v6_c_dan_okay:
+    term: Dan
+    variants:
+    - dan
+    register: fanon_derived
+    dialect: standard_goauld
+    priority: 55
+    morphology:
+      type: root
+      literal: gut
+      etymology: Bestandsform Dan (gut) – Zustimmungs-Partikeln ergänzt
+    review_status: proposed
+    senses:
+    - id: exp-v6-c-dan
+      pos: interjection
+      category: Sprachausbau v6 (Slang & Umgangssprache)
+      glosses:
+        de:
+        - okay
+        - ok
+        - passt
+        - alles klar
+        - geht klar
+        en:
+        - okay
+        - ok
+        - alright
+        - all good
+      source:
+        tier: fanon_derived
+        ref: 'Sprachausbau v6: Glossen-Nachtrag auf bestehende Form'
+      priority: 55

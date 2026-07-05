@@ -126,6 +126,20 @@ def translate_text(text: str, mapping: dict[str, str],
     if text_lower in mapping:
         return preserve_case(text_stripped, mapping[text_lower])
 
+    # Satzzeichen-tolerantes Phrasen-Matching: "Was zum Fick?!" → Phrase "was zum fick"
+    core_match = re.match(r'^([\s\.,!\?;:…»«"“”]*)(.*?)([\s\.,!\?;:…»«"“”]*)$',
+                          text_stripped, re.S)
+    if core_match:
+        prefix, core, suffix = core_match.groups()
+        core_lower = normalize_lookup(core)
+        if core and core_lower != text_lower:
+            if direction == "de2goa":
+                direct = _direct_goauld_lookup(core_lower)
+                if direct:
+                    return prefix + preserve_case(core, direct) + suffix
+            if core_lower in mapping:
+                return prefix + preserve_case(core, mapping[core_lower]) + suffix
+
     tokens = re.split(r"([A-Za-zÄÖÜäöüßÀ-ÿ']+)", text)
     result: list[str] = []
     for tok in tokens:
